@@ -9,6 +9,7 @@ from unittest.mock import patch
 from nextbus.config import Config
 from nextbus.data import Dataset
 from nextbus.lab import Lab, BoundedLLM
+from nextbus.experiments import save_json
 from nextbus.protocol import ExperimentSimulation, NetworkRule, before_events, totals
 
 
@@ -47,6 +48,35 @@ class LabTests(unittest.TestCase):
         lab=Lab(self.data,self.config)
         for changes in ({'memory':121},{'start':419},{'start':240},{'end':405},{'end':420},{'end':1455},{'days':[]},{'context_tokens':8000}):
             with self.assertRaises(ValueError): lab.validate(dict(self.profile(),**changes))
+
+    def test_discard_examples_persists_without_changing_completed_runs(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root, runtime = Path(tmp)/'frozen', Path(tmp)/'lab'
+            default = dict(case_id='default',day='2027-01-25')
+            custom = dict(case_id='custom',day='2027-02-10')
+            save_json(root/'examples.json',{'cases':[default]})
+            save_json(runtime/'examples.json',[custom])
+            completed = [dict(id='completed',examples=[default,custom],example_count=2)]
+            save_json(runtime/'results.json',completed)
+            original = (root/'examples.json').read_bytes()
+            with patch('nextbus.lab.ROOT',root), patch('nextbus.lab.LAB',runtime):
+                lab = Lab(self.data,self.config)
+                lab.profile(dict(self.profile(),example_ids=['default','custom']))
+                lab.job={'status':'running'}
+                with self.assertRaisesRegex(ValueError,'current job'):
+                    lab.discard({'type':'example','id':'default'})
+                self.assertEqual(len(lab.status()['examples']),2)
+                lab.job={'status':'ready'}
+                for example_id in ('default','custom'):
+                    lab.discard({'type':'example','id':example_id})
+                    with self.assertRaisesRegex(ValueError,'Unknown example'):
+                        lab.validate(dict(self.profile(),example_ids=[example_id]))
+                restarted = Lab(self.data,self.config)
+                self.assertEqual(restarted.status()['examples'],[])
+                self.assertEqual(restarted.profiles[0]['example_ids'],[])
+                self.assertEqual(restarted.status()['results'],completed)
+                self.assertEqual((root/'examples.json').read_bytes(),original)
+                self.assertEqual(json.loads((runtime/'examples.json').read_text()),[custom])
 
     def test_memory_and_prompt_budget(self):
         sim=ExperimentSimulation(self.data,self.config)

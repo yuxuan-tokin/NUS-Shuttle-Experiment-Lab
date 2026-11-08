@@ -71,3 +71,7 @@ th { background: #f1f6f7; }
 .example-picker {max-height:180px;overflow:auto;}.example-picker label {display:flex;gap:8px;font-size:12px;}.example-picker input {width:auto;}
 .replay-bar {display:flex;gap:12px;align-items:center;}.replay-bar input {flex:1;}
 @media(max-width:850px){.lab-main{grid-template-columns:1fr}.lab-main aside{position:static;max-height:none}.hourly{grid-template-columns:1fr}.cards{grid-template-columns:repeat(2,1fr)}}
+
+.example-row { display:flex; align-items:center; gap:8px; padding:5px 0; }
+.example-row label { flex:1; min-width:0; margin:0; }
+.example-discard { flex:none; width:auto; margin:0; padding:5px 8px; font-size:11px; }

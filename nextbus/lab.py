@@ -24,7 +24,9 @@ def read(path, default):
 
 
 def available_examples():
-    return read(ROOT/'examples.json', {}).get('cases', []) + read(LAB/'examples.json', [])
+    discarded = set(read(LAB/'discarded_examples.json', []))
+    cases = read(ROOT/'examples.json', {}).get('cases', []) + read(LAB/'examples.json', [])
+    return [case for case in cases if case['case_id'] not in discarded]
 
 
 class BoundedLLM(ExperimentLLM):
@@ -227,7 +229,19 @@ class Lab:
 
     def discard(self, payload):
         with self.lock:
-            if payload.get('type')=='profile':
+            if payload.get('type')=='example':
+                if self.job['status'] in ('running','warming'):
+                    raise ValueError('Wait for the current job before discarding examples')
+                example_id = payload['id']
+                if example_id not in {e['case_id'] for e in available_examples()}:
+                    raise ValueError('Unknown example')
+                discarded = set(read(LAB/'discarded_examples.json', []))
+                discarded.add(example_id)
+                save_json(LAB/'discarded_examples.json', sorted(discarded))
+                self.profiles = [dict(p, example_ids=[e for e in p['example_ids'] if e != example_id])
+                                 for p in self.profiles]
+                save_json(LAB/'profiles.json', self.profiles)
+            elif payload.get('type')=='profile':
                 self.profiles=[p for p in self.profiles if p['id']!=payload['id']]
                 save_json(LAB/'profiles.json',self.profiles)
             else:
