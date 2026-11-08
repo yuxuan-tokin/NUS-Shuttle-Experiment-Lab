@@ -1,0 +1,5429 @@
+{
+  "cases": [
+    {
+      "case_id": "training-1",
+      "day": "2027-01-25",
+      "seed": 201,
+      "time": 480,
+      "snapshot": {
+        "time": 480,
+        "vehicles": [
+          {
+            "run_id": "K-0",
+            "route_id": "K",
+            "stop_index": 14,
+            "crowd_level": "LOW",
+            "service_type": "scheduled",
+            "position": [
+              1.2932918136539624,
+              103.78307606726369
+            ]
+          },
+          {
+            "run_id": "A2-0",
+            "route_id": "A2",
+            "stop_index": 12,
+            "crowd_level": "LOW",
+            "service_type": "scheduled",
+            "position": [
+              1.2948752726771455,
+              103.7702919336842
+            ]
+          },
+          {
+            "run_id": "D2-0",
+            "route_id": "D2",
+            "stop_index": 11,
+            "crowd_level": "LOW",
+            "service_type": "scheduled",
+            "position": [
+              1.2956244512772306,
+              103.78352113076927
+            ]
+          },
+          {
+            "run_id": "D2-1",
+            "route_id": "D2",
+            "stop_index": 9,
+            "crowd_level": "HIGH",
+            "service_type": "scheduled",
+            "position": [
+              1.2981985225292512,
+              103.77710860825485
+            ]
+          },
+          {
+            "run_id": "A2-1",
+            "route_id": "A2",
+            "stop_index": 9,
+            "crowd_level": "MEDIUM",
+            "service_type": "scheduled",
+            "position": [
+              1.292904208691898,
+              103.77503617686524
+            ]
+          },
+          {
+            "run_id": "A1-1",
+            "route_id": "A1",
+            "stop_index": 10,
+            "crowd_level": "MEDIUM",
+            "service_type": "scheduled",
+            "position": [
+              1.298767102416069,
+              103.774183448794
+            ]
+          },
+          {
+            "run_id": "D1-1",
+            "route_id": "D1",
+            "stop_index": 11,
+            "crowd_level": "LOW",
+            "service_type": "scheduled",
+            "position": [
+              1.2934716769455676,
+              103.7717936676106
+            ]
+          },
+          {
+            "run_id": "D2-2",
+            "route_id": "D2",
+            "stop_index": 8,
+            "crowd_level": "MEDIUM",
+            "service_type": "scheduled",
+            "position": [
+              1.3032541806009126,
+              103.77466184852415
+            ]
+          },
+          {
+            "run_id": "A2-2",
+            "route_id": "A2",
+            "stop_index": 8,
+            "crowd_level": "MEDIUM",
+            "service_type": "scheduled",
+            "position": [
+              1.2912558138715833,
+              103.78067345217168
+            ]
+          },
+          {
+            "run_id": "A1-2",
+            "route_id": "A1",
+            "stop_index": 6,
+            "crowd_level": "LOW",
+            "service_type": "scheduled",
+            "position": [
+              1.2973353400006111,
+              103.78113623341017
+            ]
+          },
+          {
+            "run_id": "D1-2",
+            "route_id": "D1",
+            "stop_index": 7,
+            "crowd_level": "HIGH",
+            "service_type": "scheduled",
+            "position": [
+              1.3001371485903355,
+              103.77434938731841
+            ]
+          },
+          {
+            "run_id": "D2-3",
+            "route_id": "D2",
+            "stop_index": 6,
+            "crowd_level": "LOW",
+            "service_type": "scheduled",
+            "position": [
+              1.299435953890767,
+              103.77502840669246
+            ]
+          },
+          {
+            "run_id": "R1-0",
+            "route_id": "R1",
+            "stop_index": 5,
+            "crowd_level": "LOW",
+            "service_type": "scheduled",
+            "position": [
+              1.2944409485750652,
+              103.77087115927894
+            ]
+          },
+          {
+            "run_id": "A2-3",
+            "route_id": "A2",
+            "stop_index": 6,
+            "crowd_level": "LOW",
+            "service_type": "scheduled",
+            "position": [
+              1.296327427405713,
+              103.78245292212318
+            ]
+          },
+          {
+            "run_id": "D2-4",
+            "route_id": "D2",
+            "stop_index": 5,
+            "crowd_level": "LOW",
+            "service_type": "scheduled",
+            "position": [
+              1.2975387236794413,
+              103.77812482288209
+            ]
+          },
+          {
+            "run_id": "A1-3",
+            "route_id": "A1",
+            "stop_index": 5,
+            "crowd_level": "LOW",
+            "service_type": "scheduled",
+            "position": [
+              1.293383275735783,
+              103.78246893594152
+            ]
+          },
+          {
+            "run_id": "D1-3",
+            "route_id": "D1",
+            "stop_index": 6,
+            "crowd_level": "LOW",
+            "service_type": "scheduled",
+            "position": [
+              1.3012459384044366,
+              103.77347317015983
+            ]
+          },
+          {
+            "run_id": "A2-4",
+            "route_id": "A2",
+            "stop_index": 4,
+            "crowd_level": "LOW",
+            "service_type": "scheduled",
+            "position": [
+              1.2980658872014081,
+              103.77727251051027
+            ]
+          },
+          {
+            "run_id": "K-1",
+            "route_id": "K",
+            "stop_index": 3,
+            "crowd_level": "LOW",
+            "service_type": "scheduled",
+            "position": [
+              1.298326769849027,
+              103.77659183648439
+            ]
+          },
+          {
+            "run_id": "D2-5",
+            "route_id": "D2",
+            "stop_index": 3,
+            "crowd_level": "LOW",
+            "service_type": "scheduled",
+            "position": [
+              1.295899464706355,
+              103.78306360899356
+            ]
+          },
+          {
+            "run_id": "A2-5",
+            "route_id": "A2",
+            "stop_index": 2,
+            "crowd_level": "LOW",
+            "service_type": "scheduled",
+            "position": [
+              1.300832251437284,
+              103.77351480863086
+            ]
+          },
+          {
+            "run_id": "A1-4",
+            "route_id": "A1",
+            "stop_index": 3,
+            "crowd_level": "LOW",
+            "service_type": "scheduled",
+            "position": [
+              1.2933268426091244,
+              103.77542468510089
+            ]
+          },
+          {
+            "run_id": "D1-4",
+            "route_id": "D1",
+            "stop_index": 3,
+            "crowd_level": "LOW",
+            "service_type": "scheduled",
+            "position": [
+              1.2955373472102216,
+              103.77086426159504
+            ]
+          },
+          {
+            "run_id": "D2-6",
+            "route_id": "D2",
+            "stop_index": 2,
+            "crowd_level": "LOW",
+            "service_type": "scheduled",
+            "position": [
+              1.2928876084965297,
+              103.78182297620906
+            ]
+          },
+          {
+            "run_id": "R1-1",
+            "route_id": "R1",
+            "stop_index": 0,
+            "crowd_level": "LOW",
+            "service_type": "scheduled",
+            "position": [
+              1.3019109978925,
+              103.769632950425
+            ]
+          },
+          {
+            "run_id": "A2-6",
+            "route_id": "A2",
+            "stop_index": 0,
+            "crowd_level": "LOW",
+            "service_type": "scheduled",
+            "position": [
+              1.2960508712974241,
+              103.7715943828224
+            ]
+          },
+          {
+            "run_id": "D2-7",
+            "route_id": "D2",
+            "stop_index": 0,
+            "crowd_level": "LOW",
+            "service_type": "scheduled",
+            "position": [
+              1.2937676956525812,
+              103.77685193477012
+            ]
+          },
+          {
+            "run_id": "A1-5",
+            "route_id": "A1",
+            "stop_index": 0,
+            "crowd_level": "LOW",
+            "service_type": "scheduled",
+            "position": [
+              1.2942287763181,
+              103.769798576832
+            ]
+          },
+          {
+            "run_id": "D1-5",
+            "route_id": "D1",
+            "stop_index": 0,
+            "crowd_level": "LOW",
+            "service_type": "scheduled",
+            "position": [
+              1.29479860026456,
+              103.775053024292
+            ]
+          }
+        ],
+        "extra_bus_commitments": []
+      },
+      "history": [
+        {
+          "time": 420.0,
+          "vehicles": [],
+          "extra_bus_commitments": []
+        },
+        {
+          "time": 435.0,
+          "vehicles": [
+            {
+              "run_id": "K-0",
+              "route_id": "K",
+              "stop_index": 2,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.297400881813091,
+                103.78047544154458
+              ]
+            },
+            {
+              "run_id": "A1-0",
+              "route_id": "A1",
+              "stop_index": 0,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.2942287763181,
+                103.769798576832
+              ]
+            },
+            {
+              "run_id": "A2-0",
+              "route_id": "A2",
+              "stop_index": 0,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.2942287763181,
+                103.769798576832
+              ]
+            },
+            {
+              "run_id": "D1-0",
+              "route_id": "D1",
+              "stop_index": 0,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.29479860026456,
+                103.775053024292
+              ]
+            },
+            {
+              "run_id": "D2-0",
+              "route_id": "D2",
+              "stop_index": 0,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.29479860026456,
+                103.775053024292
+              ]
+            }
+          ],
+          "extra_bus_commitments": []
+        },
+        {
+          "time": 450.0,
+          "vehicles": [
+            {
+              "run_id": "K-0",
+              "route_id": "K",
+              "stop_index": 6,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.2970680004562825,
+                103.77100446764908
+              ]
+            },
+            {
+              "run_id": "A1-0",
+              "route_id": "A1",
+              "stop_index": 5,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.2923832265899613,
+                103.78116565941336
+              ]
+            },
+            {
+              "run_id": "A2-0",
+              "route_id": "A2",
+              "stop_index": 4,
+              "crowd_level": "MEDIUM",
+              "service_type": "scheduled",
+              "position": [
+                1.2987752772506982,
+                103.77639589165656
+              ]
+            },
+            {
+              "run_id": "D1-0",
+              "route_id": "D1",
+              "stop_index": 5,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.3002592080316107,
+                103.7736936867409
+              ]
+            },
+            {
+              "run_id": "D2-0",
+              "route_id": "D2",
+              "stop_index": 3,
+              "crowd_level": "MEDIUM",
+              "service_type": "scheduled",
+              "position": [
+                1.296325718736432,
+                103.78249144815675
+              ]
+            },
+            {
+              "run_id": "D2-1",
+              "route_id": "D2",
+              "stop_index": 2,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.2927365337452692,
+                103.7816260937077
+              ]
+            },
+            {
+              "run_id": "A2-1",
+              "route_id": "A2",
+              "stop_index": 2,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.2995903674251035,
+                103.77390246838367
+              ]
+            },
+            {
+              "run_id": "A1-1",
+              "route_id": "A1",
+              "stop_index": 2,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.2933691729572128,
+                103.77329953195846
+              ]
+            },
+            {
+              "run_id": "D1-1",
+              "route_id": "D1",
+              "stop_index": 2,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.2940070475532832,
+                103.77186574973202
+              ]
+            },
+            {
+              "run_id": "D2-2",
+              "route_id": "D2",
+              "stop_index": 0,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.2938667733265372,
+                103.77667904596572
+              ]
+            },
+            {
+              "run_id": "A2-2",
+              "route_id": "A2",
+              "stop_index": 0,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.294787841575609,
+                103.77034957595656
+              ]
+            }
+          ],
+          "extra_bus_commitments": []
+        },
+        {
+          "time": 465.0,
+          "vehicles": [
+            {
+              "run_id": "K-0",
+              "route_id": "K",
+              "stop_index": 10,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.299813261008807,
+                103.7750860381611
+              ]
+            },
+            {
+              "run_id": "A1-0",
+              "route_id": "A1",
+              "stop_index": 8,
+              "crowd_level": "HIGH",
+              "service_type": "scheduled",
+              "position": [
+                1.2983208242878488,
+                103.77660340238593
+              ]
+            },
+            {
+              "run_id": "A2-0",
+              "route_id": "A2",
+              "stop_index": 7,
+              "crowd_level": "HIGH",
+              "service_type": "scheduled",
+              "position": [
+                1.2912592555053566,
+                103.78126963849147
+              ]
+            },
+            {
+              "run_id": "D1-0",
+              "route_id": "D1",
+              "stop_index": 9,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.2955739317157364,
+                103.7713815343611
+              ]
+            },
+            {
+              "run_id": "D2-0",
+              "route_id": "D2",
+              "stop_index": 7,
+              "crowd_level": "MEDIUM",
+              "service_type": "scheduled",
+              "position": [
+                1.302545553848483,
+                103.7740656431494
+              ]
+            },
+            {
+              "run_id": "D2-1",
+              "route_id": "D2",
+              "stop_index": 5,
+              "crowd_level": "HIGH",
+              "service_type": "scheduled",
+              "position": [
+                1.2983999166305455,
+                103.77644954403321
+              ]
+            },
+            {
+              "run_id": "A2-1",
+              "route_id": "A2",
+              "stop_index": 6,
+              "crowd_level": "HIGH",
+              "service_type": "scheduled",
+              "position": [
+                1.295918273399678,
+                103.78307465283227
+              ]
+            },
+            {
+              "run_id": "A1-1",
+              "route_id": "A1",
+              "stop_index": 6,
+              "crowd_level": "MEDIUM",
+              "service_type": "scheduled",
+              "position": [
+                1.2952602260792574,
+                103.78392165908102
+              ]
+            },
+            {
+              "run_id": "D1-1",
+              "route_id": "D1",
+              "stop_index": 7,
+              "crowd_level": "HIGH",
+              "service_type": "scheduled",
+              "position": [
+                1.3023461453320242,
+                103.77446980009422
+              ]
+            },
+            {
+              "run_id": "D2-2",
+              "route_id": "D2",
+              "stop_index": 4,
+              "crowd_level": "MEDIUM",
+              "service_type": "scheduled",
+              "position": [
+                1.2974195114960068,
+                103.78074411379639
+              ]
+            },
+            {
+              "run_id": "A2-2",
+              "route_id": "A2",
+              "stop_index": 4,
+              "crowd_level": "MEDIUM",
+              "service_type": "scheduled",
+              "position": [
+                1.2982768104696092,
+                103.77701186502507
+              ]
+            },
+            {
+              "run_id": "A1-2",
+              "route_id": "A1",
+              "stop_index": 3,
+              "crowd_level": "MEDIUM",
+              "service_type": "scheduled",
+              "position": [
+                1.2935939840456627,
+                103.7763274578277
+              ]
+            },
+            {
+              "run_id": "D1-2",
+              "route_id": "D1",
+              "stop_index": 3,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.2962870986771051,
+                103.77170037413994
+              ]
+            },
+            {
+              "run_id": "D2-3",
+              "route_id": "D2",
+              "stop_index": 2,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.2943745256280055,
+                103.78376074517257
+              ]
+            },
+            {
+              "run_id": "R1-0",
+              "route_id": "R1",
+              "stop_index": 1,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.30194786848151,
+                103.77379316836632
+              ]
+            },
+            {
+              "run_id": "A2-3",
+              "route_id": "A2",
+              "stop_index": 2,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.299054646684836,
+                103.77406969605364
+              ]
+            },
+            {
+              "run_id": "D2-4",
+              "route_id": "D2",
+              "stop_index": 1,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.2923387127976507,
+                103.7793574630188
+              ]
+            },
+            {
+              "run_id": "A1-3",
+              "route_id": "A1",
+              "stop_index": 1,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.2942101016539223,
+                103.77108348917139
+              ]
+            },
+            {
+              "run_id": "D1-3",
+              "route_id": "D1",
+              "stop_index": 1,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.2929773867116032,
+                103.77442679024509
+              ]
+            },
+            {
+              "run_id": "A2-4",
+              "route_id": "A2",
+              "stop_index": 0,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.2954088029126527,
+                103.77096157813071
+              ]
+            },
+            {
+              "run_id": "K-1",
+              "route_id": "K",
+              "stop_index": 0,
+              "crowd_level": "MEDIUM",
+              "service_type": "scheduled",
+              "position": [
+                1.29238985270624,
+                103.78117429465081
+              ]
+            },
+            {
+              "run_id": "D2-5",
+              "route_id": "D2",
+              "stop_index": 0,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.29479860026456,
+                103.775053024292
+              ]
+            }
+          ],
+          "extra_bus_commitments": []
+        }
+      ],
+      "dispatch_events": [],
+      "candidate_outcomes": [
+        {
+          "policy": "BASE0",
+          "horizon_minutes": 60,
+          "decisions": [
+            {
+              "time": 480,
+              "action": {
+                "routes": []
+              }
+            },
+            {
+              "time": 495,
+              "action": {
+                "routes": []
+              }
+            },
+            {
+              "time": 510,
+              "action": {
+                "routes": []
+              }
+            },
+            {
+              "time": 525,
+              "action": {
+                "routes": []
+              }
+            }
+          ],
+          "metrics_60m": {
+            "total_wait": 25504.539309449076,
+            "capacity_failure_pct": 38.827775867995875,
+            "boarding_attempts": 5818,
+            "denied_attempts": 2259,
+            "overall_utilization_pct": 20.979628233100094,
+            "extra_utilization_pct": null,
+            "extra_buses": 0,
+            "extra_bus_hours": 0.0
+          }
+        },
+        {
+          "policy": "BASE1",
+          "horizon_minutes": 60,
+          "decisions": [
+            {
+              "time": 480.0,
+              "action": {
+                "routes": []
+              }
+            },
+            {
+              "time": 495.0,
+              "action": {
+                "routes": []
+              }
+            },
+            {
+              "time": 510.0,
+              "action": {
+                "routes": []
+              }
+            },
+            {
+              "time": 525.0,
+              "action": {
+                "routes": []
+              }
+            }
+          ],
+          "metrics_60m": {
+            "total_wait": 25504.539309449076,
+            "capacity_failure_pct": 38.827775867995875,
+            "boarding_attempts": 5818,
+            "denied_attempts": 2259,
+            "overall_utilization_pct": 20.979628233100094,
+            "extra_utilization_pct": null,
+            "extra_buses": 0,
+            "extra_bus_hours": 0.0
+          }
+        }
+      ],
+      "preferred_action_index": 0,
+      "horizon_minutes": 60
+    },
+    {
+      "case_id": "training-2",
+      "day": "2027-02-10",
+      "seed": 201,
+      "time": 720,
+      "snapshot": {
+        "time": 720,
+        "vehicles": [
+          {
+            "run_id": "K-6",
+            "route_id": "K",
+            "stop_index": 14,
+            "crowd_level": "LOW",
+            "service_type": "scheduled",
+            "position": [
+              1.2943109022963433,
+              103.78398177864338
+            ]
+          },
+          {
+            "run_id": "D2-35",
+            "route_id": "D2",
+            "stop_index": 13,
+            "crowd_level": "LOW",
+            "service_type": "scheduled",
+            "position": [
+              1.291144617748508,
+              103.78084250188022
+            ]
+          },
+          {
+            "run_id": "D2-36",
+            "route_id": "D2",
+            "stop_index": 11,
+            "crowd_level": "MEDIUM",
+            "service_type": "scheduled",
+            "position": [
+              1.296349325747501,
+              103.78241964645835
+            ]
+          },
+          {
+            "run_id": "A2-32",
+            "route_id": "A2",
+            "stop_index": 10,
+            "crowd_level": "LOW",
+            "service_type": "scheduled",
+            "position": [
+              1.2932726687545235,
+              103.77282305401887
+            ]
+          },
+          {
+            "run_id": "A1-33",
+            "route_id": "A1",
+            "stop_index": 11,
+            "crowd_level": "LOW",
+            "service_type": "scheduled",
+            "position": [
+              1.2945915149717078,
+              103.77021021779368
+            ]
+          },
+          {
+            "run_id": "D1-35",
+            "route_id": "D1",
+            "stop_index": 11,
+            "crowd_level": "LOW",
+            "service_type": "scheduled",
+            "position": [
+              1.2934722747809468,
+              103.77178488493786
+            ]
+          },
+          {
+            "run_id": "D2-37",
+            "route_id": "D2",
+            "stop_index": 8,
+            "crowd_level": "LOW",
+            "service_type": "scheduled",
+            "position": [
+              1.2998815144011093,
+              103.77595554539056
+            ]
+          },
+          {
+            "run_id": "A1-34",
+            "route_id": "A1",
+            "stop_index": 10,
+            "crowd_level": "LOW",
+            "service_type": "scheduled",
+            "position": [
+              1.2987552638130777,
+              103.77417376117512
+            ]
+          },
+          {
+            "run_id": "A2-33",
+            "route_id": "A2",
+            "stop_index": 8,
+            "crowd_level": "LOW",
+            "service_type": "scheduled",
+            "position": [
+              1.2931302999589782,
+              103.77782370059796
+            ]
+          },
+          {
+            "run_id": "D1-36",
+            "route_id": "D1",
+            "stop_index": 8,
+            "crowd_level": "LOW",
+            "service_type": "scheduled",
+            "position": [
+              1.296852638317983,
+              103.77261682825714
+            ]
+          },
+          {
+            "run_id": "D2-38",
+            "route_id": "D2",
+            "stop_index": 6,
+            "crowd_level": "LOW",
+            "service_type": "scheduled",
+            "position": [
+              1.3001265334476313,
+              103.77437402094736
+            ]
+          },
+          {
+            "run_id": "A1-35",
+            "route_id": "A1",
+            "stop_index": 7,
+            "crowd_level": "LOW",
+            "service_type": "scheduled",
+            "position": [
+              1.2974062262405721,
+              103.78055251743322
+            ]
+          },
+          {
+            "run_id": "A2-34",
+            "route_id": "A2",
+            "stop_index": 7,
+            "crowd_level": "LOW",
+            "service_type": "scheduled",
+            "position": [
+              1.294355915303378,
+              103.7840217837921
+            ]
+          },
+          {
+            "run_id": "R1-12",
+            "route_id": "R1",
+            "stop_index": 4,
+            "crowd_level": "LOW",
+            "service_type": "scheduled",
+            "position": [
+              1.294924183684004,
+              103.77069150720331
+            ]
+          },
+          {
+            "run_id": "D1-37",
+            "route_id": "D1",
+            "stop_index": 7,
+            "crowd_level": "LOW",
+            "service_type": "scheduled",
+            "position": [
+              1.3013285469063927,
+              103.77441433063663
+            ]
+          },
+          {
+            "run_id": "D2-39",
+            "route_id": "D2",
+            "stop_index": 5,
+            "crowd_level": "LOW",
+            "service_type": "scheduled",
+            "position": [
+              1.2983120557178625,
+              103.77662045988717
+            ]
+          },
+          {
+            "run_id": "A1-36",
+            "route_id": "A1",
+            "stop_index": 6,
+            "crowd_level": "LOW",
+            "service_type": "scheduled",
+            "position": [
+              1.2953937649435059,
+              103.78374240984718
+            ]
+          },
+          {
+            "run_id": "A2-35",
+            "route_id": "A2",
+            "stop_index": 5,
+            "crowd_level": "LOW",
+            "service_type": "scheduled",
+            "position": [
+              1.297510916606908,
+              103.77927992461028
+            ]
+          },
+          {
+            "run_id": "R2-10",
+            "route_id": "R2",
+            "stop_index": 5,
+            "crowd_level": "LOW",
+            "service_type": "scheduled",
+            "position": [
+              1.3012156833573982,
+              103.77434139427501
+            ]
+          },
+          {
+            "run_id": "D1-38",
+            "route_id": "D1",
+            "stop_index": 5,
+            "crowd_level": "LOW",
+            "service_type": "scheduled",
+            "position": [
+              1.3002125637978899,
+              103.77370824695099
+            ]
+          },
+          {
+            "run_id": "D2-40",
+            "route_id": "D2",
+            "stop_index": 3,
+            "crowd_level": "LOW",
+            "service_type": "scheduled",
+            "position": [
+              1.2962852724877576,
+              103.78254573916132
+            ]
+          },
+          {
+            "run_id": "K-7",
+            "route_id": "K",
+            "stop_index": 3,
+            "crowd_level": "LOW",
+            "service_type": "scheduled",
+            "position": [
+              1.2981099259709676,
+              103.77701366293101
+            ]
+          },
+          {
+            "run_id": "A1-37",
+            "route_id": "A1",
+            "stop_index": 4,
+            "crowd_level": "LOW",
+            "service_type": "scheduled",
+            "position": [
+              1.2929776816356302,
+              103.77823707139137
+            ]
+          },
+          {
+            "run_id": "A2-36",
+            "route_id": "A2",
+            "stop_index": 3,
+            "crowd_level": "LOW",
+            "service_type": "scheduled",
+            "position": [
+              1.3007099319448652,
+              103.77395407739519
+            ]
+          },
+          {
+            "run_id": "D2-41",
+            "route_id": "D2",
+            "stop_index": 2,
+            "crowd_level": "LOW",
+            "service_type": "scheduled",
+            "position": [
+              1.294365985060734,
+              103.78374961499871
+            ]
+          },
+          {
+            "run_id": "D1-39",
+            "route_id": "D1",
+            "stop_index": 3,
+            "crowd_level": "LOW",
+            "service_type": "scheduled",
+            "position": [
+              1.296941147369843,
+              103.77242976026473
+            ]
+          },
+          {
+            "run_id": "A1-38",
+            "route_id": "A1",
+            "stop_index": 2,
+            "crowd_level": "LOW",
+            "service_type": "scheduled",
+            "position": [
+              1.2932796412068082,
+              103.7746148239105
+            ]
+          },
+          {
+            "run_id": "R1-13",
+            "route_id": "R1",
+            "stop_index": 0,
+            "crowd_level": "LOW",
+            "service_type": "scheduled",
+            "position": [
+              1.3019109978925,
+              103.769632950425
+            ]
+          },
+          {
+            "run_id": "A2-37",
+            "route_id": "A2",
+            "stop_index": 1,
+            "crowd_level": "LOW",
+            "service_type": "scheduled",
+            "position": [
+              1.298042571911275,
+              103.77346733585
+            ]
+          },
+          {
+            "run_id": "D2-42",
+            "route_id": "D2",
+            "stop_index": 1,
+            "crowd_level": "LOW",
+            "service_type": "scheduled",
+            "position": [
+              1.2923014963552177,
+              103.77942271970744
+            ]
+          },
+          {
+            "run_id": "D1-40",
+            "route_id": "D1",
+            "stop_index": 1,
+            "crowd_level": "LOW",
+            "service_type": "scheduled",
+            "position": [
+              1.2930704963976996,
+              103.7739210927935
+            ]
+          },
+          {
+            "run_id": "A1-39",
+            "route_id": "A1",
+            "stop_index": 0,
+            "crowd_level": "LOW",
+            "service_type": "scheduled",
+            "position": [
+              1.294581861069457,
+              103.77027060055002
+            ]
+          },
+          {
+            "run_id": "D2-43",
+            "route_id": "D2",
+            "stop_index": 0,
+            "crowd_level": "LOW",
+            "service_type": "scheduled",
+            "position": [
+              1.29479860026456,
+              103.775053024292
+            ]
+          },
+          {
+            "run_id": "R2-11",
+            "route_id": "R2",
+            "stop_index": 0,
+            "crowd_level": "LOW",
+            "service_type": "scheduled",
+            "position": [
+              1.29176612982618,
+              103.780361451209
+            ]
+          }
+        ],
+        "extra_bus_commitments": []
+      },
+      "history": [
+        {
+          "time": 660.0,
+          "vehicles": [
+            {
+              "run_id": "D2-28",
+              "route_id": "D2",
+              "stop_index": 14,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.2937618479594823,
+                103.77686213889208
+              ]
+            },
+            {
+              "run_id": "D2-29",
+              "route_id": "D2",
+              "stop_index": 12,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.2937351723077704,
+                103.78347010067878
+              ]
+            },
+            {
+              "run_id": "D2-30",
+              "route_id": "D2",
+              "stop_index": 9,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.2977076592457566,
+                103.77771518570731
+              ]
+            },
+            {
+              "run_id": "A2-26",
+              "route_id": "A2",
+              "stop_index": 10,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.2929915506796148,
+                103.77434986288308
+              ]
+            },
+            {
+              "run_id": "D1-26",
+              "route_id": "D1",
+              "stop_index": 11,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.293304915981734,
+                103.77424351755383
+              ]
+            },
+            {
+              "run_id": "K-5",
+              "route_id": "K",
+              "stop_index": 9,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.3012588754084888,
+                103.77280430731841
+              ]
+            },
+            {
+              "run_id": "A1-27",
+              "route_id": "A1",
+              "stop_index": 9,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.2988854490753845,
+                103.77431330132109
+              ]
+            },
+            {
+              "run_id": "D2-31",
+              "route_id": "D2",
+              "stop_index": 7,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.3018055522943064,
+                103.77372828879193
+              ]
+            },
+            {
+              "run_id": "D1-27",
+              "route_id": "D1",
+              "stop_index": 9,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.2962644195778203,
+                103.7721148268894
+              ]
+            },
+            {
+              "run_id": "A2-27",
+              "route_id": "A2",
+              "stop_index": 7,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.2921927409891483,
+                103.78209927037065
+              ]
+            },
+            {
+              "run_id": "R1-9",
+              "route_id": "R1",
+              "stop_index": 5,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.29435842249617,
+                103.77094706565607
+              ]
+            },
+            {
+              "run_id": "A1-28",
+              "route_id": "A1",
+              "stop_index": 7,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.2973668677332348,
+                103.7799848996782
+              ]
+            },
+            {
+              "run_id": "D1-28",
+              "route_id": "D1",
+              "stop_index": 7,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.3010409274717525,
+                103.77439865245393
+              ]
+            },
+            {
+              "run_id": "D2-32",
+              "route_id": "D2",
+              "stop_index": 5,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.2974419164185815,
+                103.77831314206925
+              ]
+            },
+            {
+              "run_id": "R2-7",
+              "route_id": "R2",
+              "stop_index": 5,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.3018923471355142,
+                103.77439739631826
+              ]
+            },
+            {
+              "run_id": "A2-28",
+              "route_id": "A2",
+              "stop_index": 5,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.297497400942223,
+                103.78024602704613
+              ]
+            },
+            {
+              "run_id": "A1-29",
+              "route_id": "A1",
+              "stop_index": 5,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.2933205667045709,
+                103.7823872127494
+              ]
+            },
+            {
+              "run_id": "D1-29",
+              "route_id": "D1",
+              "stop_index": 6,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.301380228394609,
+                103.77353439072498
+              ]
+            },
+            {
+              "run_id": "D2-33",
+              "route_id": "D2",
+              "stop_index": 2,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.2947365857533604,
+                103.7842325864467
+              ]
+            },
+            {
+              "run_id": "D1-30",
+              "route_id": "D1",
+              "stop_index": 3,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.296479890429446,
+                103.77191537285591
+              ]
+            },
+            {
+              "run_id": "A2-29",
+              "route_id": "A2",
+              "stop_index": 2,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.3007466047543934,
+                103.77354154363317
+              ]
+            },
+            {
+              "run_id": "A1-30",
+              "route_id": "A1",
+              "stop_index": 2,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.2933280457341494,
+                103.77390372326781
+              ]
+            },
+            {
+              "run_id": "R1-10",
+              "route_id": "R1",
+              "stop_index": 0,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.3019109978925,
+                103.769632950425
+              ]
+            },
+            {
+              "run_id": "D1-31",
+              "route_id": "D1",
+              "stop_index": 1,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.2931005175185817,
+                103.77375804204164
+              ]
+            },
+            {
+              "run_id": "D2-34",
+              "route_id": "D2",
+              "stop_index": 0,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.293867874429397,
+                103.77667712456054
+              ]
+            },
+            {
+              "run_id": "A2-30",
+              "route_id": "A2",
+              "stop_index": 0,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.2942287763181,
+                103.769798576832
+              ]
+            },
+            {
+              "run_id": "R2-8",
+              "route_id": "R2",
+              "stop_index": 0,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.29176612982618,
+                103.780361451209
+              ]
+            }
+          ],
+          "extra_bus_commitments": []
+        },
+        {
+          "time": 675.0,
+          "vehicles": [
+            {
+              "run_id": "D2-30",
+              "route_id": "D2",
+              "stop_index": 13,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.2915917751574755,
+                103.78016269553838
+              ]
+            },
+            {
+              "run_id": "K-5",
+              "route_id": "K",
+              "stop_index": 14,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.294752661742175,
+                103.7843743907681
+              ]
+            },
+            {
+              "run_id": "D2-31",
+              "route_id": "D2",
+              "stop_index": 11,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.2963012301976067,
+                103.7824927301381
+              ]
+            },
+            {
+              "run_id": "A2-27",
+              "route_id": "A2",
+              "stop_index": 11,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.2952772825367065,
+                103.77071476574244
+              ]
+            },
+            {
+              "run_id": "A1-28",
+              "route_id": "A1",
+              "stop_index": 11,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.2948805184227474,
+                103.77053818300315
+              ]
+            },
+            {
+              "run_id": "D1-28",
+              "route_id": "D1",
+              "stop_index": 11,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.293290341814177,
+                103.77445762355765
+              ]
+            },
+            {
+              "run_id": "D2-32",
+              "route_id": "D2",
+              "stop_index": 8,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.2999815761299758,
+                103.7759171634288
+              ]
+            },
+            {
+              "run_id": "A2-28",
+              "route_id": "A2",
+              "stop_index": 8,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.2931423710141334,
+                103.77780534916357
+              ]
+            },
+            {
+              "run_id": "A1-29",
+              "route_id": "A1",
+              "stop_index": 9,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.2988517077771613,
+                103.77527003959982
+              ]
+            },
+            {
+              "run_id": "D1-29",
+              "route_id": "D1",
+              "stop_index": 9,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.294799159317409,
+                103.77055873233655
+              ]
+            },
+            {
+              "run_id": "D2-33",
+              "route_id": "D2",
+              "stop_index": 6,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.3003773658225033,
+                103.77413633489238
+              ]
+            },
+            {
+              "run_id": "D1-30",
+              "route_id": "D1",
+              "stop_index": 8,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.2984322684025305,
+                103.77390945157329
+              ]
+            },
+            {
+              "run_id": "A2-29",
+              "route_id": "A2",
+              "stop_index": 7,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.2947563228574595,
+                103.78437764457118
+              ]
+            },
+            {
+              "run_id": "A1-30",
+              "route_id": "A1",
+              "stop_index": 6,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.296001734456175,
+                103.78292633229584
+              ]
+            },
+            {
+              "run_id": "R1-10",
+              "route_id": "R1",
+              "stop_index": 3,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.2972625279345027,
+                103.77295224404881
+              ]
+            },
+            {
+              "run_id": "D1-31",
+              "route_id": "D1",
+              "stop_index": 6,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.3028968935130756,
+                103.77422581303841
+              ]
+            },
+            {
+              "run_id": "D2-34",
+              "route_id": "D2",
+              "stop_index": 4,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.297427740260911,
+                103.78086278681977
+              ]
+            },
+            {
+              "run_id": "A2-30",
+              "route_id": "A2",
+              "stop_index": 4,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.2984109112335114,
+                103.77684615187749
+              ]
+            },
+            {
+              "run_id": "R2-8",
+              "route_id": "R2",
+              "stop_index": 4,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.2978881355783032,
+                103.77333301905719
+              ]
+            },
+            {
+              "run_id": "A1-31",
+              "route_id": "A1",
+              "stop_index": 4,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.2921489192044995,
+                103.77969025413483
+              ]
+            },
+            {
+              "run_id": "D1-32",
+              "route_id": "D1",
+              "stop_index": 4,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.2979636569090092,
+                103.7733987016769
+              ]
+            },
+            {
+              "run_id": "K-6",
+              "route_id": "K",
+              "stop_index": 2,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.297386386634945,
+                103.7802663960031
+              ]
+            },
+            {
+              "run_id": "D2-35",
+              "route_id": "D2",
+              "stop_index": 2,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.2928987359104016,
+                103.78183747759368
+              ]
+            },
+            {
+              "run_id": "A2-31",
+              "route_id": "A2",
+              "stop_index": 1,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.297522657227219,
+                103.77301515421917
+              ]
+            },
+            {
+              "run_id": "D1-33",
+              "route_id": "D1",
+              "stop_index": 2,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.2934570044282203,
+                103.772364154231
+              ]
+            },
+            {
+              "run_id": "A1-32",
+              "route_id": "A1",
+              "stop_index": 2,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.293445142485055,
+                103.772183479741
+              ]
+            },
+            {
+              "run_id": "D2-36",
+              "route_id": "D2",
+              "stop_index": 0,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.29479860026456,
+                103.775053024292
+              ]
+            }
+          ],
+          "extra_bus_commitments": []
+        },
+        {
+          "time": 690.0,
+          "vehicles": [
+            {
+              "run_id": "D2-31",
+              "route_id": "D2",
+              "stop_index": 14,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.294489293932568,
+                103.77559275841979
+              ]
+            },
+            {
+              "run_id": "D2-32",
+              "route_id": "D2",
+              "stop_index": 12,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.292370678410538,
+                103.7822574116164
+              ]
+            },
+            {
+              "run_id": "D2-33",
+              "route_id": "D2",
+              "stop_index": 11,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.2974363389950245,
+                103.78076787351421
+              ]
+            },
+            {
+              "run_id": "A2-29",
+              "route_id": "A2",
+              "stop_index": 10,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.2933010711276827,
+                103.7726687950118
+              ]
+            },
+            {
+              "run_id": "A1-30",
+              "route_id": "A1",
+              "stop_index": 10,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.2974924773856742,
+                103.77314041343416
+              ]
+            },
+            {
+              "run_id": "R1-10",
+              "route_id": "R1",
+              "stop_index": 7,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.2920488824491918,
+                103.77936290334657
+              ]
+            },
+            {
+              "run_id": "D1-31",
+              "route_id": "D1",
+              "stop_index": 10,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.293689638685281,
+                103.7715622040081
+              ]
+            },
+            {
+              "run_id": "D2-34",
+              "route_id": "D2",
+              "stop_index": 8,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.3025041872531173,
+                103.7749495330996
+              ]
+            },
+            {
+              "run_id": "A2-30",
+              "route_id": "A2",
+              "stop_index": 7,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.2910918124551445,
+                103.78112082408052
+              ]
+            },
+            {
+              "run_id": "A1-31",
+              "route_id": "A1",
+              "stop_index": 8,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.2977551150895417,
+                103.7777038766215
+              ]
+            },
+            {
+              "run_id": "D1-32",
+              "route_id": "D1",
+              "stop_index": 8,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.2973798667545253,
+                103.77304826329795
+              ]
+            },
+            {
+              "run_id": "K-6",
+              "route_id": "K",
+              "stop_index": 6,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.297331574681917,
+                103.77056430808952
+              ]
+            },
+            {
+              "run_id": "D2-35",
+              "route_id": "D2",
+              "stop_index": 5,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.298681958886142,
+                103.77590088716754
+              ]
+            },
+            {
+              "run_id": "A2-31",
+              "route_id": "A2",
+              "stop_index": 6,
+              "crowd_level": "MEDIUM",
+              "service_type": "scheduled",
+              "position": [
+                1.2969463447119876,
+                103.78151244521226
+              ]
+            },
+            {
+              "run_id": "D1-33",
+              "route_id": "D1",
+              "stop_index": 7,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.3031441580901193,
+                103.77451329990095
+              ]
+            },
+            {
+              "run_id": "A1-32",
+              "route_id": "A1",
+              "stop_index": 5,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.2948766398674878,
+                103.78441510671621
+              ]
+            },
+            {
+              "run_id": "R1-11",
+              "route_id": "R1",
+              "stop_index": 2,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.3013953456983736,
+                103.77441797184977
+              ]
+            },
+            {
+              "run_id": "D2-36",
+              "route_id": "D2",
+              "stop_index": 3,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.2963757397112174,
+                103.78242430499617
+              ]
+            },
+            {
+              "run_id": "D1-34",
+              "route_id": "D1",
+              "stop_index": 5,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.299249439604727,
+                103.77400889055616
+              ]
+            },
+            {
+              "run_id": "A2-32",
+              "route_id": "A2",
+              "stop_index": 3,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.3007027190327647,
+                103.77396318300259
+              ]
+            },
+            {
+              "run_id": "A1-33",
+              "route_id": "A1",
+              "stop_index": 4,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.2935068174886086,
+                103.777309264988
+              ]
+            },
+            {
+              "run_id": "R2-9",
+              "route_id": "R2",
+              "stop_index": 2,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.294612333149709,
+                103.77131728898286
+              ]
+            },
+            {
+              "run_id": "D1-35",
+              "route_id": "D1",
+              "stop_index": 2,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.2949076113411946,
+                103.771049731818
+              ]
+            },
+            {
+              "run_id": "D2-37",
+              "route_id": "D2",
+              "stop_index": 1,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.2922634691583026,
+                103.77948939800301
+              ]
+            },
+            {
+              "run_id": "A1-34",
+              "route_id": "A1",
+              "stop_index": 1,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.2934839729252354,
+                103.77175137260737
+              ]
+            },
+            {
+              "run_id": "A2-33",
+              "route_id": "A2",
+              "stop_index": 0,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.2966451890331023,
+                103.77218012580619
+              ]
+            },
+            {
+              "run_id": "D1-36",
+              "route_id": "D1",
+              "stop_index": 0,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.293837441086885,
+                103.7750144675375
+              ]
+            },
+            {
+              "run_id": "D2-38",
+              "route_id": "D2",
+              "stop_index": 0,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.29479860026456,
+                103.775053024292
+              ]
+            }
+          ],
+          "extra_bus_commitments": []
+        },
+        {
+          "time": 705.0,
+          "vehicles": [
+            {
+              "run_id": "D2-33",
+              "route_id": "D2",
+              "stop_index": 13,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.2935433351010233,
+                103.77719576979923
+              ]
+            },
+            {
+              "run_id": "D2-34",
+              "route_id": "D2",
+              "stop_index": 12,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.2944715299702658,
+                103.78412453591307
+              ]
+            },
+            {
+              "run_id": "A2-30",
+              "route_id": "A2",
+              "stop_index": 12,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.29489993234773,
+                103.77031075206932
+              ]
+            },
+            {
+              "run_id": "A1-31",
+              "route_id": "A1",
+              "stop_index": 11,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.2942372838041125,
+                103.76980823124762
+              ]
+            },
+            {
+              "run_id": "K-6",
+              "route_id": "K",
+              "stop_index": 10,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.3003474198205422,
+                103.7744117140659
+              ]
+            },
+            {
+              "run_id": "D2-35",
+              "route_id": "D2",
+              "stop_index": 9,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.2986386507958176,
+                103.77656472589153
+              ]
+            },
+            {
+              "run_id": "A2-31",
+              "route_id": "A2",
+              "stop_index": 9,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.293562153427962,
+                103.77645602361294
+              ]
+            },
+            {
+              "run_id": "D1-33",
+              "route_id": "D1",
+              "stop_index": 11,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.2934611713671647,
+                103.77194800283428
+              ]
+            },
+            {
+              "run_id": "A1-32",
+              "route_id": "A1",
+              "stop_index": 9,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.2988671685158977,
+                103.77483164862659
+              ]
+            },
+            {
+              "run_id": "R1-11",
+              "route_id": "R1",
+              "stop_index": 6,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.293321702016965,
+                103.77399691747121
+              ]
+            },
+            {
+              "run_id": "D2-36",
+              "route_id": "D2",
+              "stop_index": 7,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.3018187103294467,
+                103.77373428732054
+              ]
+            },
+            {
+              "run_id": "D1-34",
+              "route_id": "D1",
+              "stop_index": 8,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.297335148100285,
+                103.77301166968297
+              ]
+            },
+            {
+              "run_id": "A2-32",
+              "route_id": "A2",
+              "stop_index": 7,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.293936716241042,
+                103.78364922212737
+              ]
+            },
+            {
+              "run_id": "A1-33",
+              "route_id": "A1",
+              "stop_index": 7,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.2973575264154171,
+                103.77985018171739
+              ]
+            },
+            {
+              "run_id": "R2-9",
+              "route_id": "R2",
+              "stop_index": 6,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.30136686542081,
+                103.77287404643418
+              ]
+            },
+            {
+              "run_id": "D1-35",
+              "route_id": "D1",
+              "stop_index": 7,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.3026486794522625,
+                103.77448629127889
+              ]
+            },
+            {
+              "run_id": "D2-37",
+              "route_id": "D2",
+              "stop_index": 5,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.2976563677813773,
+                103.77789596978312
+              ]
+            },
+            {
+              "run_id": "A1-34",
+              "route_id": "A1",
+              "stop_index": 5,
+              "crowd_level": "MEDIUM",
+              "service_type": "scheduled",
+              "position": [
+                1.294390138688951,
+                103.78378109230846
+              ]
+            },
+            {
+              "run_id": "A2-33",
+              "route_id": "A2",
+              "stop_index": 5,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.2974948600435325,
+                103.78042765099667
+              ]
+            },
+            {
+              "run_id": "D1-36",
+              "route_id": "D1",
+              "stop_index": 5,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.2991611355145487,
+                103.77403645508025
+              ]
+            },
+            {
+              "run_id": "D2-38",
+              "route_id": "D2",
+              "stop_index": 3,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.29535353187392,
+                103.78379641470141
+              ]
+            },
+            {
+              "run_id": "A1-35",
+              "route_id": "A1",
+              "stop_index": 4,
+              "crowd_level": "HIGH",
+              "service_type": "scheduled",
+              "position": [
+                1.2928824860727817,
+                103.77840399081725
+              ]
+            },
+            {
+              "run_id": "A2-34",
+              "route_id": "A2",
+              "stop_index": 3,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.3008329059047201,
+                103.77379883460523
+              ]
+            },
+            {
+              "run_id": "R1-12",
+              "route_id": "R1",
+              "stop_index": 1,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.30194786848151,
+                103.77379316836632
+              ]
+            },
+            {
+              "run_id": "D1-37",
+              "route_id": "D1",
+              "stop_index": 3,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.2959192345773665,
+                103.77129013714514
+              ]
+            },
+            {
+              "run_id": "D2-39",
+              "route_id": "D2",
+              "stop_index": 2,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.2926422002169495,
+                103.78150315707624
+              ]
+            },
+            {
+              "run_id": "A1-36",
+              "route_id": "A1",
+              "stop_index": 2,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.2934047649793303,
+                103.77277665711198
+              ]
+            },
+            {
+              "run_id": "A2-35",
+              "route_id": "A2",
+              "stop_index": 0,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.2969694141769998,
+                103.77249967306484
+              ]
+            },
+            {
+              "run_id": "R2-10",
+              "route_id": "R2",
+              "stop_index": 1,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.29287628190921,
+                103.774975910783
+              ]
+            },
+            {
+              "run_id": "D1-38",
+              "route_id": "D1",
+              "stop_index": 1,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.292905283086493,
+                103.77481839955017
+              ]
+            },
+            {
+              "run_id": "D2-40",
+              "route_id": "D2",
+              "stop_index": 0,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.2938862913980556,
+                103.77664498727303
+              ]
+            },
+            {
+              "run_id": "K-7",
+              "route_id": "K",
+              "stop_index": 0,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.2923854310640874,
+                103.78116853231157
+              ]
+            }
+          ],
+          "extra_bus_commitments": []
+        }
+      ],
+      "dispatch_events": [],
+      "candidate_outcomes": [
+        {
+          "policy": "BASE0",
+          "horizon_minutes": 60,
+          "decisions": [
+            {
+              "time": 720,
+              "action": {
+                "routes": []
+              }
+            },
+            {
+              "time": 735,
+              "action": {
+                "routes": []
+              }
+            },
+            {
+              "time": 750,
+              "action": {
+                "routes": []
+              }
+            },
+            {
+              "time": 765,
+              "action": {
+                "routes": []
+              }
+            }
+          ],
+          "metrics_60m": {
+            "total_wait": 5328.568706567443,
+            "capacity_failure_pct": 1.3913824057450628,
+            "boarding_attempts": 2228,
+            "denied_attempts": 31,
+            "overall_utilization_pct": 10.388125730576368,
+            "extra_utilization_pct": null,
+            "extra_buses": 0,
+            "extra_bus_hours": 0.0
+          }
+        },
+        {
+          "policy": "BASE1",
+          "horizon_minutes": 60,
+          "decisions": [
+            {
+              "time": 720.0,
+              "action": {
+                "routes": []
+              }
+            },
+            {
+              "time": 735.0,
+              "action": {
+                "routes": []
+              }
+            },
+            {
+              "time": 750.0,
+              "action": {
+                "routes": []
+              }
+            },
+            {
+              "time": 765.0,
+              "action": {
+                "routes": []
+              }
+            }
+          ],
+          "metrics_60m": {
+            "total_wait": 5328.568706567443,
+            "capacity_failure_pct": 1.3913824057450628,
+            "boarding_attempts": 2228,
+            "denied_attempts": 31,
+            "overall_utilization_pct": 10.388125730576368,
+            "extra_utilization_pct": null,
+            "extra_buses": 0,
+            "extra_bus_hours": 0.0
+          }
+        }
+      ],
+      "preferred_action_index": 0,
+      "horizon_minutes": 60
+    },
+    {
+      "case_id": "training-3",
+      "day": "2027-03-05",
+      "seed": 201,
+      "time": 1080,
+      "snapshot": {
+        "time": 1080,
+        "vehicles": [
+          {
+            "run_id": "D2-87",
+            "route_id": "D2",
+            "stop_index": 13,
+            "crowd_level": "LOW",
+            "service_type": "scheduled",
+            "position": [
+              1.2926763784804403,
+              103.77851379024787
+            ]
+          },
+          {
+            "run_id": "K-15",
+            "route_id": "K",
+            "stop_index": 14,
+            "crowd_level": "LOW",
+            "service_type": "scheduled",
+            "position": [
+              1.2939266547256147,
+              103.7836402799916
+            ]
+          },
+          {
+            "run_id": "D2-88",
+            "route_id": "D2",
+            "stop_index": 12,
+            "crowd_level": "MEDIUM",
+            "service_type": "scheduled",
+            "position": [
+              1.2938027640402932,
+              103.78353017258888
+            ]
+          },
+          {
+            "run_id": "D2-89",
+            "route_id": "D2",
+            "stop_index": 11,
+            "crowd_level": "HIGH",
+            "service_type": "scheduled",
+            "position": [
+              1.29679759119629,
+              103.78173848388577
+            ]
+          },
+          {
+            "run_id": "A2-79",
+            "route_id": "A2",
+            "stop_index": 12,
+            "crowd_level": "LOW",
+            "service_type": "scheduled",
+            "position": [
+              1.2950514311040964,
+              103.770426364398
+            ]
+          },
+          {
+            "run_id": "D1-86",
+            "route_id": "D1",
+            "stop_index": 11,
+            "crowd_level": "LOW",
+            "service_type": "scheduled",
+            "position": [
+              1.293314165090922,
+              103.77410764085283
+            ]
+          },
+          {
+            "run_id": "D2-90",
+            "route_id": "D2",
+            "stop_index": 9,
+            "crowd_level": "LOW",
+            "service_type": "scheduled",
+            "position": [
+              1.298103233610473,
+              103.77722636020644
+            ]
+          },
+          {
+            "run_id": "A2-80",
+            "route_id": "A2",
+            "stop_index": 9,
+            "crowd_level": "LOW",
+            "service_type": "scheduled",
+            "position": [
+              1.2934097173405008,
+              103.77612706607114
+            ]
+          },
+          {
+            "run_id": "A1-81",
+            "route_id": "A1",
+            "stop_index": 10,
+            "crowd_level": "LOW",
+            "service_type": "scheduled",
+            "position": [
+              1.2978295921918739,
+              103.7734162770449
+            ]
+          },
+          {
+            "run_id": "D2-91",
+            "route_id": "D2",
+            "stop_index": 8,
+            "crowd_level": "LOW",
+            "service_type": "scheduled",
+            "position": [
+              1.3034386612685398,
+              103.77459108490643
+            ]
+          },
+          {
+            "run_id": "D1-87",
+            "route_id": "D1",
+            "stop_index": 10,
+            "crowd_level": "LOW",
+            "service_type": "scheduled",
+            "position": [
+              1.29412383411805,
+              103.77116283689031
+            ]
+          },
+          {
+            "run_id": "A1-82",
+            "route_id": "A1",
+            "stop_index": 8,
+            "crowd_level": "LOW",
+            "service_type": "scheduled",
+            "position": [
+              1.298143291183693,
+              103.7769487575749
+            ]
+          },
+          {
+            "run_id": "A2-81",
+            "route_id": "A2",
+            "stop_index": 8,
+            "crowd_level": "LOW",
+            "service_type": "scheduled",
+            "position": [
+              1.2927722703102233,
+              103.77836800741454
+            ]
+          },
+          {
+            "run_id": "D2-92",
+            "route_id": "D2",
+            "stop_index": 6,
+            "crowd_level": "MEDIUM",
+            "service_type": "scheduled",
+            "position": [
+              1.3010918814492982,
+              103.77345926758541
+            ]
+          },
+          {
+            "run_id": "A1-83",
+            "route_id": "A1",
+            "stop_index": 7,
+            "crowd_level": "LOW",
+            "service_type": "scheduled",
+            "position": [
+              1.2973822309609693,
+              103.78020646399622
+            ]
+          },
+          {
+            "run_id": "R1-30",
+            "route_id": "R1",
+            "stop_index": 5,
+            "crowd_level": "LOW",
+            "service_type": "scheduled",
+            "position": [
+              1.2946245976506678,
+              103.77070224132984
+            ]
+          },
+          {
+            "run_id": "A2-82",
+            "route_id": "A2",
+            "stop_index": 7,
+            "crowd_level": "LOW",
+            "service_type": "scheduled",
+            "position": [
+              1.2941028475979721,
+              103.78379687077563
+            ]
+          },
+          {
+            "run_id": "D1-88",
+            "route_id": "D1",
+            "stop_index": 8,
+            "crowd_level": "LOW",
+            "service_type": "scheduled",
+            "position": [
+              1.2985487266807245,
+              103.77400475026835
+            ]
+          },
+          {
+            "run_id": "D2-93",
+            "route_id": "D2",
+            "stop_index": 5,
+            "crowd_level": "MEDIUM",
+            "service_type": "scheduled",
+            "position": [
+              1.2976019175571554,
+              103.77800189181703
+            ]
+          },
+          {
+            "run_id": "A1-84",
+            "route_id": "A1",
+            "stop_index": 5,
+            "crowd_level": "LOW",
+            "service_type": "scheduled",
+            "position": [
+              1.2940799666939147,
+              103.78337687229336
+            ]
+          },
+          {
+            "run_id": "R2-28",
+            "route_id": "R2",
+            "stop_index": 5,
+            "crowd_level": "MEDIUM",
+            "service_type": "scheduled",
+            "position": [
+              1.302583806425354,
+              103.77445462286757
+            ]
+          },
+          {
+            "run_id": "A2-83",
+            "route_id": "A2",
+            "stop_index": 5,
+            "crowd_level": "MEDIUM",
+            "service_type": "scheduled",
+            "position": [
+              1.2975284070892419,
+              103.77802970140775
+            ]
+          },
+          {
+            "run_id": "D1-89",
+            "route_id": "D1",
+            "stop_index": 6,
+            "crowd_level": "LOW",
+            "service_type": "scheduled",
+            "position": [
+              1.3021883327328028,
+              103.773902792005
+            ]
+          },
+          {
+            "run_id": "D2-94",
+            "route_id": "D2",
+            "stop_index": 3,
+            "crowd_level": "LOW",
+            "service_type": "scheduled",
+            "position": [
+              1.2959945475375547,
+              103.78293597929758
+            ]
+          },
+          {
+            "run_id": "K-16",
+            "route_id": "K",
+            "stop_index": 3,
+            "crowd_level": "LOW",
+            "service_type": "scheduled",
+            "position": [
+              1.2980160313041949,
+              103.7771963162482
+            ]
+          },
+          {
+            "run_id": "A1-85",
+            "route_id": "A1",
+            "stop_index": 4,
+            "crowd_level": "MEDIUM",
+            "service_type": "scheduled",
+            "position": [
+              1.2933292240715653,
+              103.77762066386336
+            ]
+          },
+          {
+            "run_id": "A2-84",
+            "route_id": "A2",
+            "stop_index": 3,
+            "crowd_level": "LOW",
+            "service_type": "scheduled",
+            "position": [
+              1.2996844375337417,
+              103.77524866540111
+            ]
+          },
+          {
+            "run_id": "D1-90",
+            "route_id": "D1",
+            "stop_index": 4,
+            "crowd_level": "MEDIUM",
+            "service_type": "scheduled",
+            "position": [
+              1.2977909409947208,
+              103.77324848671628
+            ]
+          },
+          {
+            "run_id": "D2-95",
+            "route_id": "D2",
+            "stop_index": 2,
+            "crowd_level": "LOW",
+            "service_type": "scheduled",
+            "position": [
+              1.2929163660469685,
+              103.78186045340769
+            ]
+          },
+          {
+            "run_id": "A1-86",
+            "route_id": "A1",
+            "stop_index": 3,
+            "crowd_level": "MEDIUM",
+            "service_type": "scheduled",
+            "position": [
+              1.2933716100160924,
+              103.77557597123075
+            ]
+          },
+          {
+            "run_id": "A2-85",
+            "route_id": "A2",
+            "stop_index": 1,
+            "crowd_level": "LOW",
+            "service_type": "scheduled",
+            "position": [
+              1.2984310572250926,
+              103.77380521036699
+            ]
+          },
+          {
+            "run_id": "D1-91",
+            "route_id": "D1",
+            "stop_index": 1,
+            "crowd_level": "MEDIUM",
+            "service_type": "scheduled",
+            "position": [
+              1.29318349412685,
+              103.7733073793759
+            ]
+          },
+          {
+            "run_id": "D2-96",
+            "route_id": "D2",
+            "stop_index": 1,
+            "crowd_level": "LOW",
+            "service_type": "scheduled",
+            "position": [
+              1.2932581478225473,
+              103.77774529159099
+            ]
+          },
+          {
+            "run_id": "A1-87",
+            "route_id": "A1",
+            "stop_index": 1,
+            "crowd_level": "LOW",
+            "service_type": "scheduled",
+            "position": [
+              1.294461398515865,
+              103.7708523496985
+            ]
+          },
+          {
+            "run_id": "A2-86",
+            "route_id": "A2",
+            "stop_index": 0,
+            "crowd_level": "LOW",
+            "service_type": "scheduled",
+            "position": [
+              1.2942287763181,
+              103.769798576832
+            ]
+          },
+          {
+            "run_id": "R2-29",
+            "route_id": "R2",
+            "stop_index": 0,
+            "crowd_level": "LOW",
+            "service_type": "scheduled",
+            "position": [
+              1.29176612982618,
+              103.780361451209
+            ]
+          }
+        ],
+        "extra_bus_commitments": []
+      },
+      "history": [
+        {
+          "time": 1020.0,
+          "vehicles": [
+            {
+              "run_id": "D2-81",
+              "route_id": "D2",
+              "stop_index": 13,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.291638616173889,
+                103.78009148388142
+              ]
+            },
+            {
+              "run_id": "A2-72",
+              "route_id": "A2",
+              "stop_index": 12,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.294786100065716,
+                103.77022388392915
+              ]
+            },
+            {
+              "run_id": "D2-82",
+              "route_id": "D2",
+              "stop_index": 11,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.2953981422347787,
+                103.78386501908359
+              ]
+            },
+            {
+              "run_id": "A1-74",
+              "route_id": "A1",
+              "stop_index": 11,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.2957488825956036,
+                103.77152361496536
+              ]
+            },
+            {
+              "run_id": "D1-78",
+              "route_id": "D1",
+              "stop_index": 11,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.293251564062741,
+                103.77502729927774
+              ]
+            },
+            {
+              "run_id": "A2-73",
+              "route_id": "A2",
+              "stop_index": 9,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.2937263510142887,
+                103.77681036250516
+              ]
+            },
+            {
+              "run_id": "D2-83",
+              "route_id": "D2",
+              "stop_index": 8,
+              "crowd_level": "MEDIUM",
+              "service_type": "scheduled",
+              "position": [
+                1.3008932224250813,
+                103.77556747155734
+              ]
+            },
+            {
+              "run_id": "K-14",
+              "route_id": "K",
+              "stop_index": 9,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.3012085020741693,
+                103.77304927942863
+              ]
+            },
+            {
+              "run_id": "A1-75",
+              "route_id": "A1",
+              "stop_index": 8,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.298311766803484,
+                103.77662102191238
+              ]
+            },
+            {
+              "run_id": "D1-79",
+              "route_id": "D1",
+              "stop_index": 9,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.2948179940964977,
+                103.7705787347197
+              ]
+            },
+            {
+              "run_id": "A2-74",
+              "route_id": "A2",
+              "stop_index": 7,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.2936405480600728,
+                103.78338600371765
+              ]
+            },
+            {
+              "run_id": "D2-84",
+              "route_id": "D2",
+              "stop_index": 6,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.2996249051336464,
+                103.77484935853121
+              ]
+            },
+            {
+              "run_id": "R1-27",
+              "route_id": "R1",
+              "stop_index": 5,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.2941440900056413,
+                103.77114420579743
+              ]
+            },
+            {
+              "run_id": "D1-80",
+              "route_id": "D1",
+              "stop_index": 7,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.2995597660320646,
+                103.77431791410017
+              ]
+            },
+            {
+              "run_id": "A1-76",
+              "route_id": "A1",
+              "stop_index": 6,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.296531435674638,
+                103.78221531428541
+              ]
+            },
+            {
+              "run_id": "R2-25",
+              "route_id": "R2",
+              "stop_index": 5,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.3012040997089842,
+                103.77434043558918
+              ]
+            },
+            {
+              "run_id": "A2-75",
+              "route_id": "A2",
+              "stop_index": 5,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.297521505788346,
+                103.77852300778677
+              ]
+            },
+            {
+              "run_id": "D1-81",
+              "route_id": "D1",
+              "stop_index": 6,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.3017664748512265,
+                103.77371047403786
+              ]
+            },
+            {
+              "run_id": "D2-85",
+              "route_id": "D2",
+              "stop_index": 3,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.2971418107266577,
+                103.7813960077783
+              ]
+            },
+            {
+              "run_id": "A1-77",
+              "route_id": "A1",
+              "stop_index": 4,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.2920428525583765,
+                103.77987623532078
+              ]
+            },
+            {
+              "run_id": "D1-82",
+              "route_id": "D1",
+              "stop_index": 3,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.2963119643254286,
+                103.77172810396965
+              ]
+            },
+            {
+              "run_id": "A2-76",
+              "route_id": "A2",
+              "stop_index": 2,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.2992196894263839,
+                103.77401817720988
+              ]
+            },
+            {
+              "run_id": "D2-86",
+              "route_id": "D2",
+              "stop_index": 2,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.291799004678044,
+                103.78040429412626
+              ]
+            },
+            {
+              "run_id": "R1-28",
+              "route_id": "R1",
+              "stop_index": 0,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.3019109978925,
+                103.769632950425
+              ]
+            },
+            {
+              "run_id": "A1-78",
+              "route_id": "A1",
+              "stop_index": 2,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.293459220034629,
+                103.7719766694466
+              ]
+            },
+            {
+              "run_id": "D1-83",
+              "route_id": "D1",
+              "stop_index": 1,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.2929530964543967,
+                103.7745587155225
+              ]
+            },
+            {
+              "run_id": "R2-26",
+              "route_id": "R2",
+              "stop_index": 0,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.29176612982618,
+                103.780361451209
+              ]
+            }
+          ],
+          "extra_bus_commitments": []
+        },
+        {
+          "time": 1035.0,
+          "vehicles": [
+            {
+              "run_id": "D2-83",
+              "route_id": "D2",
+              "stop_index": 12,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.2941702050749768,
+                103.78385673449198
+              ]
+            },
+            {
+              "run_id": "K-14",
+              "route_id": "K",
+              "stop_index": 13,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.2952115713471999,
+                103.78414852321289
+              ]
+            },
+            {
+              "run_id": "A2-74",
+              "route_id": "A2",
+              "stop_index": 11,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.2938513353671421,
+                103.77200684349462
+              ]
+            },
+            {
+              "run_id": "D2-84",
+              "route_id": "D2",
+              "stop_index": 10,
+              "crowd_level": "MEDIUM",
+              "service_type": "scheduled",
+              "position": [
+                1.2975059421211714,
+                103.77963550185336
+              ]
+            },
+            {
+              "run_id": "D1-80",
+              "route_id": "D1",
+              "stop_index": 11,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.2932754952624612,
+                103.77467573109939
+              ]
+            },
+            {
+              "run_id": "A1-76",
+              "route_id": "A1",
+              "stop_index": 10,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.2964928804092217,
+                103.77232243562331
+              ]
+            },
+            {
+              "run_id": "A2-75",
+              "route_id": "A2",
+              "stop_index": 8,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.2917006402790194,
+                103.77999718961463
+              ]
+            },
+            {
+              "run_id": "D1-81",
+              "route_id": "D1",
+              "stop_index": 10,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.2947558941436814,
+                103.77058147658191
+              ]
+            },
+            {
+              "run_id": "D2-85",
+              "route_id": "D2",
+              "stop_index": 7,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.3026502689399093,
+                103.77411338101183
+              ]
+            },
+            {
+              "run_id": "A1-77",
+              "route_id": "A1",
+              "stop_index": 8,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.2978045870205683,
+                103.77760763886252
+              ]
+            },
+            {
+              "run_id": "D1-82",
+              "route_id": "D1",
+              "stop_index": 7,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.2989468111857012,
+                103.77428450183065
+              ]
+            },
+            {
+              "run_id": "A2-76",
+              "route_id": "A2",
+              "stop_index": 6,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.2963123668490468,
+                103.78247580741927
+              ]
+            },
+            {
+              "run_id": "D2-86",
+              "route_id": "D2",
+              "stop_index": 5,
+              "crowd_level": "MEDIUM",
+              "service_type": "scheduled",
+              "position": [
+                1.2974164999916178,
+                103.77836258465057
+              ]
+            },
+            {
+              "run_id": "R1-28",
+              "route_id": "R1",
+              "stop_index": 3,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.2978090001406657,
+                103.77339942641271
+              ]
+            },
+            {
+              "run_id": "A1-78",
+              "route_id": "A1",
+              "stop_index": 5,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.294269149999203,
+                103.78362341833795
+              ]
+            },
+            {
+              "run_id": "D1-83",
+              "route_id": "D1",
+              "stop_index": 6,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.3014056076502434,
+                103.77354596070401
+              ]
+            },
+            {
+              "run_id": "R2-26",
+              "route_id": "R2",
+              "stop_index": 4,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.2976262636755562,
+                103.77310526310474
+              ]
+            },
+            {
+              "run_id": "A2-77",
+              "route_id": "A2",
+              "stop_index": 3,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.3001643608626106,
+                103.77464280838367
+              ]
+            },
+            {
+              "run_id": "D2-87",
+              "route_id": "D2",
+              "stop_index": 3,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.295134812085186,
+                103.78409000230063
+              ]
+            },
+            {
+              "run_id": "A1-79",
+              "route_id": "A1",
+              "stop_index": 4,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.2932974104934938,
+                103.77767644696951
+              ]
+            },
+            {
+              "run_id": "K-15",
+              "route_id": "K",
+              "stop_index": 1,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.2973461246485287,
+                103.78112175717595
+              ]
+            },
+            {
+              "run_id": "D1-84",
+              "route_id": "D1",
+              "stop_index": 3,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.2964248895488502,
+                103.77185403662881
+              ]
+            },
+            {
+              "run_id": "A2-78",
+              "route_id": "A2",
+              "stop_index": 2,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.29881954253891,
+                103.774143084884
+              ]
+            },
+            {
+              "run_id": "D2-88",
+              "route_id": "D2",
+              "stop_index": 1,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.291832504562361,
+                103.78024506728812
+              ]
+            },
+            {
+              "run_id": "A1-80",
+              "route_id": "A1",
+              "stop_index": 0,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.2947754986825317,
+                103.7705294662918
+              ]
+            },
+            {
+              "run_id": "D1-85",
+              "route_id": "D1",
+              "stop_index": 1,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.2928970301657519,
+                103.77486322282432
+              ]
+            },
+            {
+              "run_id": "D2-89",
+              "route_id": "D2",
+              "stop_index": 0,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.2944508958945966,
+                103.775659762323
+              ]
+            },
+            {
+              "run_id": "A2-79",
+              "route_id": "A2",
+              "stop_index": 0,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.2945322148854688,
+                103.77009763742059
+              ]
+            }
+          ],
+          "extra_bus_commitments": []
+        },
+        {
+          "time": 1050.0,
+          "vehicles": [
+            {
+              "run_id": "D2-84",
+              "route_id": "D2",
+              "stop_index": 13,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.2927237317212814,
+                103.7784417998642
+              ]
+            },
+            {
+              "run_id": "A2-75",
+              "route_id": "A2",
+              "stop_index": 12,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.2945080824033104,
+                103.77001172199371
+              ]
+            },
+            {
+              "run_id": "D2-85",
+              "route_id": "D2",
+              "stop_index": 11,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.2957245656931875,
+                103.78336900172764
+              ]
+            },
+            {
+              "run_id": "D1-82",
+              "route_id": "D1",
+              "stop_index": 12,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.2941250468146905,
+                103.77509223658392
+              ]
+            },
+            {
+              "run_id": "A2-76",
+              "route_id": "A2",
+              "stop_index": 9,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.2932680822023814,
+                103.77582141701097
+              ]
+            },
+            {
+              "run_id": "D2-86",
+              "route_id": "D2",
+              "stop_index": 8,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.3008596379579211,
+                103.7755803539825
+              ]
+            },
+            {
+              "run_id": "R1-28",
+              "route_id": "R1",
+              "stop_index": 7,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.2922219777995636,
+                103.77875161284723
+              ]
+            },
+            {
+              "run_id": "A1-78",
+              "route_id": "A1",
+              "stop_index": 9,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.298868704328559,
+                103.77478810048709
+              ]
+            },
+            {
+              "run_id": "D1-83",
+              "route_id": "D1",
+              "stop_index": 9,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.2951566559941232,
+                103.77093839091759
+              ]
+            },
+            {
+              "run_id": "R2-26",
+              "route_id": "R2",
+              "stop_index": 7,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.3016614177953967,
+                103.77045495964774
+              ]
+            },
+            {
+              "run_id": "A2-77",
+              "route_id": "A2",
+              "stop_index": 7,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.2935357586389156,
+                103.78329287249505
+              ]
+            },
+            {
+              "run_id": "D2-87",
+              "route_id": "D2",
+              "stop_index": 6,
+              "crowd_level": "MEDIUM",
+              "service_type": "scheduled",
+              "position": [
+                1.300046298626964,
+                103.77445005059866
+              ]
+            },
+            {
+              "run_id": "A1-79",
+              "route_id": "A1",
+              "stop_index": 7,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.2974004953951035,
+                103.7804698687288
+              ]
+            },
+            {
+              "run_id": "K-15",
+              "route_id": "K",
+              "stop_index": 6,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.2966043583427123,
+                103.77177873344846
+              ]
+            },
+            {
+              "run_id": "D1-84",
+              "route_id": "D1",
+              "stop_index": 7,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.2990243389572897,
+                103.77428872788224
+              ]
+            },
+            {
+              "run_id": "A2-78",
+              "route_id": "A2",
+              "stop_index": 6,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.2967018934218473,
+                103.78188390161185
+              ]
+            },
+            {
+              "run_id": "D2-88",
+              "route_id": "D2",
+              "stop_index": 5,
+              "crowd_level": "MEDIUM",
+              "service_type": "scheduled",
+              "position": [
+                1.297483692547423,
+                103.77823187495606
+              ]
+            },
+            {
+              "run_id": "A1-80",
+              "route_id": "A1",
+              "stop_index": 5,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.2925623013038963,
+                103.78139903181554
+              ]
+            },
+            {
+              "run_id": "D1-85",
+              "route_id": "D1",
+              "stop_index": 6,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.3014158159125144,
+                103.7735506144804
+              ]
+            },
+            {
+              "run_id": "R1-29",
+              "route_id": "R1",
+              "stop_index": 2,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.30166866936565,
+                103.77443287076784
+              ]
+            },
+            {
+              "run_id": "D2-89",
+              "route_id": "D2",
+              "stop_index": 3,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.2967623311117797,
+                103.78190538331185
+              ]
+            },
+            {
+              "run_id": "A2-79",
+              "route_id": "A2",
+              "stop_index": 4,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.2982569056910236,
+                103.77703646207743
+              ]
+            },
+            {
+              "run_id": "D1-86",
+              "route_id": "D1",
+              "stop_index": 3,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.2955764839899995,
+                103.77090790639465
+              ]
+            },
+            {
+              "run_id": "D2-90",
+              "route_id": "D2",
+              "stop_index": 2,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.2926793963855279,
+                103.78155163158735
+              ]
+            },
+            {
+              "run_id": "R2-27",
+              "route_id": "R2",
+              "stop_index": 2,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.2943603968339203,
+                103.77154557325281
+              ]
+            },
+            {
+              "run_id": "A2-80",
+              "route_id": "A2",
+              "stop_index": 2,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.2993435520085013,
+                103.77397951294053
+              ]
+            },
+            {
+              "run_id": "A1-81",
+              "route_id": "A1",
+              "stop_index": 2,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.2932569770259588,
+                103.77494777858341
+              ]
+            },
+            {
+              "run_id": "D2-91",
+              "route_id": "D2",
+              "stop_index": 1,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.2932938183145035,
+                103.77768274562919
+              ]
+            },
+            {
+              "run_id": "D1-87",
+              "route_id": "D1",
+              "stop_index": 1,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.2930266110982624,
+                103.77415944269046
+              ]
+            },
+            {
+              "run_id": "A1-82",
+              "route_id": "A1",
+              "stop_index": 1,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.2945243379155527,
+                103.77079445888539
+              ]
+            },
+            {
+              "run_id": "A2-81",
+              "route_id": "A2",
+              "stop_index": 0,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.29574718880087,
+                103.77129508182401
+              ]
+            }
+          ],
+          "extra_bus_commitments": []
+        },
+        {
+          "time": 1065.0,
+          "vehicles": [
+            {
+              "run_id": "D2-86",
+              "route_id": "D2",
+              "stop_index": 12,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.2948899765045454,
+                103.78449642877118
+              ]
+            },
+            {
+              "run_id": "A2-77",
+              "route_id": "A2",
+              "stop_index": 10,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.2933164329025777,
+                103.77258536211944
+              ]
+            },
+            {
+              "run_id": "D2-87",
+              "route_id": "D2",
+              "stop_index": 10,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.2975070036266767,
+                103.77955962522591
+              ]
+            },
+            {
+              "run_id": "A1-79",
+              "route_id": "A1",
+              "stop_index": 10,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.296538922011745,
+                103.77236011181695
+              ]
+            },
+            {
+              "run_id": "K-15",
+              "route_id": "K",
+              "stop_index": 10,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.3002322318972124,
+                103.77455712773403
+              ]
+            },
+            {
+              "run_id": "D1-84",
+              "route_id": "D1",
+              "stop_index": 11,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.2932636846866448,
+                103.77484923776323
+              ]
+            },
+            {
+              "run_id": "A2-78",
+              "route_id": "A2",
+              "stop_index": 9,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.2937244894679532,
+                103.77680634528248
+              ]
+            },
+            {
+              "run_id": "D2-88",
+              "route_id": "D2",
+              "stop_index": 8,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.300551725074797,
+                103.77569846407951
+              ]
+            },
+            {
+              "run_id": "A1-80",
+              "route_id": "A1",
+              "stop_index": 8,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.2981849196176474,
+                103.77686777777261
+              ]
+            },
+            {
+              "run_id": "D1-85",
+              "route_id": "D1",
+              "stop_index": 9,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.2950177442649877,
+                103.77079086778407
+              ]
+            },
+            {
+              "run_id": "R1-29",
+              "route_id": "R1",
+              "stop_index": 6,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.293361347128222,
+                103.77341449955199
+              ]
+            },
+            {
+              "run_id": "D2-89",
+              "route_id": "D2",
+              "stop_index": 7,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.301959669711593,
+                103.77379854835016
+              ]
+            },
+            {
+              "run_id": "A2-79",
+              "route_id": "A2",
+              "stop_index": 7,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.292092140427394,
+                103.78200986198183
+              ]
+            },
+            {
+              "run_id": "D1-86",
+              "route_id": "D1",
+              "stop_index": 7,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.3012682844297303,
+                103.7744110457191
+              ]
+            },
+            {
+              "run_id": "D2-90",
+              "route_id": "D2",
+              "stop_index": 5,
+              "crowd_level": "MEDIUM",
+              "service_type": "scheduled",
+              "position": [
+                1.2983623610171158,
+                103.77652260097678
+              ]
+            },
+            {
+              "run_id": "R2-27",
+              "route_id": "R2",
+              "stop_index": 6,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.301784430301734,
+                103.77318787278999
+              ]
+            },
+            {
+              "run_id": "A2-80",
+              "route_id": "A2",
+              "stop_index": 6,
+              "crowd_level": "MEDIUM",
+              "service_type": "scheduled",
+              "position": [
+                1.2963352376876989,
+                103.78244105399509
+              ]
+            },
+            {
+              "run_id": "A1-81",
+              "route_id": "A1",
+              "stop_index": 6,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.2963937905298213,
+                103.78240007538015
+              ]
+            },
+            {
+              "run_id": "D2-91",
+              "route_id": "D2",
+              "stop_index": 4,
+              "crowd_level": "MEDIUM",
+              "service_type": "scheduled",
+              "position": [
+                1.2974144580817049,
+                103.78067123482116
+              ]
+            },
+            {
+              "run_id": "D1-87",
+              "route_id": "D1",
+              "stop_index": 6,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.3024628258804536,
+                103.77402792884956
+              ]
+            },
+            {
+              "run_id": "A1-82",
+              "route_id": "A1",
+              "stop_index": 5,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.292348201156776,
+                103.7811200138317
+              ]
+            },
+            {
+              "run_id": "A2-81",
+              "route_id": "A2",
+              "stop_index": 5,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.297511011791049,
+                103.77927312082869
+              ]
+            },
+            {
+              "run_id": "D2-92",
+              "route_id": "D2",
+              "stop_index": 3,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.2953594767389311,
+                103.78378843490837
+              ]
+            },
+            {
+              "run_id": "A1-83",
+              "route_id": "A1",
+              "stop_index": 4,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.2934809753147374,
+                103.77735457761283
+              ]
+            },
+            {
+              "run_id": "R1-30",
+              "route_id": "R1",
+              "stop_index": 1,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.3017999832072107,
+                103.77372574993807
+              ]
+            },
+            {
+              "run_id": "A2-82",
+              "route_id": "A2",
+              "stop_index": 3,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.3009396655779515,
+                103.77366406079177
+              ]
+            },
+            {
+              "run_id": "D1-88",
+              "route_id": "D1",
+              "stop_index": 4,
+              "crowd_level": "MEDIUM",
+              "service_type": "scheduled",
+              "position": [
+                1.29726560128364,
+                103.772791586816
+              ]
+            },
+            {
+              "run_id": "D2-93",
+              "route_id": "D2",
+              "stop_index": 2,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.29176612982618,
+                103.780361451209
+              ]
+            },
+            {
+              "run_id": "A1-84",
+              "route_id": "A1",
+              "stop_index": 1,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.2935546909116022,
+                103.77168632715488
+              ]
+            },
+            {
+              "run_id": "R2-28",
+              "route_id": "R2",
+              "stop_index": 1,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.29287628190921,
+                103.774975910783
+              ]
+            },
+            {
+              "run_id": "A2-83",
+              "route_id": "A2",
+              "stop_index": 0,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.2969619187870862,
+                103.77249228581759
+              ]
+            },
+            {
+              "run_id": "D1-89",
+              "route_id": "D1",
+              "stop_index": 1,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.293101536956875,
+                103.77375250526703
+              ]
+            },
+            {
+              "run_id": "D2-94",
+              "route_id": "D2",
+              "stop_index": 0,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.2945063354041253,
+                103.77556302135062
+              ]
+            },
+            {
+              "run_id": "K-16",
+              "route_id": "K",
+              "stop_index": 0,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.2923397829954963,
+                103.78110904317886
+              ]
+            }
+          ],
+          "extra_bus_commitments": []
+        }
+      ],
+      "dispatch_events": [],
+      "candidate_outcomes": [
+        {
+          "policy": "BASE0",
+          "horizon_minutes": 60,
+          "decisions": [
+            {
+              "time": 1080,
+              "action": {
+                "routes": []
+              }
+            },
+            {
+              "time": 1095,
+              "action": {
+                "routes": []
+              }
+            },
+            {
+              "time": 1110,
+              "action": {
+                "routes": []
+              }
+            },
+            {
+              "time": 1125,
+              "action": {
+                "routes": []
+              }
+            }
+          ],
+          "metrics_60m": {
+            "total_wait": 16502.951959956466,
+            "capacity_failure_pct": 22.270583968081247,
+            "boarding_attempts": 5514,
+            "denied_attempts": 1228,
+            "overall_utilization_pct": 20.744942429097158,
+            "extra_utilization_pct": null,
+            "extra_buses": 0,
+            "extra_bus_hours": 0.0
+          }
+        },
+        {
+          "policy": "BASE1",
+          "horizon_minutes": 60,
+          "decisions": [
+            {
+              "time": 1080.0,
+              "action": {
+                "routes": []
+              }
+            },
+            {
+              "time": 1095.0,
+              "action": {
+                "routes": []
+              }
+            },
+            {
+              "time": 1110.0,
+              "action": {
+                "routes": []
+              }
+            },
+            {
+              "time": 1125.0,
+              "action": {
+                "routes": []
+              }
+            }
+          ],
+          "metrics_60m": {
+            "total_wait": 16502.951959956466,
+            "capacity_failure_pct": 22.270583968081247,
+            "boarding_attempts": 5514,
+            "denied_attempts": 1228,
+            "overall_utilization_pct": 20.744942429097158,
+            "extra_utilization_pct": null,
+            "extra_buses": 0,
+            "extra_bus_hours": 0.0
+          }
+        }
+      ],
+      "preferred_action_index": 0,
+      "horizon_minutes": 60
+    },
+    {
+      "case_id": "training-4",
+      "day": "2027-03-16",
+      "seed": 201,
+      "time": 1290,
+      "snapshot": {
+        "time": 1290,
+        "vehicles": [
+          {
+            "run_id": "D2-115",
+            "route_id": "D2",
+            "stop_index": 11,
+            "crowd_level": "LOW",
+            "service_type": "scheduled",
+            "position": [
+              1.2949977036329103,
+              103.78447350628454
+            ]
+          },
+          {
+            "run_id": "A2-105",
+            "route_id": "A2",
+            "stop_index": 12,
+            "crowd_level": "LOW",
+            "service_type": "scheduled",
+            "position": [
+              1.294625122570606,
+              103.77010103814796
+            ]
+          },
+          {
+            "run_id": "A1-108",
+            "route_id": "A1",
+            "stop_index": 11,
+            "crowd_level": "LOW",
+            "service_type": "scheduled",
+            "position": [
+              1.2945466746184335,
+              103.77015933232569
+            ]
+          },
+          {
+            "run_id": "D2-116",
+            "route_id": "D2",
+            "stop_index": 8,
+            "crowd_level": "LOW",
+            "service_type": "scheduled",
+            "position": [
+              1.3004397601932278,
+              103.77574141188634
+            ]
+          },
+          {
+            "run_id": "A2-106",
+            "route_id": "A2",
+            "stop_index": 8,
+            "crowd_level": "LOW",
+            "service_type": "scheduled",
+            "position": [
+              1.2934641547470707,
+              103.77731614643996
+            ]
+          },
+          {
+            "run_id": "A1-109",
+            "route_id": "A1",
+            "stop_index": 8,
+            "crowd_level": "LOW",
+            "service_type": "scheduled",
+            "position": [
+              1.2988015143128644,
+              103.775668315968
+            ]
+          },
+          {
+            "run_id": "D1-111",
+            "route_id": "D1",
+            "stop_index": 8,
+            "crowd_level": "LOW",
+            "service_type": "scheduled",
+            "position": [
+              1.2976353433180952,
+              103.77325732171361
+            ]
+          },
+          {
+            "run_id": "K-21",
+            "route_id": "K",
+            "stop_index": 6,
+            "crowd_level": "LOW",
+            "service_type": "scheduled",
+            "position": [
+              1.2972377440969658,
+              103.77072100182103
+            ]
+          },
+          {
+            "run_id": "A2-107",
+            "route_id": "A2",
+            "stop_index": 6,
+            "crowd_level": "LOW",
+            "service_type": "scheduled",
+            "position": [
+              1.2952142135788565,
+              103.784144508205
+            ]
+          },
+          {
+            "run_id": "D2-117",
+            "route_id": "D2",
+            "stop_index": 5,
+            "crowd_level": "LOW",
+            "service_type": "scheduled",
+            "position": [
+              1.2986035083284113,
+              103.77605349705581
+            ]
+          },
+          {
+            "run_id": "A1-110",
+            "route_id": "A1",
+            "stop_index": 6,
+            "crowd_level": "LOW",
+            "service_type": "scheduled",
+            "position": [
+              1.2959918978952667,
+              103.78293953591276
+            ]
+          },
+          {
+            "run_id": "A2-108",
+            "route_id": "A2",
+            "stop_index": 3,
+            "crowd_level": "LOW",
+            "service_type": "scheduled",
+            "position": [
+              1.2989198341673134,
+              103.77621390356984
+            ]
+          },
+          {
+            "run_id": "D2-118",
+            "route_id": "D2",
+            "stop_index": 3,
+            "crowd_level": "LOW",
+            "service_type": "scheduled",
+            "position": [
+              1.2950649695063625,
+              103.78418375200272
+            ]
+          },
+          {
+            "run_id": "D1-112",
+            "route_id": "D1",
+            "stop_index": 4,
+            "crowd_level": "LOW",
+            "service_type": "scheduled",
+            "position": [
+              1.2976634719586564,
+              103.77313762399518
+            ]
+          },
+          {
+            "run_id": "A1-111",
+            "route_id": "A1",
+            "stop_index": 4,
+            "crowd_level": "LOW",
+            "service_type": "scheduled",
+            "position": [
+              1.2932128794583244,
+              103.77782466681752
+            ]
+          },
+          {
+            "run_id": "D2-119",
+            "route_id": "D2",
+            "stop_index": 0,
+            "crowd_level": "LOW",
+            "service_type": "scheduled",
+            "position": [
+              1.2944508958945966,
+              103.775659762323
+            ]
+          }
+        ],
+        "extra_bus_commitments": []
+      },
+      "history": [
+        {
+          "time": 1230.0,
+          "vehicles": [
+            {
+              "run_id": "D2-110",
+              "route_id": "D2",
+              "stop_index": 13,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.2937190341642075,
+                103.77692865729028
+              ]
+            },
+            {
+              "run_id": "K-19",
+              "route_id": "K",
+              "stop_index": 12,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.2974982237357007,
+                103.78018721360252
+              ]
+            },
+            {
+              "run_id": "A2-101",
+              "route_id": "A2",
+              "stop_index": 12,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.2951319892590398,
+                103.77048784025504
+              ]
+            },
+            {
+              "run_id": "D2-111",
+              "route_id": "D2",
+              "stop_index": 11,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.2968960446540454,
+                103.78158887875617
+              ]
+            },
+            {
+              "run_id": "A1-104",
+              "route_id": "A1",
+              "stop_index": 11,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.2945254004437783,
+                103.77013519009098
+              ]
+            },
+            {
+              "run_id": "A2-102",
+              "route_id": "A2",
+              "stop_index": 7,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.2922346454332168,
+                103.78213651279518
+              ]
+            },
+            {
+              "run_id": "D2-112",
+              "route_id": "D2",
+              "stop_index": 6,
+              "crowd_level": "MEDIUM",
+              "service_type": "scheduled",
+              "position": [
+                1.3011012686705692,
+                103.7734503723557
+              ]
+            },
+            {
+              "run_id": "D1-107",
+              "route_id": "D1",
+              "stop_index": 8,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.2970837779760747,
+                103.77280597159788
+              ]
+            },
+            {
+              "run_id": "A1-105",
+              "route_id": "A1",
+              "stop_index": 7,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.2973211022964366,
+                103.77932488291813
+              ]
+            },
+            {
+              "run_id": "D2-113",
+              "route_id": "D2",
+              "stop_index": 3,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.296399679350579,
+                103.78239217081533
+              ]
+            },
+            {
+              "run_id": "A2-103",
+              "route_id": "A2",
+              "stop_index": 3,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.2991298154594573,
+                103.775948822396
+              ]
+            },
+            {
+              "run_id": "D1-108",
+              "route_id": "D1",
+              "stop_index": 4,
+              "crowd_level": "HIGH",
+              "service_type": "scheduled",
+              "position": [
+                1.297869018640391,
+                103.7733163926213
+              ]
+            },
+            {
+              "run_id": "A1-106",
+              "route_id": "A1",
+              "stop_index": 4,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.293052019005719,
+                103.77810672549327
+              ]
+            },
+            {
+              "run_id": "K-20",
+              "route_id": "K",
+              "stop_index": 1,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.2953902699705915,
+                103.78374710114976
+              ]
+            },
+            {
+              "run_id": "D2-114",
+              "route_id": "D2",
+              "stop_index": 0,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.2944737259047936,
+                103.77561992435537
+              ]
+            }
+          ],
+          "extra_bus_commitments": []
+        },
+        {
+          "time": 1245.0,
+          "vehicles": [
+            {
+              "run_id": "D2-111",
+              "route_id": "D2",
+              "stop_index": 14,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.2939609460833443,
+                103.77651471615576
+              ]
+            },
+            {
+              "run_id": "A2-102",
+              "route_id": "A2",
+              "stop_index": 11,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.2952484923569536,
+                103.7707408530699
+              ]
+            },
+            {
+              "run_id": "D2-112",
+              "route_id": "D2",
+              "stop_index": 11,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.2966694127644316,
+                103.78193325765349
+              ]
+            },
+            {
+              "run_id": "A1-105",
+              "route_id": "A1",
+              "stop_index": 11,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.294473966302043,
+                103.77007682189847
+              ]
+            },
+            {
+              "run_id": "D2-113",
+              "route_id": "D2",
+              "stop_index": 7,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.30225505992677,
+                103.77393321181901
+              ]
+            },
+            {
+              "run_id": "A2-103",
+              "route_id": "A2",
+              "stop_index": 7,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.2918940716766194,
+                103.78183382908922
+              ]
+            },
+            {
+              "run_id": "D1-108",
+              "route_id": "D1",
+              "stop_index": 8,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.297331038667965,
+                103.77300830690324
+              ]
+            },
+            {
+              "run_id": "A1-106",
+              "route_id": "A1",
+              "stop_index": 7,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.2973184450401098,
+                103.77928656068558
+              ]
+            },
+            {
+              "run_id": "K-20",
+              "route_id": "K",
+              "stop_index": 5,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.297936487958177,
+                103.77350375066372
+              ]
+            },
+            {
+              "run_id": "D2-114",
+              "route_id": "D2",
+              "stop_index": 3,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.2967006477452827,
+                103.78198818090226
+              ]
+            },
+            {
+              "run_id": "A2-104",
+              "route_id": "A2",
+              "stop_index": 3,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.298949437516729,
+                103.77617653219008
+              ]
+            },
+            {
+              "run_id": "D1-109",
+              "route_id": "D1",
+              "stop_index": 4,
+              "crowd_level": "MEDIUM",
+              "service_type": "scheduled",
+              "position": [
+                1.2976009190969275,
+                103.77308322034801
+              ]
+            },
+            {
+              "run_id": "A1-107",
+              "route_id": "A1",
+              "stop_index": 4,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.2934065201465863,
+                103.77748513006243
+              ]
+            },
+            {
+              "run_id": "D2-115",
+              "route_id": "D2",
+              "stop_index": 0,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.2942363995863548,
+                103.77603405462118
+              ]
+            }
+          ],
+          "extra_bus_commitments": []
+        },
+        {
+          "time": 1260.0,
+          "vehicles": [
+            {
+              "run_id": "D2-112",
+              "route_id": "D2",
+              "stop_index": 14,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.294247751572537,
+                103.77601424560427
+              ]
+            },
+            {
+              "run_id": "D2-113",
+              "route_id": "D2",
+              "stop_index": 11,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.2957994085724518,
+                103.78325527409524
+              ]
+            },
+            {
+              "run_id": "A2-103",
+              "route_id": "A2",
+              "stop_index": 11,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.2951187037220495,
+                103.77085845701149
+              ]
+            },
+            {
+              "run_id": "A1-106",
+              "route_id": "A1",
+              "stop_index": 11,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.2944441442499648,
+                103.77004297941139
+              ]
+            },
+            {
+              "run_id": "K-20",
+              "route_id": "K",
+              "stop_index": 9,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.3013797648016483,
+                103.7722164063953
+              ]
+            },
+            {
+              "run_id": "D2-114",
+              "route_id": "D2",
+              "stop_index": 7,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.3032170390468025,
+                103.77437176204381
+              ]
+            },
+            {
+              "run_id": "A2-104",
+              "route_id": "A2",
+              "stop_index": 7,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.2913209477362042,
+                103.78132446724061
+              ]
+            },
+            {
+              "run_id": "D1-109",
+              "route_id": "D1",
+              "stop_index": 8,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.29749092172479,
+                103.77313914042503
+              ]
+            },
+            {
+              "run_id": "A1-107",
+              "route_id": "A1",
+              "stop_index": 7,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.2973600912402836,
+                103.77988717092839
+              ]
+            },
+            {
+              "run_id": "D2-115",
+              "route_id": "D2",
+              "stop_index": 3,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.297074348046774,
+                103.78148656294178
+              ]
+            },
+            {
+              "run_id": "A2-105",
+              "route_id": "A2",
+              "stop_index": 4,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.29879406809981,
+                103.776372671127
+              ]
+            },
+            {
+              "run_id": "D1-110",
+              "route_id": "D1",
+              "stop_index": 4,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.2972661807419537,
+                103.77279209078408
+              ]
+            },
+            {
+              "run_id": "A1-108",
+              "route_id": "A1",
+              "stop_index": 4,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.2932076138315347,
+                103.77783389976257
+              ]
+            },
+            {
+              "run_id": "D2-116",
+              "route_id": "D2",
+              "stop_index": 1,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.2926121833450552,
+                103.77887794963185
+              ]
+            },
+            {
+              "run_id": "A2-106",
+              "route_id": "A2",
+              "stop_index": 0,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.296658236290532,
+                103.7721929848192
+              ]
+            },
+            {
+              "run_id": "A1-109",
+              "route_id": "A1",
+              "stop_index": 0,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.2945858780969377,
+                103.77027597074014
+              ]
+            }
+          ],
+          "extra_bus_commitments": []
+        },
+        {
+          "time": 1275.0,
+          "vehicles": [
+            {
+              "run_id": "K-20",
+              "route_id": "K",
+              "stop_index": 13,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.2952592584518485,
+                103.78407606018688
+              ]
+            },
+            {
+              "run_id": "D2-114",
+              "route_id": "D2",
+              "stop_index": 11,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.2953832804068,
+                103.78388760240115
+              ]
+            },
+            {
+              "run_id": "A2-104",
+              "route_id": "A2",
+              "stop_index": 12,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.2947740246154589,
+                103.7702146688639
+              ]
+            },
+            {
+              "run_id": "A1-107",
+              "route_id": "A1",
+              "stop_index": 11,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.2948574693530501,
+                103.7705120265924
+              ]
+            },
+            {
+              "run_id": "D2-115",
+              "route_id": "D2",
+              "stop_index": 8,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.3033127445725992,
+                103.77463938438979
+              ]
+            },
+            {
+              "run_id": "A2-105",
+              "route_id": "A2",
+              "stop_index": 7,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.2911562689244542,
+                103.78117810953668
+              ]
+            },
+            {
+              "run_id": "D1-110",
+              "route_id": "D1",
+              "stop_index": 8,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.297656367384337,
+                103.77327452586698
+              ]
+            },
+            {
+              "run_id": "A1-108",
+              "route_id": "A1",
+              "stop_index": 7,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.2973381324697684,
+                103.77957048747501
+              ]
+            },
+            {
+              "run_id": "D2-116",
+              "route_id": "D2",
+              "stop_index": 4,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.2973102234856682,
+                103.77916799164953
+              ]
+            },
+            {
+              "run_id": "A2-106",
+              "route_id": "A2",
+              "stop_index": 5,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.297497259166804,
+                103.78025616118167
+              ]
+            },
+            {
+              "run_id": "A1-109",
+              "route_id": "A1",
+              "stop_index": 5,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.2929648329061194,
+                103.78192361602345
+              ]
+            },
+            {
+              "run_id": "D1-111",
+              "route_id": "D1",
+              "stop_index": 4,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.2974294066457701,
+                103.77293405206666
+              ]
+            },
+            {
+              "run_id": "K-21",
+              "route_id": "K",
+              "stop_index": 2,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.2973833902242016,
+                103.78022318257723
+              ]
+            },
+            {
+              "run_id": "A2-107",
+              "route_id": "A2",
+              "stop_index": 2,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.3003216692583703,
+                103.77367418918439
+              ]
+            },
+            {
+              "run_id": "D2-117",
+              "route_id": "D2",
+              "stop_index": 2,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.2930135755863,
+                103.7819871380926
+              ]
+            },
+            {
+              "run_id": "A1-110",
+              "route_id": "A1",
+              "stop_index": 2,
+              "crowd_level": "LOW",
+              "service_type": "scheduled",
+              "position": [
+                1.293330824400105,
+                103.77386290247571
+              ]
+            }
+          ],
+          "extra_bus_commitments": []
+        }
+      ],
+      "dispatch_events": [],
+      "candidate_outcomes": [
+        {
+          "policy": "BASE0",
+          "horizon_minutes": 60,
+          "decisions": [
+            {
+              "time": 1290,
+              "action": {
+                "routes": []
+              }
+            },
+            {
+              "time": 1305,
+              "action": {
+                "routes": []
+              }
+            },
+            {
+              "time": 1320,
+              "action": {
+                "routes": []
+              }
+            },
+            {
+              "time": 1335,
+              "action": {
+                "routes": []
+              }
+            }
+          ],
+          "metrics_60m": {
+            "total_wait": 568.8016422209912,
+            "capacity_failure_pct": 0.0,
+            "boarding_attempts": 178,
+            "denied_attempts": 0,
+            "overall_utilization_pct": 2.9683234231485334,
+            "extra_utilization_pct": null,
+            "extra_buses": 0,
+            "extra_bus_hours": 0.0
+          }
+        },
+        {
+          "policy": "BASE1",
+          "horizon_minutes": 60,
+          "decisions": [
+            {
+              "time": 1290.0,
+              "action": {
+                "routes": []
+              }
+            },
+            {
+              "time": 1305.0,
+              "action": {
+                "routes": []
+              }
+            },
+            {
+              "time": 1320.0,
+              "action": {
+                "routes": []
+              }
+            },
+            {
+              "time": 1335.0,
+              "action": {
+                "routes": []
+              }
+            }
+          ],
+          "metrics_60m": {
+            "total_wait": 568.8016422209912,
+            "capacity_failure_pct": 0.0,
+            "boarding_attempts": 178,
+            "denied_attempts": 0,
+            "overall_utilization_pct": 2.9683234231485334,
+            "extra_utilization_pct": null,
+            "extra_buses": 0,
+            "extra_bus_hours": 0.0
+          }
+        }
+      ],
+      "preferred_action_index": 0,
+      "horizon_minutes": 60
+    }
+  ],
+  "frozen": true,
+  "selection": "wait_then_denied_attempts_then_service_hours",
+  "checkpoint_source": "BASE0",
+  "training_seed": 201,
+  "comparison": "BASE0_vs_BASE1",
+  "version": "9990964790a63f8aee675a72bd8ad8a0db9abe61be079507aec7b3f0cef90d1f"
+}

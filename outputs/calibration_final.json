@@ -1,0 +1,235 @@
+{
+  "schema_version": 2,
+  "stage": "user_approved_fixed_parameters",
+  "frozen": true,
+  "user_approved": true,
+  "meets_calibration_targets": false,
+  "full_calendar_validated": false,
+  "workbook_sha256": "e7e4090b61afbda90961a3e18c04c993162d44b86218868cd22ead1a201acef7",
+  "days": [
+    "2026-08-17"
+  ],
+  "seeds": [
+    1
+  ],
+  "config": {
+    "workbook": "outputs/nus_cleaned/NUS_Venues_and_Shuttle_Stops_kent_ridge_activities.xlsx",
+    "population": 25000,
+    "population_seed": 101,
+    "seed": 1,
+    "day": "2026-08-17",
+    "semester_starts": [
+      "2026-08-10",
+      "2027-01-11"
+    ],
+    "excluded_teaching_dates": [
+      "2026-08-10",
+      "2026-10-09",
+      "2026-11-09",
+      "2027-02-08",
+      "2027-03-10",
+      "2027-03-26"
+    ],
+    "start": 360,
+    "end": 1440,
+    "choice_interval": 5,
+    "observation_interval": 1,
+    "decision_interval": 5,
+    "capacity": 88,
+    "class_alpha": 4,
+    "class_lead_minutes": 20,
+    "class_long_cutoff_minutes": 30,
+    "class_post_start_peak_minutes": null,
+    "class_base_score": -9.1,
+    "class_distance": 3.8,
+    "class_size_eta": 0.8,
+    "class_destination_multipliers": {
+      "UTOWN": 1.6,
+      "BIZ1": 0.92,
+      "BIZ2": 0.8,
+      "HSS": 0.81,
+      "LT28": 1.24,
+      "EA": 1.11,
+      "S16": 0.83
+    },
+    "temperature": 1,
+    "home_on_boost": 2,
+    "home_off_boost": 4,
+    "home_morning_boost": 2.0,
+    "home_morning_until": 450.0,
+    "exit_target": 0.95,
+    "on_campus_return_target": 0.9,
+    "exit_check": 1410,
+    "breakfast_factor": 0.6,
+    "meal_plan_bonus": 0.5,
+    "meal_peak_strength": 5.0,
+    "meal_urgency": 1.25,
+    "dining_base_score": -3.4,
+    "meal_score_adjustments": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "shuttle_calibration_scope": "all_2km",
+    "dining_minutes": [
+      30.0,
+      40.0,
+      50.0
+    ],
+    "study_total_weight": 0.3,
+    "study_morning_multiplier": 0.08,
+    "study_morning_ramp_start": 450.0,
+    "study_morning_ramp_end": 570.0,
+    "study_continuation_share": 0.7,
+    "study_weights": {
+      "library": 8.0,
+      "residence": 4.0,
+      "general": 2.0,
+      "canteen": 0.25
+    },
+    "study_evening_down": 0.25,
+    "study_evening_up": 2.0,
+    "study_evening_starts": 1050,
+    "general_study_closes": 1260,
+    "residence_study_own_only": true,
+    "dining_meal_windows_are_hours": true,
+    "facility_buildings": {
+      "ACT:DIN-TERRACE": "COM3",
+      "ACT:DIN-YIH": "YIH",
+      "ACT:STUDY-CLB": "CLB",
+      "ACT:STUDY-ERC": "ERC"
+    },
+    "standalone_facilities": [
+      "ACT:DIN-TECHNO",
+      "ACT:DIN-FRONTIER",
+      "ACT:DIN-DECK",
+      "ACT:DIN-KRMRT",
+      "ACT:DIN-SUPPER"
+    ],
+    "sigma_off": 0.25,
+    "sigma_peak": 0.75,
+    "peak_bands": [
+      [
+        450,
+        600
+      ],
+      [
+        690,
+        840
+      ],
+      [
+        990,
+        1170
+      ]
+    ],
+    "walk_metres_per_minute": 78,
+    "walk_multiplier": 1.5,
+    "mrt_gateway_weight": 4.0,
+    "road_multiplier": 1.3,
+    "depot_speed_kmh": 20,
+    "history_minutes": 30,
+    "rule_share": 0.7,
+    "rule_min_crowded": 2,
+    "rule_cooldown": 10,
+    "long_wait_minutes": 15,
+    "queue_threshold": 30,
+    "arm": "BASE0",
+    "examples": "",
+    "llm_endpoint": "",
+    "llm_model": "",
+    "llm_key_env": "NEXTBUS_API_KEY",
+    "llm_temperature": 0,
+    "llm_timeout": 60,
+    "objective_weights": {},
+    "objective_scales": {},
+    "frozen_calibration": "outputs/calibration_final.json",
+    "research_settings_confirmed": false
+  },
+  "chosen": {
+    "class_base_score": -9.1,
+    "class_distance": 3.8,
+    "class_size_eta": 0.8,
+    "class_destination_multipliers": {
+      "UTOWN": 1.6,
+      "BIZ1": 0.92,
+      "BIZ2": 0.8,
+      "HSS": 0.81,
+      "LT28": 1.24,
+      "EA": 1.11,
+      "S16": 0.83
+    },
+    "class_lead_minutes": 20,
+    "class_long_cutoff_minutes": 30
+  },
+  "evidence": {
+    "path": "outputs/diagnostics/spatial_lead20_combined38_august.json",
+    "sha256": "c37f882c715b4f6e634e1b43009537eaf2739ff232bca14a275286e9669df6cd",
+    "checks": {
+      "off_return:2026-08-17": {
+        "value": 0.9964231304232629,
+        "minimum": 0.95,
+        "maximum": null,
+        "passes": true,
+        "miss": 0.0,
+        "normalized_miss": 0.0
+      },
+      "on_return:2026-08-17": {
+        "value": 0.9973745329698072,
+        "minimum": 0.9,
+        "maximum": null,
+        "passes": true,
+        "miss": 0.0,
+        "normalized_miss": 0.0
+      },
+      "lunch": {
+        "value": 0.8526709078057154,
+        "minimum": 0.6,
+        "maximum": null,
+        "passes": true,
+        "miss": 0.0,
+        "normalized_miss": 0.0
+      },
+      "dinner": {
+        "value": 0.7209936382914268,
+        "minimum": 0.6,
+        "maximum": null,
+        "passes": true,
+        "miss": 0.0,
+        "normalized_miss": 0.0
+      },
+      "dining_plan": {
+        "value": 115.90166639168454,
+        "minimum": 60,
+        "maximum": null,
+        "passes": true,
+        "miss": 0.0,
+        "normalized_miss": 0.0
+      },
+      "dining_no_plan": {
+        "value": 113.2535137948985,
+        "minimum": 40,
+        "maximum": null,
+        "passes": true,
+        "miss": 0.0,
+        "normalized_miss": 0.0
+      },
+      "attendance_wape": {
+        "value": 0.4638494700740607,
+        "minimum": null,
+        "maximum": 0.2,
+        "passes": false,
+        "miss": 0.2638494700740607,
+        "normalized_miss": 1.3192473503703033
+      },
+      "shuttle_share": {
+        "value": 0.6825396825396826,
+        "minimum": 0.5,
+        "maximum": null,
+        "passes": true,
+        "miss": 0.0,
+        "normalized_miss": 0.0
+      }
+    },
+    "rmse": 45.35830810384439
+  }
+}

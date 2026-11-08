@@ -1,0 +1,18 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "nus-nextbus-simulator"
+version = "0.1.0"
+requires-python = ">=3.11"
+dependencies = ["numpy>=1.24", "openpyxl>=3.1"]
+
+[project.scripts]
+nextbus = "nextbus.cli:main"
+
+[tool.setuptools.package-data]
+nextbus = ["web/*.html", "web/*.js", "web/*.css"]
+
+[tool.setuptools.packages.find]
+include = ["nextbus*"]

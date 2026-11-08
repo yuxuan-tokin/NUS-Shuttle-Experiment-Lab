@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NextBus Research Simulator</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <header>
+    <div><h1>NextBus <span>Research simulator</span></h1><p>Kent Ridge · individual activities and shuttle dispatch</p></div>
+    <div class="time"><strong id="clock">06:00</strong><span id="run-status">Loading campus data</span></div>
+  </header>
+  <nav style="padding:12px 26px"><a href="/">Simulator</a> · <a href="/experiments">Experiments</a></nav>
+  <main>
+    <aside class="panel">
+      <h2>Run setup</h2>
+      <p class="notice">Development parameters · calibration pending</p>
+      <label for="day">Teaching day</label><select id="day"></select>
+      <label for="arm">Controller</label>
+      <select id="arm"><option>BASE0</option><option>BASE1</option><option>LLM-A</option><option>LLM-B</option><option>LLM-C</option><option>LLM-D</option></select>
+      <label for="population">Individuals</label><input id="population" type="number" min="1" max="30373" value="25000">
+      <label for="seed">Random seed</label><input id="seed" type="number" value="1">
+      <button id="reset" disabled>Create run</button>
+      <p id="boot-status" role="status">Loading the simulator. If this message remains, start run_simulator.ps1 and open http://127.0.0.1:8765 in a browser.</p>
+      <noscript>JavaScript must be enabled to use the simulator.</noscript>
+      <div class="rules"><b>Study availability</b><p id="study-rules"></p></div>
+      <details><summary>All settings</summary><textarea id="config" aria-label="Configuration JSON"></textarea><button id="apply" class="secondary">Apply edited JSON</button></details>
+      <details><summary>Input assumptions</summary><ul id="warnings"></ul></details>
+      <p id="error" role="status"></p>
+    </aside>
+    <section>
+      <div class="panel map">
+        <div class="toolbar">
+          <div><button id="play" disabled>Run</button><button id="step" class="secondary" disabled>Step 5 min</button><button id="export" class="secondary" disabled>Export</button></div>
+          <div class="switches"><label for="pace">Minutes per update <select id="pace"><option value="5">5</option><option value="15">15</option><option value="30">30</option></select></label><label><input type="checkbox" id="people" checked> Individuals</label><label><input type="checkbox" id="transit-only"> Bus riders / queues only</label><label><input type="checkbox" id="labels" checked> Place labels</label><button id="fit" class="secondary">Fit map</button></div>
+        </div>
+        <canvas id="map" aria-label="Geographic schematic of campus destinations, students and shuttle runs"></canvas>
+        <div id="map-hint">Select a destination to inspect its activities and candidate stops.</div>
+        <div class="legend">
+          <span><i style="background:#be6c22"></i>Dining</span><span><i style="background:#8056b0"></i>Study</span><span><i style="background:#307a71"></i>Residence</span><span><i style="background:#5079a8"></i>Class</span><span><i style="background:#c44356"></i>Shuttle queue</span>
+          <span class="fine">Geographic schematic · drag to pan · scroll to zoom</span>
+        </div>
+      </div>
+      <div class="cards" id="cards"></div><div class="panel"><h2>Hourly service</h2><div id="hourly" class="hourly"></div><small>Each point measures that hour only. Waiting is passenger-minutes; failure and utilization are percentages. Final partial hours are marked.</small></div>
+      <div class="panel inspect">
+        <div class="inspection-head"><h2 id="place-title">Activities and destinations</h2><span id="activity-totals"></span></div>
+        <div id="place-info">Dining visitors and passengers waiting for a shuttle use different colors. Activity clusters are slightly offset on screen for visibility.</div>
+        <details><summary>All buildings and destinations</summary><div class="table-scroll"><table><thead><tr><th>Name</th><th>Kind</th><th>Building</th><th>Coordinates</th></tr></thead><tbody id="buildings"></tbody></table></div></details><details><summary>Facility coordinates and access stops</summary><div class="table-scroll"><table><thead><tr><th>Facility</th><th>Building</th><th>Coordinates</th><th>Candidate stops</th></tr></thead><tbody id="facilities"></tbody></table></div></details>
+        <details><summary>All metrics</summary><pre id="metrics"></pre></details>
+        <details><summary>Controller input · permitted data</summary><pre id="observation"></pre></details>
+        <details><summary>Recent decisions and rule observations</summary><pre id="decisions"></pre></details>
+      </div>
+    </section>
+  </main>
+  <script src="./app.js" onerror="document.getElementById('boot-status').textContent='The interface script could not load. Start run_simulator.ps1 and open http://127.0.0.1:8765.'"></script>
+</body>
+</html>

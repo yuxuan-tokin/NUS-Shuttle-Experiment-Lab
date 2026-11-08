@@ -1,0 +1,2822 @@
+[
+  {
+    "period": "Morning",
+    "metrics": {
+      "total_wait": 33789.32172366543,
+      "capacity_failure_pct": 26.78290349921298,
+      "boarding_attempts": 8259,
+      "denied_attempts": 2212,
+      "overall_utilization_pct": 19.78286736938354,
+      "extra_utilization_pct": null,
+      "extra_buses": 0,
+      "extra_bus_hours": 0.0
+    },
+    "stops": [
+      {
+        "route": "A2",
+        "stop": "Prince George's Park Foyer",
+        "attempts": 2434,
+        "denied": 1617
+      },
+      {
+        "route": "A2",
+        "stop": "Opp Kent Ridge MRT",
+        "attempts": 547,
+        "denied": 183
+      },
+      {
+        "route": "D1",
+        "stop": "University Town",
+        "attempts": 889,
+        "denied": 148
+      },
+      {
+        "route": "R2",
+        "stop": "Prince George's Park",
+        "attempts": 372,
+        "denied": 116
+      },
+      {
+        "route": "A1",
+        "stop": "Kent Ridge MRT",
+        "attempts": 409,
+        "denied": 55
+      },
+      {
+        "route": "A2",
+        "stop": "S 17",
+        "attempts": 118,
+        "denied": 36
+      },
+      {
+        "route": "A1",
+        "stop": "LT 27",
+        "attempts": 45,
+        "denied": 18
+      },
+      {
+        "route": "A1",
+        "stop": "Opp University Health Centre",
+        "attempts": 18,
+        "denied": 12
+      },
+      {
+        "route": "A2",
+        "stop": "Opp University Hall",
+        "attempts": 73,
+        "denied": 10
+      },
+      {
+        "route": "D1",
+        "stop": "LT 13",
+        "attempts": 55,
+        "denied": 6
+      },
+      {
+        "route": "A1",
+        "stop": "University Hall",
+        "attempts": 11,
+        "denied": 4
+      },
+      {
+        "route": "A2",
+        "stop": "TCOMS",
+        "attempts": 5,
+        "denied": 3
+      },
+      {
+        "route": "D1",
+        "stop": "Yusof Ishak House",
+        "attempts": 23,
+        "denied": 2
+      },
+      {
+        "route": "R1",
+        "stop": "Yusof Ishak House",
+        "attempts": 27,
+        "denied": 2
+      },
+      {
+        "route": "K",
+        "stop": "Prince George's Park",
+        "attempts": 41,
+        "denied": 0
+      },
+      {
+        "route": "K",
+        "stop": "Kent Ridge MRT",
+        "attempts": 30,
+        "denied": 0
+      },
+      {
+        "route": "A1",
+        "stop": "Kent Ridge Bus Terminal",
+        "attempts": 37,
+        "denied": 0
+      },
+      {
+        "route": "A2",
+        "stop": "Kent Ridge Bus Terminal",
+        "attempts": 110,
+        "denied": 0
+      },
+      {
+        "route": "K",
+        "stop": "University Hall",
+        "attempts": 1,
+        "denied": 0
+      },
+      {
+        "route": "A1",
+        "stop": "LT 13",
+        "attempts": 44,
+        "denied": 0
+      },
+      {
+        "route": "D1",
+        "stop": "Opp Hon Sui Sen Memorial Library",
+        "attempts": 64,
+        "denied": 0
+      },
+      {
+        "route": "A2",
+        "stop": "Information Technology",
+        "attempts": 51,
+        "denied": 0
+      },
+      {
+        "route": "A2",
+        "stop": "Opp Yusof Ishak House",
+        "attempts": 32,
+        "denied": 0
+      },
+      {
+        "route": "D2",
+        "stop": "Prince George's Park",
+        "attempts": 261,
+        "denied": 0
+      },
+      {
+        "route": "A1",
+        "stop": "BIZ 2",
+        "attempts": 24,
+        "denied": 0
+      },
+      {
+        "route": "D1",
+        "stop": "Ventus",
+        "attempts": 99,
+        "denied": 0
+      },
+      {
+        "route": "A2",
+        "stop": "Museum",
+        "attempts": 102,
+        "denied": 0
+      },
+      {
+        "route": "D1",
+        "stop": "Information Technology",
+        "attempts": 73,
+        "denied": 0
+      },
+      {
+        "route": "D2",
+        "stop": "Kent Ridge MRT",
+        "attempts": 335,
+        "denied": 0
+      },
+      {
+        "route": "A2",
+        "stop": "University Health Centre",
+        "attempts": 55,
+        "denied": 0
+      },
+      {
+        "route": "D2",
+        "stop": "LT 27",
+        "attempts": 81,
+        "denied": 0
+      },
+      {
+        "route": "K",
+        "stop": "The Japanese Primary School",
+        "attempts": 21,
+        "denied": 0
+      },
+      {
+        "route": "A1",
+        "stop": "Opp TCOMS",
+        "attempts": 2,
+        "denied": 0
+      },
+      {
+        "route": "A1",
+        "stop": "AS 5",
+        "attempts": 24,
+        "denied": 0
+      },
+      {
+        "route": "D2",
+        "stop": "University Hall",
+        "attempts": 21,
+        "denied": 0
+      },
+      {
+        "route": "D1",
+        "stop": "Opp NUSS",
+        "attempts": 24,
+        "denied": 0
+      },
+      {
+        "route": "A1",
+        "stop": "Prince George's Park",
+        "attempts": 101,
+        "denied": 0
+      },
+      {
+        "route": "D1",
+        "stop": "Museum",
+        "attempts": 4,
+        "denied": 0
+      },
+      {
+        "route": "D2",
+        "stop": "Opp University Health Centre",
+        "attempts": 38,
+        "denied": 0
+      },
+      {
+        "route": "D1",
+        "stop": "Central Library",
+        "attempts": 6,
+        "denied": 0
+      },
+      {
+        "route": "D2",
+        "stop": "Museum",
+        "attempts": 2,
+        "denied": 0
+      },
+      {
+        "route": "K",
+        "stop": "University Health Centre",
+        "attempts": 1,
+        "denied": 0
+      },
+      {
+        "route": "D1",
+        "stop": "Opp Yusof Ishak House",
+        "attempts": 71,
+        "denied": 0
+      },
+      {
+        "route": "R1",
+        "stop": "University Town",
+        "attempts": 271,
+        "denied": 0
+      },
+      {
+        "route": "D2",
+        "stop": "University Town",
+        "attempts": 815,
+        "denied": 0
+      },
+      {
+        "route": "A1",
+        "stop": "Yusof Ishak House",
+        "attempts": 11,
+        "denied": 0
+      },
+      {
+        "route": "K",
+        "stop": "S 17",
+        "attempts": 3,
+        "denied": 0
+      },
+      {
+        "route": "D1",
+        "stop": "COM 3",
+        "attempts": 16,
+        "denied": 0
+      },
+      {
+        "route": "K",
+        "stop": "Opp Kent Ridge MRT",
+        "attempts": 3,
+        "denied": 0
+      },
+      {
+        "route": "A2",
+        "stop": "Opp Hon Sui Sen Memorial Library",
+        "attempts": 11,
+        "denied": 0
+      },
+      {
+        "route": "R1",
+        "stop": "LT 13",
+        "attempts": 16,
+        "denied": 0
+      },
+      {
+        "route": "D2",
+        "stop": "S 17",
+        "attempts": 15,
+        "denied": 0
+      },
+      {
+        "route": "D1",
+        "stop": "BIZ 2",
+        "attempts": 2,
+        "denied": 0
+      },
+      {
+        "route": "D2",
+        "stop": "COM 3",
+        "attempts": 30,
+        "denied": 0
+      },
+      {
+        "route": "D2",
+        "stop": "Opp TCOMS",
+        "attempts": 1,
+        "denied": 0
+      },
+      {
+        "route": "D2",
+        "stop": "Opp Kent Ridge MRT",
+        "attempts": 77,
+        "denied": 0
+      },
+      {
+        "route": "D2",
+        "stop": "Prince George's Park Foyer",
+        "attempts": 98,
+        "denied": 0
+      },
+      {
+        "route": "R2",
+        "stop": "Opp Hon Sui Sen Memorial Library",
+        "attempts": 16,
+        "denied": 0
+      },
+      {
+        "route": "R2",
+        "stop": "Opp NUSS",
+        "attempts": 12,
+        "denied": 0
+      },
+      {
+        "route": "R2",
+        "stop": "Ventus",
+        "attempts": 14,
+        "denied": 0
+      },
+      {
+        "route": "R2",
+        "stop": "Information Technology",
+        "attempts": 11,
+        "denied": 0
+      },
+      {
+        "route": "R1",
+        "stop": "Central Library",
+        "attempts": 3,
+        "denied": 0
+      },
+      {
+        "route": "R2",
+        "stop": "Opp Yusof Ishak House",
+        "attempts": 31,
+        "denied": 0
+      },
+      {
+        "route": "D2",
+        "stop": "Opp University Hall",
+        "attempts": 6,
+        "denied": 0
+      },
+      {
+        "route": "R1",
+        "stop": "AS 5",
+        "attempts": 4,
+        "denied": 0
+      },
+      {
+        "route": "R2",
+        "stop": "University Town",
+        "attempts": 1,
+        "denied": 0
+      },
+      {
+        "route": "R1",
+        "stop": "BIZ 2",
+        "attempts": 5,
+        "denied": 0
+      },
+      {
+        "route": "A1",
+        "stop": "Central Library",
+        "attempts": 1,
+        "denied": 0
+      },
+      {
+        "route": "D1",
+        "stop": "AS 5",
+        "attempts": 1,
+        "denied": 0
+      },
+      {
+        "route": "K",
+        "stop": "Opp University Hall",
+        "attempts": 2,
+        "denied": 0
+      },
+      {
+        "route": "K",
+        "stop": "LT 27",
+        "attempts": 2,
+        "denied": 0
+      }
+    ],
+    "audit": [
+      {
+        "time": 420.0,
+        "routes": [
+          {
+            "route": "A1",
+            "crowded": 0,
+            "total": 0,
+            "share": null,
+            "pending": false
+          },
+          {
+            "route": "A2",
+            "crowded": 0,
+            "total": 0,
+            "share": null,
+            "pending": false
+          },
+          {
+            "route": "D1",
+            "crowded": 0,
+            "total": 0,
+            "share": null,
+            "pending": false
+          },
+          {
+            "route": "D2",
+            "crowded": 0,
+            "total": 0,
+            "share": null,
+            "pending": false
+          },
+          {
+            "route": "K",
+            "crowded": 0,
+            "total": 0,
+            "share": null,
+            "pending": false
+          },
+          {
+            "route": "R1",
+            "crowded": 0,
+            "total": 0,
+            "share": null,
+            "pending": false
+          },
+          {
+            "route": "R2",
+            "crowded": 0,
+            "total": 0,
+            "share": null,
+            "pending": false
+          }
+        ],
+        "action": {
+          "routes": []
+        }
+      },
+      {
+        "time": 435.0,
+        "routes": [
+          {
+            "route": "A1",
+            "crowded": 0,
+            "total": 0,
+            "share": null,
+            "pending": false
+          },
+          {
+            "route": "A2",
+            "crowded": 0,
+            "total": 0,
+            "share": null,
+            "pending": false
+          },
+          {
+            "route": "D1",
+            "crowded": 0,
+            "total": 0,
+            "share": null,
+            "pending": false
+          },
+          {
+            "route": "D2",
+            "crowded": 0,
+            "total": 0,
+            "share": null,
+            "pending": false
+          },
+          {
+            "route": "K",
+            "crowded": 0,
+            "total": 0,
+            "share": null,
+            "pending": false
+          },
+          {
+            "route": "R1",
+            "crowded": 0,
+            "total": 0,
+            "share": null,
+            "pending": false
+          },
+          {
+            "route": "R2",
+            "crowded": 0,
+            "total": 0,
+            "share": null,
+            "pending": false
+          }
+        ],
+        "action": {
+          "routes": []
+        }
+      },
+      {
+        "time": 450.0,
+        "routes": [
+          {
+            "route": "A1",
+            "crowded": 0,
+            "total": 1,
+            "share": 0.0,
+            "pending": false
+          },
+          {
+            "route": "A2",
+            "crowded": 0,
+            "total": 1,
+            "share": 0.0,
+            "pending": false
+          },
+          {
+            "route": "D1",
+            "crowded": 0,
+            "total": 1,
+            "share": 0.0,
+            "pending": false
+          },
+          {
+            "route": "D2",
+            "crowded": 0,
+            "total": 1,
+            "share": 0.0,
+            "pending": false
+          },
+          {
+            "route": "K",
+            "crowded": 0,
+            "total": 1,
+            "share": 0.0,
+            "pending": false
+          },
+          {
+            "route": "R1",
+            "crowded": 0,
+            "total": 0,
+            "share": null,
+            "pending": false
+          },
+          {
+            "route": "R2",
+            "crowded": 0,
+            "total": 0,
+            "share": null,
+            "pending": false
+          }
+        ],
+        "action": {
+          "routes": []
+        }
+      },
+      {
+        "time": 465.0,
+        "routes": [
+          {
+            "route": "A1",
+            "crowded": 0,
+            "total": 2,
+            "share": 0.0,
+            "pending": false
+          },
+          {
+            "route": "A2",
+            "crowded": 0,
+            "total": 3,
+            "share": 0.0,
+            "pending": false
+          },
+          {
+            "route": "D1",
+            "crowded": 0,
+            "total": 2,
+            "share": 0.0,
+            "pending": false
+          },
+          {
+            "route": "D2",
+            "crowded": 0,
+            "total": 3,
+            "share": 0.0,
+            "pending": false
+          },
+          {
+            "route": "K",
+            "crowded": 0,
+            "total": 1,
+            "share": 0.0,
+            "pending": false
+          },
+          {
+            "route": "R1",
+            "crowded": 0,
+            "total": 0,
+            "share": null,
+            "pending": false
+          },
+          {
+            "route": "R2",
+            "crowded": 0,
+            "total": 0,
+            "share": null,
+            "pending": false
+          }
+        ],
+        "action": {
+          "routes": []
+        }
+      },
+      {
+        "time": 480.0,
+        "routes": [
+          {
+            "route": "A1",
+            "crowded": 1,
+            "total": 4,
+            "share": 0.25,
+            "pending": false
+          },
+          {
+            "route": "A2",
+            "crowded": 1,
+            "total": 5,
+            "share": 0.2,
+            "pending": false
+          },
+          {
+            "route": "D1",
+            "crowded": 1,
+            "total": 4,
+            "share": 0.25,
+            "pending": false
+          },
+          {
+            "route": "D2",
+            "crowded": 2,
+            "total": 6,
+            "share": 0.3333333333333333,
+            "pending": false
+          },
+          {
+            "route": "K",
+            "crowded": 0,
+            "total": 2,
+            "share": 0.0,
+            "pending": false
+          },
+          {
+            "route": "R1",
+            "crowded": 0,
+            "total": 1,
+            "share": 0.0,
+            "pending": false
+          },
+          {
+            "route": "R2",
+            "crowded": 0,
+            "total": 0,
+            "share": null,
+            "pending": false
+          }
+        ],
+        "action": {
+          "routes": []
+        }
+      },
+      {
+        "time": 495.0,
+        "routes": [
+          {
+            "route": "A1",
+            "crowded": 2,
+            "total": 6,
+            "share": 0.3333333333333333,
+            "pending": false
+          },
+          {
+            "route": "A2",
+            "crowded": 2,
+            "total": 7,
+            "share": 0.2857142857142857,
+            "pending": false
+          },
+          {
+            "route": "D1",
+            "crowded": 1,
+            "total": 6,
+            "share": 0.16666666666666666,
+            "pending": false
+          },
+          {
+            "route": "D2",
+            "crowded": 2,
+            "total": 8,
+            "share": 0.25,
+            "pending": false
+          },
+          {
+            "route": "K",
+            "crowded": 0,
+            "total": 2,
+            "share": 0.0,
+            "pending": false
+          },
+          {
+            "route": "R1",
+            "crowded": 0,
+            "total": 2,
+            "share": 0.0,
+            "pending": false
+          },
+          {
+            "route": "R2",
+            "crowded": 0,
+            "total": 0,
+            "share": null,
+            "pending": false
+          }
+        ],
+        "action": {
+          "routes": []
+        }
+      },
+      {
+        "time": 510.0,
+        "routes": [
+          {
+            "route": "A1",
+            "crowded": 1,
+            "total": 7,
+            "share": 0.14285714285714285,
+            "pending": false
+          },
+          {
+            "route": "A2",
+            "crowded": 2,
+            "total": 8,
+            "share": 0.25,
+            "pending": false
+          },
+          {
+            "route": "D1",
+            "crowded": 0,
+            "total": 6,
+            "share": 0.0,
+            "pending": false
+          },
+          {
+            "route": "D2",
+            "crowded": 1,
+            "total": 11,
+            "share": 0.09090909090909091,
+            "pending": false
+          },
+          {
+            "route": "K",
+            "crowded": 0,
+            "total": 2,
+            "share": 0.0,
+            "pending": false
+          },
+          {
+            "route": "R1",
+            "crowded": 0,
+            "total": 2,
+            "share": 0.0,
+            "pending": false
+          },
+          {
+            "route": "R2",
+            "crowded": 0,
+            "total": 0,
+            "share": null,
+            "pending": false
+          }
+        ],
+        "action": {
+          "routes": []
+        }
+      },
+      {
+        "time": 525.0,
+        "routes": [
+          {
+            "route": "A1",
+            "crowded": 0,
+            "total": 9,
+            "share": 0.0,
+            "pending": false
+          },
+          {
+            "route": "A2",
+            "crowded": 3,
+            "total": 9,
+            "share": 0.3333333333333333,
+            "pending": false
+          },
+          {
+            "route": "D1",
+            "crowded": 1,
+            "total": 7,
+            "share": 0.14285714285714285,
+            "pending": false
+          },
+          {
+            "route": "D2",
+            "crowded": 1,
+            "total": 13,
+            "share": 0.07692307692307693,
+            "pending": false
+          },
+          {
+            "route": "K",
+            "crowded": 0,
+            "total": 2,
+            "share": 0.0,
+            "pending": false
+          },
+          {
+            "route": "R1",
+            "crowded": 1,
+            "total": 2,
+            "share": 0.5,
+            "pending": false
+          },
+          {
+            "route": "R2",
+            "crowded": 0,
+            "total": 1,
+            "share": 0.0,
+            "pending": false
+          }
+        ],
+        "action": {
+          "routes": []
+        }
+      },
+      {
+        "time": 540.0,
+        "routes": [
+          {
+            "route": "A1",
+            "crowded": 0,
+            "total": 10,
+            "share": 0.0,
+            "pending": false
+          },
+          {
+            "route": "A2",
+            "crowded": 3,
+            "total": 9,
+            "share": 0.3333333333333333,
+            "pending": false
+          },
+          {
+            "route": "D1",
+            "crowded": 3,
+            "total": 8,
+            "share": 0.375,
+            "pending": false
+          },
+          {
+            "route": "D2",
+            "crowded": 0,
+            "total": 14,
+            "share": 0.0,
+            "pending": false
+          },
+          {
+            "route": "K",
+            "crowded": 0,
+            "total": 2,
+            "share": 0.0,
+            "pending": false
+          },
+          {
+            "route": "R1",
+            "crowded": 1,
+            "total": 3,
+            "share": 0.3333333333333333,
+            "pending": false
+          },
+          {
+            "route": "R2",
+            "crowded": 0,
+            "total": 2,
+            "share": 0.0,
+            "pending": false
+          }
+        ],
+        "action": {
+          "routes": []
+        }
+      },
+      {
+        "time": 555.0,
+        "routes": [
+          {
+            "route": "A1",
+            "crowded": 0,
+            "total": 11,
+            "share": 0.0,
+            "pending": false
+          },
+          {
+            "route": "A2",
+            "crowded": 2,
+            "total": 10,
+            "share": 0.2,
+            "pending": false
+          },
+          {
+            "route": "D1",
+            "crowded": 3,
+            "total": 9,
+            "share": 0.3333333333333333,
+            "pending": false
+          },
+          {
+            "route": "D2",
+            "crowded": 0,
+            "total": 13,
+            "share": 0.0,
+            "pending": false
+          },
+          {
+            "route": "K",
+            "crowded": 0,
+            "total": 2,
+            "share": 0.0,
+            "pending": false
+          },
+          {
+            "route": "R1",
+            "crowded": 1,
+            "total": 3,
+            "share": 0.3333333333333333,
+            "pending": false
+          },
+          {
+            "route": "R2",
+            "crowded": 1,
+            "total": 3,
+            "share": 0.3333333333333333,
+            "pending": false
+          }
+        ],
+        "action": {
+          "routes": []
+        }
+      }
+    ],
+    "denial_events": [
+      {
+        "time": 454.0114710281752,
+        "route": "A2",
+        "stop": 20,
+        "stop_name": "S 17",
+        "run_id": "A2-0",
+        "load_before": 67,
+        "attempts": 47,
+        "denied": 26
+      },
+      {
+        "time": 454.84273146102385,
+        "route": "A1",
+        "stop": 0,
+        "stop_name": "Kent Ridge MRT",
+        "run_id": "A1-0",
+        "load_before": 0,
+        "attempts": 143,
+        "denied": 55
+      },
+      {
+        "time": 458.0,
+        "route": "A2",
+        "stop": 19,
+        "stop_name": "Opp University Hall",
+        "run_id": "A2-1",
+        "load_before": 88,
+        "attempts": 10,
+        "denied": 10
+      },
+      {
+        "time": 459.0114710281752,
+        "route": "A2",
+        "stop": 21,
+        "stop_name": "Opp Kent Ridge MRT",
+        "run_id": "A2-0",
+        "load_before": 30,
+        "attempts": 157,
+        "denied": 99
+      },
+      {
+        "time": 459.84273146102385,
+        "route": "A1",
+        "stop": 1,
+        "stop_name": "LT 27",
+        "run_id": "A1-0",
+        "load_before": 88,
+        "attempts": 10,
+        "denied": 10
+      },
+      {
+        "time": 461.6350713880012,
+        "route": "A2",
+        "stop": 20,
+        "stop_name": "S 17",
+        "run_id": "A2-1",
+        "load_before": 48,
+        "attempts": 50,
+        "denied": 10
+      },
+      {
+        "time": 462.84273146102385,
+        "route": "A1",
+        "stop": 2,
+        "stop_name": "University Hall",
+        "run_id": "A1-0",
+        "load_before": 88,
+        "attempts": 2,
+        "denied": 2
+      },
+      {
+        "time": 466.6350713880012,
+        "route": "A2",
+        "stop": 21,
+        "stop_name": "Opp Kent Ridge MRT",
+        "run_id": "A2-1",
+        "load_before": 37,
+        "attempts": 124,
+        "denied": 73
+      },
+      {
+        "time": 467.62786621282726,
+        "route": "A1",
+        "stop": 3,
+        "stop_name": "Opp University Health Centre",
+        "run_id": "A1-0",
+        "load_before": 88,
+        "attempts": 6,
+        "denied": 6
+      },
+      {
+        "time": 471.4650071091853,
+        "route": "A1",
+        "stop": 1,
+        "stop_name": "LT 27",
+        "run_id": "A1-1",
+        "load_before": 81,
+        "attempts": 15,
+        "denied": 8
+      },
+      {
+        "time": 474.3723952499887,
+        "route": "A2",
+        "stop": 21,
+        "stop_name": "Opp Kent Ridge MRT",
+        "run_id": "A2-2",
+        "load_before": 23,
+        "attempts": 76,
+        "denied": 11
+      },
+      {
+        "time": 474.82903215387313,
+        "route": "A1",
+        "stop": 2,
+        "stop_name": "University Hall",
+        "run_id": "A1-1",
+        "load_before": 88,
+        "attempts": 2,
+        "denied": 2
+      },
+      {
+        "time": 478.82903215387313,
+        "route": "A1",
+        "stop": 3,
+        "stop_name": "Opp University Health Centre",
+        "run_id": "A1-1",
+        "load_before": 88,
+        "attempts": 6,
+        "denied": 6
+      },
+      {
+        "time": 493.55141164941824,
+        "route": "A2",
+        "stop": 22,
+        "stop_name": "Prince George's Park Foyer",
+        "run_id": "A2-4",
+        "load_before": 5,
+        "attempts": 116,
+        "denied": 33
+      },
+      {
+        "time": 498.925666871835,
+        "route": "A2",
+        "stop": 28,
+        "stop_name": "TCOMS",
+        "run_id": "A2-4",
+        "load_before": 88,
+        "attempts": 1,
+        "denied": 1
+      },
+      {
+        "time": 500.0,
+        "route": "R2",
+        "stop": 13,
+        "stop_name": "Prince George's Park",
+        "run_id": "R2-0",
+        "load_before": 0,
+        "attempts": 178,
+        "denied": 90
+      },
+      {
+        "time": 502.81231225782926,
+        "route": "A2",
+        "stop": 22,
+        "stop_name": "Prince George's Park Foyer",
+        "run_id": "A2-5",
+        "load_before": 24,
+        "attempts": 163,
+        "denied": 99
+      },
+      {
+        "time": 504.2090169455121,
+        "route": "D1",
+        "stop": 4,
+        "stop_name": "University Town",
+        "run_id": "D1-5",
+        "load_before": 0,
+        "attempts": 90,
+        "denied": 2
+      },
+      {
+        "time": 507.81231225782926,
+        "route": "A2",
+        "stop": 28,
+        "stop_name": "TCOMS",
+        "run_id": "A2-5",
+        "load_before": 88,
+        "attempts": 1,
+        "denied": 1
+      },
+      {
+        "time": 509.91838081418496,
+        "route": "A2",
+        "stop": 22,
+        "stop_name": "Prince George's Park Foyer",
+        "run_id": "A2-6",
+        "load_before": 20,
+        "attempts": 243,
+        "denied": 175
+      },
+      {
+        "time": 512.2209641388704,
+        "route": "R1",
+        "stop": 8,
+        "stop_name": "Yusof Ishak House",
+        "run_id": "R1-2",
+        "load_before": 77,
+        "attempts": 13,
+        "denied": 2
+      },
+      {
+        "time": 514.9911875614448,
+        "route": "A2",
+        "stop": 28,
+        "stop_name": "TCOMS",
+        "run_id": "A2-6",
+        "load_before": 88,
+        "attempts": 1,
+        "denied": 1
+      },
+      {
+        "time": 515.3232430318983,
+        "route": "D1",
+        "stop": 4,
+        "stop_name": "University Town",
+        "run_id": "D1-7",
+        "load_before": 0,
+        "attempts": 170,
+        "denied": 82
+      },
+      {
+        "time": 516.2528038403163,
+        "route": "A2",
+        "stop": 22,
+        "stop_name": "Prince George's Park Foyer",
+        "run_id": "A2-7",
+        "load_before": 32,
+        "attempts": 369,
+        "denied": 313
+      },
+      {
+        "time": 520.0,
+        "route": "R2",
+        "stop": 13,
+        "stop_name": "Prince George's Park",
+        "run_id": "R2-1",
+        "load_before": 0,
+        "attempts": 114,
+        "denied": 26
+      },
+      {
+        "time": 523.8093665542436,
+        "route": "D1",
+        "stop": 4,
+        "stop_name": "University Town",
+        "run_id": "D1-8",
+        "load_before": 0,
+        "attempts": 137,
+        "denied": 49
+      },
+      {
+        "time": 524.5602972380834,
+        "route": "A2",
+        "stop": 22,
+        "stop_name": "Prince George's Park Foyer",
+        "run_id": "A2-8",
+        "load_before": 13,
+        "attempts": 371,
+        "denied": 296
+      },
+      {
+        "time": 527.7594873346936,
+        "route": "D1",
+        "stop": 10,
+        "stop_name": "LT 13",
+        "run_id": "D1-7",
+        "load_before": 78,
+        "attempts": 16,
+        "denied": 6
+      },
+      {
+        "time": 529.9722282290918,
+        "route": "A2",
+        "stop": 22,
+        "stop_name": "Prince George's Park Foyer",
+        "run_id": "A2-9",
+        "load_before": 10,
+        "attempts": 339,
+        "denied": 261
+      },
+      {
+        "time": 532.1294475974595,
+        "route": "D1",
+        "stop": 4,
+        "stop_name": "University Town",
+        "run_id": "D1-9",
+        "load_before": 0,
+        "attempts": 103,
+        "denied": 15
+      },
+      {
+        "time": 535.7073748794613,
+        "route": "A2",
+        "stop": 22,
+        "stop_name": "Prince George's Park Foyer",
+        "run_id": "A2-10",
+        "load_before": 18,
+        "attempts": 286,
+        "denied": 216
+      },
+      {
+        "time": 537.1294475974595,
+        "route": "D1",
+        "stop": 8,
+        "stop_name": "Yusof Ishak House",
+        "run_id": "D1-9",
+        "load_before": 85,
+        "attempts": 5,
+        "denied": 2
+      },
+      {
+        "time": 544.2901508040492,
+        "route": "A2",
+        "stop": 22,
+        "stop_name": "Prince George's Park Foyer",
+        "run_id": "A2-11",
+        "load_before": 6,
+        "attempts": 230,
+        "denied": 148
+      },
+      {
+        "time": 550.6351057747994,
+        "route": "A2",
+        "stop": 22,
+        "stop_name": "Prince George's Park Foyer",
+        "run_id": "A2-12",
+        "load_before": 12,
+        "attempts": 152,
+        "denied": 76
+      }
+    ]
+  },
+  {
+    "period": "Evening",
+    "metrics": {
+      "total_wait": 34176.06291366156,
+      "capacity_failure_pct": 19.4841628959276,
+      "boarding_attempts": 11050,
+      "denied_attempts": 2153,
+      "overall_utilization_pct": 18.601902864896726,
+      "extra_utilization_pct": null,
+      "extra_buses": 0,
+      "extra_bus_hours": 0.0
+    },
+    "stops": [
+      {
+        "route": "D1",
+        "stop": "Ventus",
+        "attempts": 1013,
+        "denied": 379
+      },
+      {
+        "route": "D1",
+        "stop": "Opp Yusof Ishak House",
+        "attempts": 486,
+        "denied": 351
+      },
+      {
+        "route": "A2",
+        "stop": "Kent Ridge Bus Terminal",
+        "attempts": 628,
+        "denied": 311
+      },
+      {
+        "route": "A1",
+        "stop": "BIZ 2",
+        "attempts": 726,
+        "denied": 268
+      },
+      {
+        "route": "A2",
+        "stop": "S 17",
+        "attempts": 726,
+        "denied": 243
+      },
+      {
+        "route": "D1",
+        "stop": "Information Technology",
+        "attempts": 492,
+        "denied": 221
+      },
+      {
+        "route": "A1",
+        "stop": "LT 13",
+        "attempts": 491,
+        "denied": 106
+      },
+      {
+        "route": "D2",
+        "stop": "Kent Ridge MRT",
+        "attempts": 414,
+        "denied": 62
+      },
+      {
+        "route": "R2",
+        "stop": "Ventus",
+        "attempts": 147,
+        "denied": 43
+      },
+      {
+        "route": "D2",
+        "stop": "Prince George's Park",
+        "attempts": 295,
+        "denied": 30
+      },
+      {
+        "route": "A1",
+        "stop": "Prince George's Park",
+        "attempts": 136,
+        "denied": 27
+      },
+      {
+        "route": "R2",
+        "stop": "Opp Yusof Ishak House",
+        "attempts": 76,
+        "denied": 26
+      },
+      {
+        "route": "A1",
+        "stop": "Opp TCOMS",
+        "attempts": 58,
+        "denied": 24
+      },
+      {
+        "route": "A2",
+        "stop": "Opp Yusof Ishak House",
+        "attempts": 223,
+        "denied": 21
+      },
+      {
+        "route": "A2",
+        "stop": "Information Technology",
+        "attempts": 291,
+        "denied": 16
+      },
+      {
+        "route": "A2",
+        "stop": "Opp Kent Ridge MRT",
+        "attempts": 315,
+        "denied": 12
+      },
+      {
+        "route": "D2",
+        "stop": "University Town",
+        "attempts": 448,
+        "denied": 7
+      },
+      {
+        "route": "R1",
+        "stop": "BIZ 2",
+        "attempts": 120,
+        "denied": 6
+      },
+      {
+        "route": "R2",
+        "stop": "Prince George's Park",
+        "attempts": 125,
+        "denied": 0
+      },
+      {
+        "route": "D2",
+        "stop": "LT 27",
+        "attempts": 328,
+        "denied": 0
+      },
+      {
+        "route": "K",
+        "stop": "Museum",
+        "attempts": 6,
+        "denied": 0
+      },
+      {
+        "route": "A1",
+        "stop": "LT 27",
+        "attempts": 334,
+        "denied": 0
+      },
+      {
+        "route": "R1",
+        "stop": "AS 5",
+        "attempts": 17,
+        "denied": 0
+      },
+      {
+        "route": "A1",
+        "stop": "Yusof Ishak House",
+        "attempts": 81,
+        "denied": 0
+      },
+      {
+        "route": "D2",
+        "stop": "University Health Centre",
+        "attempts": 8,
+        "denied": 0
+      },
+      {
+        "route": "D1",
+        "stop": "University Town",
+        "attempts": 310,
+        "denied": 0
+      },
+      {
+        "route": "D1",
+        "stop": "Opp NUSS",
+        "attempts": 32,
+        "denied": 0
+      },
+      {
+        "route": "D1",
+        "stop": "AS 5",
+        "attempts": 2,
+        "denied": 0
+      },
+      {
+        "route": "D2",
+        "stop": "University Hall",
+        "attempts": 208,
+        "denied": 0
+      },
+      {
+        "route": "D2",
+        "stop": "Opp University Hall",
+        "attempts": 65,
+        "denied": 0
+      },
+      {
+        "route": "A1",
+        "stop": "University Hall",
+        "attempts": 125,
+        "denied": 0
+      },
+      {
+        "route": "A2",
+        "stop": "Prince George's Park Foyer",
+        "attempts": 129,
+        "denied": 0
+      },
+      {
+        "route": "R2",
+        "stop": "Opp Hon Sui Sen Memorial Library",
+        "attempts": 7,
+        "denied": 0
+      },
+      {
+        "route": "A1",
+        "stop": "Kent Ridge MRT",
+        "attempts": 198,
+        "denied": 0
+      },
+      {
+        "route": "A1",
+        "stop": "Central Library",
+        "attempts": 123,
+        "denied": 0
+      },
+      {
+        "route": "K",
+        "stop": "Opp University Hall",
+        "attempts": 9,
+        "denied": 0
+      },
+      {
+        "route": "D1",
+        "stop": "Opp Hon Sui Sen Memorial Library",
+        "attempts": 247,
+        "denied": 0
+      },
+      {
+        "route": "A1",
+        "stop": "AS 5",
+        "attempts": 52,
+        "denied": 0
+      },
+      {
+        "route": "D1",
+        "stop": "LT 13",
+        "attempts": 8,
+        "denied": 0
+      },
+      {
+        "route": "R1",
+        "stop": "University Town",
+        "attempts": 97,
+        "denied": 0
+      },
+      {
+        "route": "D2",
+        "stop": "S 17",
+        "attempts": 245,
+        "denied": 0
+      },
+      {
+        "route": "R2",
+        "stop": "Opp NUSS",
+        "attempts": 24,
+        "denied": 0
+      },
+      {
+        "route": "D2",
+        "stop": "COM 3",
+        "attempts": 131,
+        "denied": 0
+      },
+      {
+        "route": "K",
+        "stop": "Kent Ridge MRT",
+        "attempts": 5,
+        "denied": 0
+      },
+      {
+        "route": "D1",
+        "stop": "Museum",
+        "attempts": 7,
+        "denied": 0
+      },
+      {
+        "route": "D2",
+        "stop": "Opp TCOMS",
+        "attempts": 36,
+        "denied": 0
+      },
+      {
+        "route": "D1",
+        "stop": "COM 3",
+        "attempts": 18,
+        "denied": 0
+      },
+      {
+        "route": "D2",
+        "stop": "Museum",
+        "attempts": 11,
+        "denied": 0
+      },
+      {
+        "route": "A2",
+        "stop": "Museum",
+        "attempts": 44,
+        "denied": 0
+      },
+      {
+        "route": "R1",
+        "stop": "Yusof Ishak House",
+        "attempts": 36,
+        "denied": 0
+      },
+      {
+        "route": "K",
+        "stop": "LT 27",
+        "attempts": 7,
+        "denied": 0
+      },
+      {
+        "route": "R2",
+        "stop": "Information Technology",
+        "attempts": 103,
+        "denied": 0
+      },
+      {
+        "route": "R1",
+        "stop": "Central Library",
+        "attempts": 58,
+        "denied": 0
+      },
+      {
+        "route": "A2",
+        "stop": "Opp University Hall",
+        "attempts": 83,
+        "denied": 0
+      },
+      {
+        "route": "R1",
+        "stop": "LT 13",
+        "attempts": 102,
+        "denied": 0
+      },
+      {
+        "route": "D2",
+        "stop": "Opp University Health Centre",
+        "attempts": 14,
+        "denied": 0
+      },
+      {
+        "route": "K",
+        "stop": "Central Library",
+        "attempts": 8,
+        "denied": 0
+      },
+      {
+        "route": "D2",
+        "stop": "Opp Kent Ridge MRT",
+        "attempts": 50,
+        "denied": 0
+      },
+      {
+        "route": "K",
+        "stop": "Opp SDE 3",
+        "attempts": 8,
+        "denied": 0
+      },
+      {
+        "route": "D1",
+        "stop": "Central Library",
+        "attempts": 122,
+        "denied": 0
+      },
+      {
+        "route": "A2",
+        "stop": "University Health Centre",
+        "attempts": 9,
+        "denied": 0
+      },
+      {
+        "route": "K",
+        "stop": "The Japanese Primary School",
+        "attempts": 12,
+        "denied": 0
+      },
+      {
+        "route": "D1",
+        "stop": "Yusof Ishak House",
+        "attempts": 70,
+        "denied": 0
+      },
+      {
+        "route": "A2",
+        "stop": "TCOMS",
+        "attempts": 7,
+        "denied": 0
+      },
+      {
+        "route": "A2",
+        "stop": "Ventus",
+        "attempts": 1,
+        "denied": 0
+      },
+      {
+        "route": "A2",
+        "stop": "Opp Hon Sui Sen Memorial Library",
+        "attempts": 121,
+        "denied": 0
+      },
+      {
+        "route": "A2",
+        "stop": "Opp NUSS",
+        "attempts": 1,
+        "denied": 0
+      },
+      {
+        "route": "K",
+        "stop": "S 17",
+        "attempts": 30,
+        "denied": 0
+      },
+      {
+        "route": "A1",
+        "stop": "Opp University Health Centre",
+        "attempts": 11,
+        "denied": 0
+      },
+      {
+        "route": "D2",
+        "stop": "Prince George's Park Foyer",
+        "attempts": 17,
+        "denied": 0
+      },
+      {
+        "route": "A1",
+        "stop": "Kent Ridge Bus Terminal",
+        "attempts": 6,
+        "denied": 0
+      },
+      {
+        "route": "K",
+        "stop": "University Hall",
+        "attempts": 7,
+        "denied": 0
+      },
+      {
+        "route": "K",
+        "stop": "Opp Kent Ridge MRT",
+        "attempts": 34,
+        "denied": 0
+      },
+      {
+        "route": "D1",
+        "stop": "BIZ 2",
+        "attempts": 3,
+        "denied": 0
+      },
+      {
+        "route": "K",
+        "stop": "Prince George's Park",
+        "attempts": 23,
+        "denied": 0
+      },
+      {
+        "route": "K",
+        "stop": "University Health Centre",
+        "attempts": 1,
+        "denied": 0
+      }
+    ],
+    "audit": [
+      {
+        "time": 1020.0,
+        "routes": [
+          {
+            "route": "A1",
+            "crowded": 0,
+            "total": 6,
+            "share": 0.0,
+            "pending": false
+          },
+          {
+            "route": "A2",
+            "crowded": 0,
+            "total": 7,
+            "share": 0.0,
+            "pending": false
+          },
+          {
+            "route": "D1",
+            "crowded": 0,
+            "total": 8,
+            "share": 0.0,
+            "pending": false
+          },
+          {
+            "route": "D2",
+            "crowded": 0,
+            "total": 10,
+            "share": 0.0,
+            "pending": false
+          },
+          {
+            "route": "K",
+            "crowded": 0,
+            "total": 2,
+            "share": 0.0,
+            "pending": false
+          },
+          {
+            "route": "R1",
+            "crowded": 0,
+            "total": 3,
+            "share": 0.0,
+            "pending": false
+          },
+          {
+            "route": "R2",
+            "crowded": 0,
+            "total": 3,
+            "share": 0.0,
+            "pending": false
+          }
+        ],
+        "action": {
+          "routes": []
+        }
+      },
+      {
+        "time": 1035.0,
+        "routes": [
+          {
+            "route": "A1",
+            "crowded": 0,
+            "total": 6,
+            "share": 0.0,
+            "pending": false
+          },
+          {
+            "route": "A2",
+            "crowded": 0,
+            "total": 6,
+            "share": 0.0,
+            "pending": false
+          },
+          {
+            "route": "D1",
+            "crowded": 0,
+            "total": 8,
+            "share": 0.0,
+            "pending": false
+          },
+          {
+            "route": "D2",
+            "crowded": 0,
+            "total": 9,
+            "share": 0.0,
+            "pending": false
+          },
+          {
+            "route": "K",
+            "crowded": 0,
+            "total": 1,
+            "share": 0.0,
+            "pending": false
+          },
+          {
+            "route": "R1",
+            "crowded": 0,
+            "total": 3,
+            "share": 0.0,
+            "pending": false
+          },
+          {
+            "route": "R2",
+            "crowded": 0,
+            "total": 3,
+            "share": 0.0,
+            "pending": false
+          }
+        ],
+        "action": {
+          "routes": []
+        }
+      },
+      {
+        "time": 1050.0,
+        "routes": [
+          {
+            "route": "A1",
+            "crowded": 0,
+            "total": 7,
+            "share": 0.0,
+            "pending": false
+          },
+          {
+            "route": "A2",
+            "crowded": 0,
+            "total": 8,
+            "share": 0.0,
+            "pending": false
+          },
+          {
+            "route": "D1",
+            "crowded": 0,
+            "total": 8,
+            "share": 0.0,
+            "pending": false
+          },
+          {
+            "route": "D2",
+            "crowded": 0,
+            "total": 9,
+            "share": 0.0,
+            "pending": false
+          },
+          {
+            "route": "K",
+            "crowded": 0,
+            "total": 2,
+            "share": 0.0,
+            "pending": false
+          },
+          {
+            "route": "R1",
+            "crowded": 0,
+            "total": 2,
+            "share": 0.0,
+            "pending": false
+          },
+          {
+            "route": "R2",
+            "crowded": 0,
+            "total": 2,
+            "share": 0.0,
+            "pending": false
+          }
+        ],
+        "action": {
+          "routes": []
+        }
+      },
+      {
+        "time": 1065.0,
+        "routes": [
+          {
+            "route": "A1",
+            "crowded": 0,
+            "total": 7,
+            "share": 0.0,
+            "pending": false
+          },
+          {
+            "route": "A2",
+            "crowded": 0,
+            "total": 8,
+            "share": 0.0,
+            "pending": false
+          },
+          {
+            "route": "D1",
+            "crowded": 0,
+            "total": 8,
+            "share": 0.0,
+            "pending": false
+          },
+          {
+            "route": "D2",
+            "crowded": 0,
+            "total": 10,
+            "share": 0.0,
+            "pending": false
+          },
+          {
+            "route": "K",
+            "crowded": 0,
+            "total": 2,
+            "share": 0.0,
+            "pending": false
+          },
+          {
+            "route": "R1",
+            "crowded": 0,
+            "total": 2,
+            "share": 0.0,
+            "pending": false
+          },
+          {
+            "route": "R2",
+            "crowded": 0,
+            "total": 2,
+            "share": 0.0,
+            "pending": false
+          }
+        ],
+        "action": {
+          "routes": []
+        }
+      },
+      {
+        "time": 1080.0,
+        "routes": [
+          {
+            "route": "A1",
+            "crowded": 0,
+            "total": 7,
+            "share": 0.0,
+            "pending": false
+          },
+          {
+            "route": "A2",
+            "crowded": 0,
+            "total": 8,
+            "share": 0.0,
+            "pending": false
+          },
+          {
+            "route": "D1",
+            "crowded": 0,
+            "total": 8,
+            "share": 0.0,
+            "pending": false
+          },
+          {
+            "route": "D2",
+            "crowded": 0,
+            "total": 11,
+            "share": 0.0,
+            "pending": false
+          },
+          {
+            "route": "K",
+            "crowded": 0,
+            "total": 2,
+            "share": 0.0,
+            "pending": false
+          },
+          {
+            "route": "R1",
+            "crowded": 0,
+            "total": 3,
+            "share": 0.0,
+            "pending": false
+          },
+          {
+            "route": "R2",
+            "crowded": 0,
+            "total": 2,
+            "share": 0.0,
+            "pending": false
+          }
+        ],
+        "action": {
+          "routes": []
+        }
+      },
+      {
+        "time": 1095.0,
+        "routes": [
+          {
+            "route": "A1",
+            "crowded": 0,
+            "total": 9,
+            "share": 0.0,
+            "pending": false
+          },
+          {
+            "route": "A2",
+            "crowded": 0,
+            "total": 10,
+            "share": 0.0,
+            "pending": false
+          },
+          {
+            "route": "D1",
+            "crowded": 0,
+            "total": 8,
+            "share": 0.0,
+            "pending": false
+          },
+          {
+            "route": "D2",
+            "crowded": 1,
+            "total": 12,
+            "share": 0.08333333333333333,
+            "pending": false
+          },
+          {
+            "route": "K",
+            "crowded": 0,
+            "total": 2,
+            "share": 0.0,
+            "pending": false
+          },
+          {
+            "route": "R1",
+            "crowded": 0,
+            "total": 2,
+            "share": 0.0,
+            "pending": false
+          },
+          {
+            "route": "R2",
+            "crowded": 0,
+            "total": 3,
+            "share": 0.0,
+            "pending": false
+          }
+        ],
+        "action": {
+          "routes": []
+        }
+      },
+      {
+        "time": 1110.0,
+        "routes": [
+          {
+            "route": "A1",
+            "crowded": 1,
+            "total": 9,
+            "share": 0.1111111111111111,
+            "pending": false
+          },
+          {
+            "route": "A2",
+            "crowded": 0,
+            "total": 10,
+            "share": 0.0,
+            "pending": false
+          },
+          {
+            "route": "D1",
+            "crowded": 1,
+            "total": 8,
+            "share": 0.125,
+            "pending": false
+          },
+          {
+            "route": "D2",
+            "crowded": 2,
+            "total": 12,
+            "share": 0.16666666666666666,
+            "pending": false
+          },
+          {
+            "route": "K",
+            "crowded": 0,
+            "total": 2,
+            "share": 0.0,
+            "pending": false
+          },
+          {
+            "route": "R1",
+            "crowded": 0,
+            "total": 2,
+            "share": 0.0,
+            "pending": false
+          },
+          {
+            "route": "R2",
+            "crowded": 0,
+            "total": 2,
+            "share": 0.0,
+            "pending": false
+          }
+        ],
+        "action": {
+          "routes": []
+        }
+      },
+      {
+        "time": 1125.0,
+        "routes": [
+          {
+            "route": "A1",
+            "crowded": 2,
+            "total": 10,
+            "share": 0.2,
+            "pending": false
+          },
+          {
+            "route": "A2",
+            "crowded": 1,
+            "total": 9,
+            "share": 0.1111111111111111,
+            "pending": false
+          },
+          {
+            "route": "D1",
+            "crowded": 2,
+            "total": 9,
+            "share": 0.2222222222222222,
+            "pending": false
+          },
+          {
+            "route": "D2",
+            "crowded": 1,
+            "total": 14,
+            "share": 0.07142857142857142,
+            "pending": false
+          },
+          {
+            "route": "K",
+            "crowded": 0,
+            "total": 2,
+            "share": 0.0,
+            "pending": false
+          },
+          {
+            "route": "R1",
+            "crowded": 0,
+            "total": 2,
+            "share": 0.0,
+            "pending": false
+          },
+          {
+            "route": "R2",
+            "crowded": 0,
+            "total": 2,
+            "share": 0.0,
+            "pending": false
+          }
+        ],
+        "action": {
+          "routes": []
+        }
+      },
+      {
+        "time": 1140.0,
+        "routes": [
+          {
+            "route": "A1",
+            "crowded": 1,
+            "total": 9,
+            "share": 0.1111111111111111,
+            "pending": false
+          },
+          {
+            "route": "A2",
+            "crowded": 1,
+            "total": 9,
+            "share": 0.1111111111111111,
+            "pending": false
+          },
+          {
+            "route": "D1",
+            "crowded": 1,
+            "total": 8,
+            "share": 0.125,
+            "pending": false
+          },
+          {
+            "route": "D2",
+            "crowded": 0,
+            "total": 12,
+            "share": 0.0,
+            "pending": false
+          },
+          {
+            "route": "K",
+            "crowded": 0,
+            "total": 2,
+            "share": 0.0,
+            "pending": false
+          },
+          {
+            "route": "R1",
+            "crowded": 0,
+            "total": 2,
+            "share": 0.0,
+            "pending": false
+          },
+          {
+            "route": "R2",
+            "crowded": 0,
+            "total": 2,
+            "share": 0.0,
+            "pending": false
+          }
+        ],
+        "action": {
+          "routes": []
+        }
+      },
+      {
+        "time": 1155.0,
+        "routes": [
+          {
+            "route": "A1",
+            "crowded": 0,
+            "total": 10,
+            "share": 0.0,
+            "pending": false
+          },
+          {
+            "route": "A2",
+            "crowded": 0,
+            "total": 10,
+            "share": 0.0,
+            "pending": false
+          },
+          {
+            "route": "D1",
+            "crowded": 0,
+            "total": 8,
+            "share": 0.0,
+            "pending": false
+          },
+          {
+            "route": "D2",
+            "crowded": 0,
+            "total": 12,
+            "share": 0.0,
+            "pending": false
+          },
+          {
+            "route": "K",
+            "crowded": 0,
+            "total": 1,
+            "share": 0.0,
+            "pending": false
+          },
+          {
+            "route": "R1",
+            "crowded": 0,
+            "total": 2,
+            "share": 0.0,
+            "pending": false
+          },
+          {
+            "route": "R2",
+            "crowded": 0,
+            "total": 2,
+            "share": 0.0,
+            "pending": false
+          }
+        ],
+        "action": {
+          "routes": []
+        }
+      }
+    ],
+    "denial_events": [
+      {
+        "time": 1081.3320544027538,
+        "route": "A2",
+        "stop": 20,
+        "stop_name": "S 17",
+        "run_id": "A2-83",
+        "load_before": 14,
+        "attempts": 106,
+        "denied": 32
+      },
+      {
+        "time": 1084.2493814929999,
+        "route": "D1",
+        "stop": 26,
+        "stop_name": "Ventus",
+        "run_id": "D1-91",
+        "load_before": 10,
+        "attempts": 119,
+        "denied": 41
+      },
+      {
+        "time": 1085.5129635790815,
+        "route": "A1",
+        "stop": 12,
+        "stop_name": "BIZ 2",
+        "run_id": "A1-87",
+        "load_before": 14,
+        "attempts": 147,
+        "denied": 73
+      },
+      {
+        "time": 1085.9124561675492,
+        "route": "A2",
+        "stop": 14,
+        "stop_name": "Information Technology",
+        "run_id": "A2-86",
+        "load_before": 1,
+        "attempts": 103,
+        "denied": 16
+      },
+      {
+        "time": 1087.2493814929999,
+        "route": "D1",
+        "stop": 14,
+        "stop_name": "Information Technology",
+        "run_id": "D1-91",
+        "load_before": 88,
+        "attempts": 69,
+        "denied": 69
+      },
+      {
+        "time": 1088.2515035485376,
+        "route": "A2",
+        "stop": 20,
+        "stop_name": "S 17",
+        "run_id": "A2-84",
+        "load_before": 31,
+        "attempts": 140,
+        "denied": 83
+      },
+      {
+        "time": 1088.8894136718047,
+        "route": "R1",
+        "stop": 12,
+        "stop_name": "BIZ 2",
+        "run_id": "R1-30",
+        "load_before": 34,
+        "attempts": 60,
+        "denied": 6
+      },
+      {
+        "time": 1092.736124694623,
+        "route": "A1",
+        "stop": 12,
+        "stop_name": "BIZ 2",
+        "run_id": "A1-88",
+        "load_before": 25,
+        "attempts": 158,
+        "denied": 95
+      },
+      {
+        "time": 1094.1271655375222,
+        "route": "D1",
+        "stop": 14,
+        "stop_name": "Information Technology",
+        "run_id": "D1-92",
+        "load_before": 82,
+        "attempts": 94,
+        "denied": 88
+      },
+      {
+        "time": 1095.7127756163118,
+        "route": "A1",
+        "stop": 29,
+        "stop_name": "Opp TCOMS",
+        "run_id": "A1-88",
+        "load_before": 88,
+        "attempts": 7,
+        "denied": 7
+      },
+      {
+        "time": 1096.8040135793556,
+        "route": "A2",
+        "stop": 20,
+        "stop_name": "S 17",
+        "run_id": "A2-85",
+        "load_before": 18,
+        "attempts": 153,
+        "denied": 83
+      },
+      {
+        "time": 1098.4666105783654,
+        "route": "A1",
+        "stop": 12,
+        "stop_name": "BIZ 2",
+        "run_id": "A1-89",
+        "load_before": 23,
+        "attempts": 140,
+        "denied": 75
+      },
+      {
+        "time": 1100.4666105783654,
+        "route": "A1",
+        "stop": 29,
+        "stop_name": "Opp TCOMS",
+        "run_id": "A1-89",
+        "load_before": 88,
+        "attempts": 7,
+        "denied": 7
+      },
+      {
+        "time": 1100.5955058193076,
+        "route": "A2",
+        "stop": 20,
+        "stop_name": "S 17",
+        "run_id": "A2-86",
+        "load_before": 28,
+        "attempts": 93,
+        "denied": 33
+      },
+      {
+        "time": 1101.3435167837436,
+        "route": "D1",
+        "stop": 14,
+        "stop_name": "Information Technology",
+        "run_id": "D1-93",
+        "load_before": 39,
+        "attempts": 103,
+        "denied": 54
+      },
+      {
+        "time": 1103.8074689556793,
+        "route": "A1",
+        "stop": 12,
+        "stop_name": "BIZ 2",
+        "run_id": "A1-90",
+        "load_before": 11,
+        "attempts": 102,
+        "denied": 25
+      },
+      {
+        "time": 1105.974931484856,
+        "route": "A1",
+        "stop": 29,
+        "stop_name": "Opp TCOMS",
+        "run_id": "A1-90",
+        "load_before": 88,
+        "attempts": 10,
+        "denied": 10
+      },
+      {
+        "time": 1107.4720888830955,
+        "route": "A2",
+        "stop": 20,
+        "stop_name": "S 17",
+        "run_id": "A2-87",
+        "load_before": 22,
+        "attempts": 78,
+        "denied": 12
+      },
+      {
+        "time": 1146.6265189833346,
+        "route": "A2",
+        "stop": 15,
+        "stop_name": "Opp Yusof Ishak House",
+        "run_id": "A2-95",
+        "load_before": 4,
+        "attempts": 105,
+        "denied": 21
+      },
+      {
+        "time": 1146.6296992727302,
+        "route": "D1",
+        "stop": 26,
+        "stop_name": "Ventus",
+        "run_id": "D1-100",
+        "load_before": 1,
+        "attempts": 132,
+        "denied": 45
+      },
+      {
+        "time": 1149.6296992727302,
+        "route": "D1",
+        "stop": 14,
+        "stop_name": "Information Technology",
+        "run_id": "D1-100",
+        "load_before": 88,
+        "attempts": 1,
+        "denied": 1
+      },
+      {
+        "time": 1150.5677377876066,
+        "route": "D2",
+        "stop": 0,
+        "stop_name": "Kent Ridge MRT",
+        "run_id": "D2-105",
+        "load_before": 12,
+        "attempts": 110,
+        "denied": 34
+      },
+      {
+        "time": 1151.5,
+        "route": "A2",
+        "stop": 27,
+        "stop_name": "Kent Ridge Bus Terminal",
+        "run_id": "A2-97",
+        "load_before": 0,
+        "attempts": 187,
+        "denied": 99
+      },
+      {
+        "time": 1151.6296992727302,
+        "route": "D1",
+        "stop": 15,
+        "stop_name": "Opp Yusof Ishak House",
+        "run_id": "D1-100",
+        "load_before": 61,
+        "attempts": 162,
+        "denied": 135
+      },
+      {
+        "time": 1155.213465237937,
+        "route": "D1",
+        "stop": 26,
+        "stop_name": "Ventus",
+        "run_id": "D1-101",
+        "load_before": 0,
+        "attempts": 260,
+        "denied": 172
+      },
+      {
+        "time": 1157.4999758366164,
+        "route": "D2",
+        "stop": 0,
+        "stop_name": "Kent Ridge MRT",
+        "run_id": "D2-106",
+        "load_before": 0,
+        "attempts": 116,
+        "denied": 28
+      },
+      {
+        "time": 1157.5,
+        "route": "A1",
+        "stop": 10,
+        "stop_name": "LT 13",
+        "run_id": "A1-100",
+        "load_before": 0,
+        "attempts": 152,
+        "denied": 64
+      },
+      {
+        "time": 1158.0,
+        "route": "A2",
+        "stop": 27,
+        "stop_name": "Kent Ridge Bus Terminal",
+        "run_id": "A2-98",
+        "load_before": 0,
+        "attempts": 212,
+        "denied": 124
+      },
+      {
+        "time": 1158.213465237937,
+        "route": "D1",
+        "stop": 14,
+        "stop_name": "Information Technology",
+        "run_id": "D1-101",
+        "load_before": 88,
+        "attempts": 3,
+        "denied": 3
+      },
+      {
+        "time": 1159.0626850751903,
+        "route": "D2",
+        "stop": 13,
+        "stop_name": "Prince George's Park",
+        "run_id": "D2-107",
+        "load_before": 0,
+        "attempts": 118,
+        "denied": 30
+      },
+      {
+        "time": 1160.4274475966154,
+        "route": "D1",
+        "stop": 26,
+        "stop_name": "Ventus",
+        "run_id": "D1-102",
+        "load_before": 0,
+        "attempts": 172,
+        "denied": 84
+      },
+      {
+        "time": 1160.8211549233736,
+        "route": "D1",
+        "stop": 15,
+        "stop_name": "Opp Yusof Ishak House",
+        "run_id": "D1-101",
+        "load_before": 59,
+        "attempts": 138,
+        "denied": 109
+      },
+      {
+        "time": 1162.2235514941337,
+        "route": "R2",
+        "stop": 26,
+        "stop_name": "Ventus",
+        "run_id": "R2-32",
+        "load_before": 60,
+        "attempts": 71,
+        "denied": 43
+      },
+      {
+        "time": 1163.9198682747187,
+        "route": "D1",
+        "stop": 14,
+        "stop_name": "Information Technology",
+        "run_id": "D1-102",
+        "load_before": 88,
+        "attempts": 6,
+        "denied": 6
+      },
+      {
+        "time": 1164.4085051461634,
+        "route": "A1",
+        "stop": 10,
+        "stop_name": "LT 13",
+        "run_id": "A1-101",
+        "load_before": 0,
+        "attempts": 130,
+        "denied": 42
+      },
+      {
+        "time": 1164.4326851428216,
+        "route": "A1",
+        "stop": 13,
+        "stop_name": "Prince George's Park",
+        "run_id": "A1-99",
+        "load_before": 34,
+        "attempts": 81,
+        "denied": 27
+      },
+      {
+        "time": 1164.5,
+        "route": "A2",
+        "stop": 27,
+        "stop_name": "Kent Ridge Bus Terminal",
+        "run_id": "A2-99",
+        "load_before": 0,
+        "attempts": 176,
+        "denied": 88
+      },
+      {
+        "time": 1165.3485700565907,
+        "route": "A2",
+        "stop": 21,
+        "stop_name": "Opp Kent Ridge MRT",
+        "run_id": "A2-95",
+        "load_before": 1,
+        "attempts": 99,
+        "denied": 12
+      },
+      {
+        "time": 1165.6150760596925,
+        "route": "D2",
+        "stop": 4,
+        "stop_name": "University Town",
+        "run_id": "D2-104",
+        "load_before": 0,
+        "attempts": 95,
+        "denied": 7
+      },
+      {
+        "time": 1165.9198682747187,
+        "route": "D1",
+        "stop": 15,
+        "stop_name": "Opp Yusof Ishak House",
+        "run_id": "D1-102",
+        "load_before": 85,
+        "attempts": 110,
+        "denied": 107
+      },
+      {
+        "time": 1167.0421744133755,
+        "route": "D1",
+        "stop": 26,
+        "stop_name": "Ventus",
+        "run_id": "D1-103",
+        "load_before": 0,
+        "attempts": 125,
+        "denied": 37
+      },
+      {
+        "time": 1167.2235514941337,
+        "route": "R2",
+        "stop": 15,
+        "stop_name": "Opp Yusof Ishak House",
+        "run_id": "R2-32",
+        "load_before": 65,
+        "attempts": 49,
+        "denied": 26
+      }
+    ]
+  }
+]
