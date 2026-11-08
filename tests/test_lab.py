@@ -45,7 +45,7 @@ class LabTests(unittest.TestCase):
 
     def test_validation(self):
         lab=Lab(self.data,self.config)
-        for changes in ({'memory':121},{'start':419},{'days':[]},{'context_tokens':8000}):
+        for changes in ({'memory':121},{'start':419},{'start':240},{'end':405},{'end':420},{'end':1455},{'days':[]},{'context_tokens':8000}):
             with self.assertRaises(ValueError): lab.validate(dict(self.profile(),**changes))
 
     def test_memory_and_prompt_budget(self):
