@@ -4,9 +4,11 @@ A separate research workspace derived from the original NextBus simulator. The o
 
 ## Start
 
-Run `./run_simulator.ps1 -Port 8766`, then visit http://127.0.0.1:8766/experiments. The original can continue using port 8765.
+Run `./run_simulator.ps1 -Port 8766`, then visit http://127.0.0.1:8766/. The original can continue using port 8765.
 
 Requires Python 3.11+, numpy, openpyxl, and the separately supplied workbook at the path in `config.json`. Install with `python -m pip install -e .`. The fixed calibration and workbook fingerprint are checked before experiments. Calibration has its original known limitations; this UI does not turn an exploratory run into a formally validated result.
+
+The home page is one unified workspace: setup on the left, shared map and playback in the centre, metrics below the map, and results at the bottom. The old `/experiments` URL opens the same workspace. Advanced simulation settings in the left panel provide an editable interactive preview with step/run/pause controls on the same map. Preview changes do not alter the fixed experiment calibration or create experiment result rows.
 
 ## Experiment setup
 

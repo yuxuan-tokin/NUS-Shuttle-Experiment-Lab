@@ -66,7 +66,7 @@ def make_server(data,config,port=8765):
 
         def do_GET(self):
             path = urlsplit(self.path).path
-            assets = {'/':('index.html','text/html; charset=utf-8'),'/style.css':('style.css','text/css'),'/app.js':('app.js','text/javascript')}
+            assets = {'/':('experiments.html','text/html; charset=utf-8'),'/map-view':('index.html','text/html; charset=utf-8'),'/style.css':('style.css','text/css'),'/app.js':('app.js','text/javascript')}
             assets.update({'/experiments':('experiments.html','text/html; charset=utf-8'),'/experiments.js':('experiments.js','text/javascript; charset=utf-8')})
             if path in assets:
                 filename,content_type = assets[path]

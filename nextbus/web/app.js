@@ -385,6 +385,7 @@ if(new URLSearchParams(location.search).has('viewer')) {
   document.body.classList.add('viewer');
   window.addEventListener('message',event=>{
     if(event.origin!==location.origin || event.data?.type!=='nextbus-frame' || !setup)return;
+    if(event.data.frame.map){setup={...setup,...event.data.frame.map};showFacilities();}
     show(event.data.frame);
   });
 }

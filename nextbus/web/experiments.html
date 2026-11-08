@@ -1,6 +1,6 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>NextBus Experiment Lab</title><link rel="stylesheet" href="/style.css"></head><body>
-<header><div><h1>NextBus <span>Experiment lab</span></h1><p>Build dispatchers. Watch service. Compare outcomes.</p></div><a href="/">Simulator</a></header>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>NextBus Workspace</title><link rel="stylesheet" href="/style.css"></head><body>
+<header><div><h1>NextBus <span>Simulation workspace</span></h1><p>Build dispatchers. Watch service. Compare outcomes.</p></div></header>
 <main class="lab-main"><aside class="panel"><h2>Dispatcher setup</h2>
 <label>Saved dispatcher<select id="profiles"><option value="">New dispatcher</option></select></label>
 <label>Name<input id="name" value="My Gemini dispatcher" maxlength="100"></label>
@@ -14,6 +14,13 @@
 <label>Test days<select id="days" multiple size="4"></select></label><small>Ctrl / Cmd click to choose multiple days.</small>
 <label>Test scope<select id="mode"><option value="day">Full day</option><option value="window">Time window · BASE0 before start</option></select></label>
 <div id="window" hidden><label>Start<input id="start" type="time" value="07:00" step="900"></label><label>End<input id="end" type="text" value="09:30" placeholder="HH:MM (24:00 allowed)"></label></div>
-<label>Seed<input id="seed" type="number" value="101"></label><button id="save">Save dispatcher</button><button id="delete-profile" class="secondary">Discard dispatcher</button><button id="run">Run experiment</button><p id="error" role="alert"></p>
-</aside><section><div class="panel"><h2 id="status">Ready</h2><p id="progress" role="status"></p><div class="replay-bar"><button id="live" class="secondary">Live</button><button id="replay-play" class="secondary">Play replay</button><input id="replay" type="range" min="0" max="0" value="0" aria-label="Replay frame"><span id="frame-time">—</span></div><small>Map frames every 5 simulated minutes. Red = BASE1 crowding threshold; green pulse = new dispatch.</small></div><iframe id="viewer" src="/?viewer=1" title="Live simulation and replay"></iframe></section></main>
+<label>Seed<input id="seed" type="number" value="101"></label><button id="save">Save dispatcher</button><button id="delete-profile" class="secondary">Discard dispatcher</button><button id="run">Run experiment</button><details id="advanced"><summary>Advanced simulation settings</summary>
+<p>Explore an interactive preview on the same map. These settings apply to previews; experiments retain the fixed calibration.</p>
+<label for="preview-config">Simulation configuration</label><textarea id="preview-config" spellcheck="false"></textarea>
+<button id="preview-create" class="secondary">Create interactive preview</button>
+<button id="preview-step" class="secondary" disabled>Step 5 minutes</button>
+<button id="preview-run" class="secondary" disabled>Run preview</button>
+<p id="preview-status" role="status"></p>
+</details><p id="error" role="alert"></p>
+</aside><section><div class="panel"><h2 id="status">Ready</h2><p id="progress" role="status"></p><div class="replay-bar"><button id="live" class="secondary">Live</button><button id="replay-play" class="secondary">Play replay</button><input id="replay" type="range" min="0" max="0" value="0" aria-label="Replay frame"><span id="frame-time">—</span></div><small>Map frames every 5 simulated minutes. Red = BASE1 crowding threshold; green pulse = new dispatch.</small></div><iframe id="viewer" src="/map-view?viewer=1" title="Live simulation and replay"></iframe></section></main>
 <section class="panel result-panel"><div class="inspection-head"><h2>Results</h2><a href="/api/lab/csv">Export to spreadsheet (CSV)</a></div><div class="table-scroll"><table><thead><tr><th>Dispatcher / model</th><th>Test case</th><th>Memory</th><th>Seed</th><th>Wait · passenger-min</th><th>Failure %</th><th>Utilization %</th><th>Extra buses</th><th>Extra hours</th><th>Details</th></tr></thead><tbody id="results"></tbody></table></div></section><script src="/experiments.js"></script></body></html>

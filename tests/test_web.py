@@ -72,6 +72,18 @@ class WebTests(unittest.TestCase):
         self.assertEqual(failed.exception.code, 400)
         self.assertIn('Configure llm_endpoint', failed.exception.read().decode())
 
+    def test_unified_home_and_embedded_map(self):
+        _, home = self.request('/')
+        _, legacy = self.request('/experiments')
+        self.assertEqual(home, legacy)
+        self.assertIn(b'Advanced simulation settings', home)
+        self.assertIn(b'id="results"', home)
+        self.assertIn(b'src="/map-view?viewer=1"', home)
+        self.assertNotIn(b'>Simulator</a>', home)
+        _, viewer = self.request('/map-view?viewer=1')
+        self.assertIn(b'<canvas id="map"', viewer)
+        self.assertNotIn(b'<iframe', viewer)
+
 
 if __name__ == '__main__':
     unittest.main()
