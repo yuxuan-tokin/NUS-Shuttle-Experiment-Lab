@@ -175,3 +175,14 @@ th { background: #f1f6f7; }
 @media (max-width:760px) {
   .map-workspace .advanced-panel { left:10px; width:calc(50vw - 15px); }
 }
+
+/* Use one minimized size, including after a panel has been dragged. */
+.floating-panel:not([open]) { width:min(250px, calc(50vw - 15px)) !important; }
+.floating-panel:not([open]) > summary { min-height:48px; padding-block:0; }
+.map-workspace .result-panel[open] { width:calc(100vw - 360px); }
+@media(max-width:900px) {
+  .map-workspace .result-panel[open] { width:calc(100vw - 316px); }
+}
+@media(max-width:640px) {
+  .map-workspace .result-panel[open] { width:calc(100vw - 20px); }
+}

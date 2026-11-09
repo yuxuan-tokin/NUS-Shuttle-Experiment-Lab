@@ -13,6 +13,49 @@ let clicked = false;
 let drawnPlaces = [];
 let lastDispatchCount = 0;
 let flashes = new Map();
+let motionSource, motionFrame = 0, motionProgress = 1;
+const previousPeople = new Map(), previousBuses = new Map();
+
+function movingPoint(previous, latitude, longitude) {
+  if (!previous || motionProgress === 1) return project([latitude, longitude]);
+  return project([
+    previous[0] + (latitude - previous[0]) * motionProgress,
+    previous[1] + (longitude - previous[1]) * motionProgress,
+  ]);
+}
+
+function prepareMotion(frame, source, animate) {
+  cancelAnimationFrame(motionFrame);
+  const interpolate = animate && source && source === motionSource && snapshot &&
+    frame.time > snapshot.time && !frame.map &&
+    !matchMedia('(prefers-reduced-motion: reduce)').matches;
+  motionSource = source;
+  motionProgress = 1;
+  previousPeople.clear();
+  previousBuses.clear();
+  if (!interpolate) return;
+  for (const [id, latitude, longitude] of snapshot.people) {
+    previousPeople.set(id, [latitude, longitude]);
+  }
+  for (const bus of snapshot.buses) previousBuses.set(bus.id, bus.xy);
+  motionProgress = 0;
+  const start = performance.now();
+  let lastPaint = start;
+  function paint(now) {
+    const progress = Math.min(1, (now - start) / 320);
+    if (now - lastPaint >= 40 || progress === 1) {
+      motionProgress = progress;
+      draw();
+      lastPaint = now;
+    }
+    if (progress < 1) motionFrame = requestAnimationFrame(paint);
+    else {
+      previousPeople.clear();
+      previousBuses.clear();
+    }
+  }
+  motionFrame = requestAnimationFrame(paint);
+}
 
 async function api(path, data) {
   if (!['http:', 'https:'].includes(location.protocol)) {
@@ -72,9 +115,12 @@ function label(text, point, color = '#344e59') {
 
 function draw() {
   const ratio = window.devicePixelRatio || 1;
-  canvas.width = canvas.clientWidth * ratio;
-  canvas.height = canvas.clientHeight * ratio;
+  const width = Math.round(canvas.clientWidth * ratio);
+  if (canvas.width !== width) canvas.width = width;
+  const height = Math.round(canvas.clientHeight * ratio);
+  if (canvas.height !== height) canvas.height = height;
   context.setTransform(ratio, 0, 0, ratio, 0, 0);
+  context.clearRect(0, 0, width / ratio, height / ratio);
   if (!setup) return;
   const routeColors = ['#c6b8b0', '#d1c799', '#c8b7d9', '#baaccb', '#a8bccb', '#e2bd98', '#adc8aa'];
   Object.entries(setup.routes).forEach(([route, sequence], index) => {
@@ -103,7 +149,7 @@ function draw() {
     for (const person of snapshot.people) {
       const [id, latitude, longitude, state, activity, destination] = person;
       if (element('transit-only').checked && state !== 2 && state !== 3) continue;
-      const point = project([latitude, longitude]);
+      const point = movingPoint(previousPeople.get(id), latitude, longitude);
       const color = state === 2 ? colors.queue : state === 1 || state === 3 ? '#5d778988' : [colors.free, colors.class, colors.dining, colors.study, colors.residence][activity];
       if (state === 0 || state === 2 || state === 4 || state === 6) {
         const radius = Math.sqrt((id * 37 % 101) / 101) * (state === 2 ? 8 : 11);
@@ -148,7 +194,7 @@ function draw() {
   }
   if (snapshot) {
     for (const bus of snapshot.buses) {
-      const point = project(bus.xy);
+      const point = movingPoint(previousBuses.get(bus.id), ...bus.xy);
       context.fillStyle = bus.extra ? '#dc753a' : '#145a7b';
       context.fillRect(point[0] - 4, point[1] - 4, 9, 9);
       label(bus.route + ' ' + bus.load + '/88', [point[0] + 7, point[1] - 7]);
@@ -386,6 +432,7 @@ if(new URLSearchParams(location.search).has('viewer')) {
   window.addEventListener('message',event=>{
     if(event.origin!==location.origin || event.data?.type!=='nextbus-frame' || !setup)return;
     if(event.data.frame.map){setup={...setup,...event.data.frame.map};showFacilities();}
+    prepareMotion(event.data.frame, event.data.motion, event.data.animate);
     show(event.data.frame);
   });
 }

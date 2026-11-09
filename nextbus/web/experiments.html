@@ -42,7 +42,7 @@
 <button id="save-experiment">Save experiment</button><button id="delete-experiment" class="secondary">Discard experiment</button>
 </div><button id="run" disabled>Run saved experiment</button>
 <div class="experiment-playback"><h2 id="status">Ready</h2><p id="progress" role="status"></p>
-<label>Recorded run<select id="run-history"><option value="">Select a completed run</option></select></label>
+<label id="recorded-days" hidden>Replay day<select id="run-history"><option value="">Select a completed run</option></select></label>
 <div class="replay-bar"><button id="live" class="secondary">Live</button><button id="replay-play" class="secondary" disabled>Play replay</button><input id="replay" type="range" min="0" max="0" value="0" aria-label="Replay frame"><span id="frame-time">—</span></div>
 </div><p id="experiment-error" role="alert"></p></div></details>
 </main>

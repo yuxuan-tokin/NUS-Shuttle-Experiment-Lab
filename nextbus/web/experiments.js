@@ -109,6 +109,7 @@ function renderRunHistory(){
   if(!followLive&&replayId&&!rows.some(r=>r.id===replayId)){
     playing=false;replayId=null;$('replay-play').textContent='Play replay';
   }
+  $('recorded-days').hidden=rows.length<2;
   options('run-history',rows.map(r=>({id:r.id,name:`${r.experiment_name||r.dispatcher} · ${r.day} ${time(r.start)}–${time(r.end)}`})),rows.length?'Select a completed run':'No completed run for the saved settings');
   if(rows.length&&!$('run-history').value)$('run-history').value=rows[0].id;
 }
@@ -127,12 +128,12 @@ function renderExamples(next){
     row.append(label,discard);$('examples').append(row);
   }updateCount();
 }
-async function showFrame(index){
+async function showFrame(index, animate=false){
   if(!replayId)return;
   const id=replayId,frame=await api('lab/frame',{id,index:Number(index)});
   if(id!==replayId)return;
   if(previewSelected){frame.map=workspaceMap;previewSelected=false;}
-  $('viewer').contentWindow.postMessage({type:'nextbus-frame',frame},location.origin);
+  $('viewer').contentWindow.postMessage({type:'nextbus-frame',frame,motion:id,animate},location.origin);
   $('frame-time').textContent=time(frame.time);$('replay').value=index;
 }
 function refresh(){
@@ -154,7 +155,7 @@ async function refreshState(){
     updatePlayback();$('add-example').disabled=['running','warming'].includes(j.status);
     if(followLive&&experimentId===j.experiment_id&&j.id&&j.frames){
       replayId=j.id;$('replay').max=j.frames-1;
-      const key=j.id+':'+j.frames;if(key!==lastFrame){lastFrame=key;await showFrame(j.frames-1);updatePlayback();}
+      const key=j.id+':'+j.frames;if(key!==lastFrame){lastFrame=key;await showFrame(j.frames-1,true);updatePlayback();}
     }
 
 }
@@ -168,13 +169,14 @@ $('save').onclick=()=>action(async()=>{
   if(p.kind==='LLM'&&key)dispatcherKeys.set(p.id,{key,endpoint:p.endpoint});
   else dispatcherKeys.delete(p.id);
   await refresh();loadDispatcher(p);
+  $('dispatcher-editor').hidden=true;$('key').value='';
 });
 $('delete-profile').onclick=()=>action(async()=>{
   const id=selectedId;
   await api('lab/discard',{type:'profile',id});dispatcherKeys.delete(id);
   selectedId='';$('dispatcher-editor').hidden=true;$('key').value='';
 });
-async function saveExperiment(){const e=await api('lab/experiment',experimentFields());await refresh();loadExperiment(e);return e;}
+async function saveExperiment(){const e=await api('lab/experiment',experimentFields());await refresh();loadExperiment(e);$('experiment-editor').hidden=true;return e;}
 $('save-experiment').onclick=()=>action(saveExperiment,'experiment-error');
 $('delete-experiment').onclick=()=>action(async()=>{
   await api('lab/discard',{type:'experiment',id:experimentId});loadExperiment();$('experiment-editor').hidden=true;
@@ -211,7 +213,7 @@ $('replay-play').onclick=()=>action(async()=>{
 async function play(){
   if(!playing)return;const next=Number($('replay').value)+1;
   if(next>Number($('replay').max)){playing=false;$('replay-play').textContent='Play replay';return;}
-  try{await showFrame(next);}catch(e){$('experiment-error').textContent=e.message;playing=false;}
+  try{await showFrame(next,true);}catch(e){$('experiment-error').textContent=e.message;playing=false;}
   if(playing)setTimeout(play,500);
 }
 $('viewer').onload=()=>{lastFrame='';};
