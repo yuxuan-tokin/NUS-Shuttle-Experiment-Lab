@@ -22,7 +22,7 @@ Memory defaults to 30 minutes, can be disabled, and is capped at 120 minutes in 
 
 The default Gemini input limit is 1,048,576 tokens, per https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash-lite . For another model, enter the provider's documented context limit. Before each request a conservative UTF-8 byte budget reserves 8,192 tokens for instructions, framing and response. Oversized requests fail with guidance rather than silently dropping selected examples. This is conservative budgeting, not a provider tokenizer; custom provider limits must be entered correctly.
 
-A time-window run first simulates scheduled BASE0 service from the day start to the checkpoint, then enables the chosen dispatcher. Warm-up retains the complete student, bus, queue and event state. Scores and charts start at the checkpoint. Windows include opening-minute events and exclude closing-minute events. See the historical boundary distinction in `BASE1_ANALYSIS.md`.
+A time-window run first simulates scheduled BASE0 service from the day start to the checkpoint, then enables the chosen dispatcher. Warm-up retains the complete student, bus, queue and event state. Scores and charts start at the checkpoint. Windows include opening-minute events and exclude closing-minute events.
 
 ## Watching and comparing
 
@@ -36,12 +36,9 @@ Each completed day becomes a row in the bottom results panel: experiment name, d
 
 The five balanced criteria are total waiting passenger-minutes, capacity failure rate, overall fleet utilization, extra buses dispatched, and extra passenger-service hours. Capacity failure means denied eligible **attempts**, not distinct students. Overall utilization is passenger-minutes divided by 88 times passenger-service minutes. Resource hours exclude depot and return legs; waiting includes unfinished queues through the measurement boundary. Additional extra-bus utilization is retained in raw results, but is not a sixth weighted objective.
 
-`BASE1_ANALYSIS.md` explains the observed failures and no-dispatch decisions with stop-level numbers. `docs/base1_diagnosis.json` contains the supporting audits and denial events. Reproduce with `python diagnose_base1.py`.
 
 Runtime data lives under `outputs/lab/`: `dispatchers.json`, `experiments.json`, added examples, results and `runs/<id>/`. Runs contain compressed replay frames, configuration/calibration provenance, boarding events, rule decision audits, dispatches and LLM calls. Data survives server restart. A failed run is shown as failed and is not added as a completed result; earlier persisted frames remain available while that job is selected. Rerunning creates a fresh raw run directory while replacing the matching experiment/day result row.
 
 ## Verification
 
 Run `python -m unittest discover -s tests -v` and `node tests/test_time_selectors.cjs`. Tests cover the existing simulator and protocol plus window checkpoints, replay, CSV, credential exclusion, memory bounds, hourly intervals, dispatcher/experiment catalogs, result deduplication and custom rule semantics. The original full-size morning/evening BASE1 report was reproduced exactly. Browser checks covered dispatcher defaults, protected BASE0, rule controls, independent panel dragging and map-only mode. Live paid LLM requests were not performed.
-
-The original simulator documentation is retained in `README_ORIGINAL.md`. Its old experiment UI instructions and waiting-first prompt descriptions apply to the original version, not this lab.

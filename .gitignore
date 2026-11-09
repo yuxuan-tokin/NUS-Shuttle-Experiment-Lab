@@ -18,3 +18,9 @@ __pycache__/
 !/outputs/dispatch_experiment/examples.json
 _publish.py
 
+# Local analysis artifacts and exported results
+/BASE1_ANALYSIS.md
+/README_ORIGINAL.md
+/diagnose_base1.py
+/docs/base1_diagnosis.json
+/nextbus-results*.csv
