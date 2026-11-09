@@ -456,6 +456,7 @@ if(new URLSearchParams(location.search).has('viewer')) {
   overlay('Buildings & inspection',[document.querySelector('.inspect')],'inspection-overlay');
   const toolbar=document.querySelector('.toolbar');
   const pace=element('pace').closest('label');if(pace)pace.hidden=true;
+  element('fit').remove();
   overlay('Map layers & legend',[toolbar,document.querySelector('.legend')],'layers-overlay',document.body);
   element('hourly').textContent='Run a simulation to view hourly charts.';
   window.addEventListener('message',event=>{
