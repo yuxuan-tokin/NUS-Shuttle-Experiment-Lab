@@ -1,5 +1,6 @@
 const $ = id => document.getElementById(id);
 let state, selectedId='', experimentId='', replayId=null, followLive=true, lastFrame='', playing=false, polling=false;
+const dispatcherKeys=new Map();
 let workspaceMap, previewSelected=false, serviceTimes=[];
 const time=n=>`${String(Math.floor(n/60)).padStart(2,'0')}:${String(n%60).padStart(2,'0')}`;
 const minutes=s=>{const [h,m]=s.split(':').map(Number);return h*60+m;};
@@ -31,8 +32,24 @@ function options(id,items,placeholder){
   if([...select.options].some(o=>o.value===selected))select.value=selected;
   else if(id==='experiment-dispatcher'&&selected){select.add(new Option('Discarded dispatcher — choose another',selected));select.value=selected;}
 }
+function savedList(id,items,selected,onSelect){
+  const list=$(id);
+  list.replaceChildren(...items.map(item=>{
+    const button=document.createElement('button');
+    button.type='button';button.className='secondary';button.textContent=item.name;
+    button.setAttribute('aria-pressed',String(item.id===selected));
+    button.onclick=()=>onSelect(item);return button;
+  }));
+  if(!items.length)list.textContent=id==='experiments'?'No saved experiments yet.':'No saved dispatchers.';
+}
+function highlightList(id,items,selected){
+  [...$(id).children].forEach((button,i)=>button.setAttribute('aria-pressed',String(items[i]?.id===selected)));
+}
 function loadDispatcher(p){
-  selectedId=p?.id||'';$('profiles').value=selectedId;
+  selectedId=p?.id||'';$('dispatcher-editor').hidden=false;
+  highlightList('profiles',state.profiles,selectedId);
+  const credential=dispatcherKeys.get(selectedId);
+  $('key').value=credential?.endpoint===p?.endpoint?(credential?.key||''):'';
   $('name').value=p?.name||'My dispatcher';$('kind').value=p?.kind||'LLM';
   $('model').value=p?.model||state.default_model;$('endpoint').value=p?.endpoint||state.default_endpoint;
   $('memory').value=p?.memory??30;$('context').value=p?.context_tokens||1048576;
@@ -50,24 +67,33 @@ function loadDispatcher(p){
   $('kind').onchange();updateCount();
 }
 function loadExperiment(e){
-  experimentId=e?.id||'';$('experiments').value=experimentId;$('experiment-name').value=e?.name||'My experiment';
+  experimentId=e?.id||'';$('experiment-editor').hidden=false;
+  highlightList('experiments',state.experiments,experimentId);
+  playing=false;followLive=!!e&&state.job.experiment_id===e.id;replayId=null;lastFrame='';
+  $('run-history').value='';$('replay-play').textContent='Play replay';$('experiment-name').value=e?.name||'My experiment';
   const dispatcherId=e?.dispatcher_id||'preset-base0';
   if(![...$('experiment-dispatcher').options].some(o=>o.value===dispatcherId))$('experiment-dispatcher').add(new Option('Discarded dispatcher — choose another',dispatcherId));
   $('experiment-dispatcher').value=dispatcherId;
   $('seed').value=e?.seed??101;$('mode').value=e?.mode||'day';setWindow(e?.start??420,e?.end??570);
   for(const o of $('days').options)o.selected=(e?.days||['2026-08-24','2026-08-26']).includes(o.value);
-  $('delete-experiment').disabled=!e;$('mode').onchange();syncKey();renderRunHistory();
+  $('delete-experiment').disabled=!e;$('mode').onchange();renderRunHistory();updatePlayback();
 }
-function syncKey(){
-  const dispatcher=state?.profiles.find(p=>p.id===$('experiment-dispatcher').value);
-  $('key').closest('label').hidden=dispatcher?.kind!=='LLM';
+function updatePlayback(){
+  const busy=['running','warming'].includes(state.job.status);
+  const experiment=state.experiments.find(e=>e.id===experimentId);
+  $('run').disabled=busy||!experiment||!state.profiles.some(p=>p.id===experiment.dispatcher_id);
+  $('live').disabled=!busy||!experiment||state.job.experiment_id!==experiment.id;
+  $('replay-play').disabled=busy||!$('run-history').value;
+  const liveFrame=busy&&followLive&&state.job.experiment_id===experimentId;
+  const currentFrame=!busy&&state.results.some(r=>r.id===replayId&&r.experiment_id===experimentId&&r.replay_current);
+  $('replay').disabled=!(replayId&&(liveFrame||currentFrame));
 }
 function cell(tr,value){const td=document.createElement('td');td.textContent=value;tr.append(td);return td;}
 function renderResults(rows){
   $('results').replaceChildren();
   for(const row of rows){
     const tr=document.createElement('tr'),m=row.metrics;
-    for(const value of [row.experiment_name||row.dispatcher,row.dispatcher+(row.model?' / '+row.model:''),
+    for(const value of [row.experiment_name||row.dispatcher,row.dispatcher,row.model||'—',
       `${row.day} ${time(row.start)}–${time(row.end)}`,row.memory+' min',row.seed,fmt(m.total_wait),
       fmt(m.capacity_failure_pct),fmt(m.overall_utilization_pct),m.extra_buses,fmt(m.extra_bus_hours)])cell(tr,value);
     const td=cell(tr,''),details=document.createElement('details'),summary=document.createElement('summary');
@@ -79,8 +105,12 @@ function renderResults(rows){
   }
 }
 function renderRunHistory(){
-  const rows=(state?.results||[]).filter(r=>!experimentId||r.experiment_id===experimentId);
-  options('run-history',rows.map(r=>({id:r.id,name:`${r.experiment_name||r.dispatcher} · ${r.day} ${time(r.start)}–${time(r.end)}`})),'Select a completed run');
+  const rows=(state?.results||[]).filter(r=>r.replay_current&&r.experiment_id===experimentId);
+  if(!followLive&&replayId&&!rows.some(r=>r.id===replayId)){
+    playing=false;replayId=null;$('replay-play').textContent='Play replay';
+  }
+  options('run-history',rows.map(r=>({id:r.id,name:`${r.experiment_name||r.dispatcher} · ${r.day} ${time(r.start)}–${time(r.end)}`})),rows.length?'Select a completed run':'No completed run for the saved settings');
+  if(rows.length&&!$('run-history').value)$('run-history').value=rows[0].id;
 }
 function renderExamples(next){
   const selected=state?chosen():[];
@@ -105,54 +135,79 @@ async function showFrame(index){
   $('viewer').contentWindow.postMessage({type:'nextbus-frame',frame},location.origin);
   $('frame-time').textContent=time(frame.time);$('replay').value=index;
 }
-async function refresh(){
-  if(polling)return;polling=true;
-  try{
+function refresh(){
+  if(polling)return polling;
+  polling=refreshState().finally(()=>{polling=false;});return polling;
+}
+async function refreshState(){
     const next=await api('lab');
     if(JSON.stringify(state?.profiles)!==JSON.stringify(next.profiles)){
-      options('profiles',next.profiles,'New dispatcher');options('experiment-dispatcher',next.profiles);
+      savedList('profiles',next.profiles,selectedId,loadDispatcher);options('experiment-dispatcher',next.profiles);
     }
-    if(JSON.stringify(state?.experiments)!==JSON.stringify(next.experiments))options('experiments',next.experiments,'New experiment');
+    if(JSON.stringify(state?.experiments)!==JSON.stringify(next.experiments))savedList('experiments',next.experiments,experimentId,loadExperiment);
     renderExamples(next);
     const rowsChanged=JSON.stringify(state?.results)!==JSON.stringify(next.results);
-    state=next;if(rowsChanged){renderResults(next.results);renderRunHistory();}syncKey();
+    state=next;if(rowsChanged){renderResults(next.results);renderRunHistory();}
     const j=state.job;
     $('status').textContent=previewSelected?'Interactive preview':`${j.name||'Experiment'} · ${j.status}`;
     $('progress').textContent=previewSelected?$('preview-status').textContent:j.error||`${j.day||''} ${j.time!=null?time(j.time):''}${j.status==='warming'?' · Preparing BASE0 checkpoint':''}`;
-    $('run').disabled=['running','warming'].includes(j.status);$('add-example').disabled=$('run').disabled;
-    if(followLive&&j.id&&j.frames){
+    updatePlayback();$('add-example').disabled=['running','warming'].includes(j.status);
+    if(followLive&&experimentId===j.experiment_id&&j.id&&j.frames){
       replayId=j.id;$('replay').max=j.frames-1;
-      const key=j.id+':'+j.frames;if(key!==lastFrame){lastFrame=key;await showFrame(j.frames-1);}
+      const key=j.id+':'+j.frames;if(key!==lastFrame){lastFrame=key;await showFrame(j.frames-1);updatePlayback();}
     }
-  }finally{polling=false;}
+
 }
-$('profiles').onchange=()=>loadDispatcher(state.profiles.find(p=>p.id===$('profiles').value));
-$('experiments').onchange=()=>loadExperiment(state.experiments.find(e=>e.id===$('experiments').value));
-$('experiment-dispatcher').onchange=syncKey;
+$('add-dispatcher').onclick=()=>loadDispatcher();
+$('add-experiment').onclick=()=>loadExperiment();
 $('mode').onchange=()=>{$('window').hidden=$('mode').value!=='window';};
 $('kind').onchange=()=>{$('llm-settings').hidden=$('kind').value!=='LLM';$('rule-settings').hidden=$('kind').value!=='RULE';};
-$('save').onclick=()=>action(async()=>{const p=await api('lab/profile',dispatcherFields());await refresh();loadDispatcher(p);});
-$('delete-profile').onclick=()=>action(async()=>{if(selectedId)await api('lab/discard',{type:'profile',id:selectedId});await refresh();loadDispatcher();});
+$('save').onclick=()=>action(async()=>{
+  const fields=dispatcherFields(),key=$('key').value.trim();
+  const p=await api('lab/profile',fields);
+  if(p.kind==='LLM'&&key)dispatcherKeys.set(p.id,{key,endpoint:p.endpoint});
+  else dispatcherKeys.delete(p.id);
+  await refresh();loadDispatcher(p);
+});
+$('delete-profile').onclick=()=>action(async()=>{
+  const id=selectedId;
+  await api('lab/discard',{type:'profile',id});dispatcherKeys.delete(id);
+  selectedId='';$('dispatcher-editor').hidden=true;$('key').value='';
+});
 async function saveExperiment(){const e=await api('lab/experiment',experimentFields());await refresh();loadExperiment(e);return e;}
 $('save-experiment').onclick=()=>action(saveExperiment,'experiment-error');
-$('delete-experiment').onclick=()=>action(async()=>{if(experimentId)await api('lab/discard',{type:'experiment',id:experimentId});await refresh();loadExperiment();},'experiment-error');
+$('delete-experiment').onclick=()=>action(async()=>{
+  await api('lab/discard',{type:'experiment',id:experimentId});loadExperiment();$('experiment-editor').hidden=true;
+},'experiment-error');
 $('run').onclick=()=>action(async()=>{
-  const e=await saveExperiment();stopPreview();followLive=true;playing=false;lastFrame='';
-  await api('lab/start',{experiment_id:e.id,api_key:$('key').value});$('key').value='';
+  const e=state.experiments.find(e=>e.id===experimentId);
+  if(!e)return;
+  const dispatcher=state.profiles.find(p=>p.id===e.dispatcher_id);
+  const credential=dispatcherKeys.get(e.dispatcher_id);
+  const key=dispatcher?.kind==='LLM'&&credential?.endpoint===dispatcher.endpoint?credential.key:'';
+  await api('lab/start',{experiment_id:e.id,api_key:key});
+  stopPreview();followLive=true;playing=false;lastFrame='';replayId=null;
+  $('replay-play').textContent='Play replay';
 },'experiment-error');
 $('all-examples').onclick=()=>{document.querySelectorAll('#examples input').forEach(c=>c.checked=true);updateCount();};
 $('no-examples').onclick=()=>{document.querySelectorAll('#examples input').forEach(c=>c.checked=false);updateCount();};
 $('add-example').onclick=()=>action(()=>api('lab/example',{day:$('example-day').value,start:minutes($('example-start').value),minutes:Number($('example-minutes').value)}));
 $('run-history').onchange=()=>action(async()=>{
-  const row=state.results.find(r=>r.id===$('run-history').value);if(!row)return;
-  stopPreview();playing=false;followLive=false;replayId=row.id;$('replay').max=row.frames-1;$('replay').value=0;await showFrame(0);
+  const row=state.results.find(r=>r.id===$('run-history').value);if(!row?.replay_current){replayId=null;playing=false;updatePlayback();return;}
+  stopPreview();playing=false;followLive=false;replayId=row.id;$('replay').max=row.frames-1;$('replay').value=0;await showFrame(0);updatePlayback();
 },'experiment-error');
 $('live').onclick=()=>{stopPreview();followLive=true;playing=false;lastFrame='';action(refresh,'experiment-error');};
 $('replay').oninput=()=>{stopPreview();followLive=false;action(()=>showFrame($('replay').value),'experiment-error');};
-$('replay-play').onclick=()=>{
-  if(!replayId){$('experiment-error').textContent='Select a recorded run or start an experiment first.';return;}
-  stopPreview();followLive=false;playing=!playing;$('replay-play').textContent=playing?'Pause replay':'Play replay';if(playing)play();
-};
+$('replay-play').onclick=()=>action(async()=>{
+  const row=state.results.find(r=>r.id===$('run-history').value&&r.replay_current);
+  if(!row)return;
+  stopPreview();followLive=false;
+  if(playing){playing=false;$('replay-play').textContent='Play replay';return;}
+  if(replayId!==row.id||Number($('replay').value)>=row.frames-1){
+    replayId=row.id;$('replay').max=row.frames-1;await showFrame(0);
+  }
+  playing=true;$('replay-play').textContent='Pause replay';play();
+},'experiment-error');
 async function play(){
   if(!playing)return;const next=Number($('replay').value)+1;
   if(next>Number($('replay').max)){playing=false;$('replay-play').textContent='Play replay';return;}
@@ -167,7 +222,7 @@ $('model').onchange=()=>{$('context').value=$('model').value==='gemini-3.5-flash
     workspaceMap={places:setup.places,routes:setup.routes,destinations:setup.destinations,facilities:setup.facilities};
     $('preview-config').value=JSON.stringify(setup.config,null,2);
     for(const day of setup.days){$('days').add(new Option(day,day,false,['2026-08-24','2026-08-26'].includes(day)));$('example-day').add(new Option(day,day,false,day==='2027-01-25'));}
-    await refresh();loadDispatcher();loadExperiment();
+    await refresh();
     setInterval(()=>refresh().catch(e=>$('experiment-error').textContent=e.message),2000);
   }catch(e){$('error').textContent=e.message;}
 })();
@@ -187,7 +242,7 @@ $('preview-create').onclick=()=>action(async()=>{
   const config=JSON.parse($('preview-config').value);
   const frame=await api('reset',config);previewEnd=config.end;
   displayPreview(frame);
-});
+},'preview-error');
 async function stepPreview(){
   if(previewBusy||previewTime>=previewEnd)return;
   previewBusy=true;$('preview-create').disabled=true;$('preview-step').disabled=true;
@@ -195,7 +250,7 @@ async function stepPreview(){
   try{const frame=await api('step',{minutes:5});if(generation===previewGeneration)displayPreview(frame);}
   finally{previewBusy=false;$('preview-create').disabled=false;$('preview-step').disabled=previewPlaying||previewTime>=previewEnd;}
 }
-$('preview-step').onclick=()=>action(stepPreview);
+$('preview-step').onclick=()=>action(stepPreview,'preview-error');
 $('preview-run').onclick=()=>{
   if(previewPlaying){stopPreview();return;}
   previewPlaying=true;followLive=false;playing=false;replayId=null;
@@ -203,7 +258,7 @@ $('preview-run').onclick=()=>{
   const generation=++previewGeneration;
   (async function loop(){
     if(!previewPlaying||generation!==previewGeneration)return;
-    try{await stepPreview();}catch(e){$('error').textContent=e.message;stopPreview();}
+    try{await stepPreview();}catch(e){$('preview-error').textContent=e.message;stopPreview();}
     if(previewTime>=previewEnd)stopPreview();
     if(previewPlaying&&generation===previewGeneration)setTimeout(loop,100);
   })();

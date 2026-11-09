@@ -67,7 +67,7 @@ def default_dispatchers():
                 dict(id='preset-base1',name='BASE1',kind='RULE',memory=0,example_ids=[],
                      crowd_level='HIGH',rule_share=.7,minimum_buses=2,baseline=True)]
     for letter,memory,fewshot in [('A',0,False),('B',30,False),('C',0,True),('D',30,True)]:
-        defaults.append(dict(id='preset-llm'+letter.lower(),name='LLM'+letter,kind='LLM',memory=memory,
+        defaults.append(dict(id='preset-llm'+letter.lower(),name='LLM-'+letter,kind='LLM',memory=memory,
                              example_ids=list(examples) if fewshot else [],model=DEFAULT_MODEL,
                              endpoint=DEFAULT_ENDPOINT,context_tokens=1048576))
     return defaults
@@ -91,6 +91,12 @@ class Lab:
                 self.experiments.append(dict(id='legacy-'+old['id'],name=old['name'],dispatcher_id=old['id'],
                     days=old['days'],mode=old['mode'],start=old['start'],end=old['end'],seed=old['seed']))
             self.save_catalogs()
+        renamed = False
+        for p in self.profiles:
+            if p['id'] in {'preset-llm'+c.lower() for c in 'ABCD'} and p['name']=='LLM'+p['id'][-1].upper():
+                p['name'] = 'LLM-'+p['id'][-1].upper()
+                renamed = True
+        if renamed: self.save_catalogs()
         if not any(p['id']=='preset-base0' for p in self.profiles):
             self.profiles.insert(0,default_dispatchers()[0])
             self.save_catalogs()
@@ -102,7 +108,12 @@ class Lab:
     def status(self):
         with self.lock:
             rows = read(LAB/'results.json', [])
+            dispatchers = {p['id']:p for p in self.profiles}
+            current = {e['id']: self.run_profile(e, dispatchers[e['dispatcher_id']])
+                       for e in self.experiments if e['dispatcher_id'] in dispatchers}
             for row in rows:
+                profile = current.get(row.get('experiment_id'))
+                row['replay_current'] = profile is not None and row.get('profile') == profile
                 row.setdefault('experiment_name',row.get('dispatcher','Previous experiment'))
             return dict(job=self.job.copy(), profiles=self.profiles, experiments=self.experiments,
                         results=rows, examples=available_examples(),
@@ -145,7 +156,7 @@ class Lab:
             if profile['id']=='preset-base1' or any(p['id']==profile['id'] and p.get('baseline') for p in self.profiles):
                 profile['id'] = uuid4().hex
                 if profile['name']=='BASE1': profile['name']='BASE1 custom'
-            self.profiles = [p for p in self.profiles if p['id']!=profile['id']] + [profile]
+            self.profiles = self.upsert(self.profiles, profile)
             self.save_catalogs()
             return profile
 
@@ -171,9 +182,21 @@ class Lab:
     def experiment(self, payload):
         with self.lock:
             experiment = self.validate_experiment(payload)
-            self.experiments = [e for e in self.experiments if e['id']!=experiment['id']] + [experiment]
+            self.experiments = self.upsert(self.experiments, experiment)
             self.save_catalogs()
             return experiment
+
+    @staticmethod
+    def upsert(records, record):
+        if any(item['id']==record['id'] for item in records):
+            return [record if item['id']==record['id'] else item for item in records]
+        return [*records, record]
+
+    @staticmethod
+    def run_profile(experiment, dispatcher):
+        return dict(dispatcher,days=experiment['days'],mode=experiment['mode'],start=experiment['start'],
+                    end=experiment['end'],seed=experiment['seed'],experiment_id=experiment['id'],
+                    experiment_name=experiment['name'])
 
     def start(self, payload):
         with self.lock:
@@ -182,11 +205,9 @@ class Lab:
             if saved is None: raise ValueError('Save and select an experiment first')
             experiment = self.validate_experiment(saved)
             dispatcher = next(d for d in self.profiles if d['id']==experiment['dispatcher_id'])
-            profile = dict(dispatcher,days=experiment['days'],mode=experiment['mode'],start=experiment['start'],
-                           end=experiment['end'],seed=experiment['seed'],experiment_id=experiment['id'],
-                           experiment_name=experiment['name'])
+            profile = self.run_profile(experiment, dispatcher)
             key = str(payload.get('api_key','')).strip() or os.environ.get(self.config.llm_key_env,'')
-            if profile['kind']=='LLM' and not key: raise ValueError('Supply an API key for this experiment')
+            if profile['kind']=='LLM' and not key: raise ValueError('Enter and save an API key in Dispatcher Setup')
             self.job = dict(status='warming',name=experiment['name'],experiment_id=experiment['id'],time=self.config.start)
         Thread(target=self.run,args=(profile,key),daemon=True).start()
         return {'started':True,'experiment_id':experiment['id']}
@@ -195,6 +216,7 @@ class Lab:
         try:
             cfg, data, frozen = load_setup()
             examples = [c for c in available_examples() if c['case_id'] in profile['example_ids']]
+            completed = []
             for day in profile['days']:
                 run_id = uuid4().hex
                 folder = LAB/'runs'/run_id
@@ -241,14 +263,13 @@ class Lab:
                 save_json(folder/'rule_audit.json',sim.rule_audit)
                 save_json(folder/'dispatches.json',sim.dispatch_log)
                 save_json(folder/'llm_calls.json',getattr(sim.controller,'calls',[]))
-                with self.lock:
-                    rows = read(LAB/'results.json',[])
-                    # A rerun updates the same experiment/day row, preserving other experiments.
-                    index = next((i for i,r in enumerate(rows) if r.get('experiment_id')==profile['experiment_id'] and r['day']==day),None)
-                    if index is None: rows.append(row)
-                    else: rows[index]=row
-                    save_json(LAB/'results.json',rows)
-            with self.lock: self.job['status']='complete'
+                completed.append(row)
+            with self.lock:
+                rows = read(LAB/'results.json',[])
+                # Publish the whole experiment together, replacing obsolete test days too.
+                rows = [r for r in rows if r.get('experiment_id')!=profile['experiment_id']]
+                save_json(LAB/'results.json',rows+completed)
+                self.job['status']='complete'
         except Exception as exc:
             with self.lock: self.job.update(status='failed',error=str(exc))
 

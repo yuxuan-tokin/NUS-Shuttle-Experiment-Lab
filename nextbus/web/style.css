@@ -166,3 +166,12 @@ th { background: #f1f6f7; }
 }
 
 [hidden] { display:none !important; }
+
+.map-workspace .advanced-panel { position:fixed; z-index:11; bottom:72px; left:16px; width:310px; }
+.map-workspace .advanced-panel > .panel-content { max-height:50dvh; }
+.saved-list { display:grid; gap:4px; margin-bottom:8px; }
+.saved-list button { margin:0; text-align:left; overflow-wrap:anywhere; }
+.saved-list button[aria-pressed="true"] { outline:2px solid #176879; outline-offset:-2px; }
+@media (max-width:760px) {
+  .map-workspace .advanced-panel { left:10px; width:calc(50vw - 15px); }
+}

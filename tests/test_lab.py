@@ -65,9 +65,25 @@ class LabTests(unittest.TestCase):
         self.assertEqual(len(lab.status()['results']),2)
         self.assertEqual(len(Lab(self.data,self.config).experiments),1)
 
+    def test_replay_requires_current_saved_experiment_and_dispatcher(self):
+        lab=Lab(self.data,self.config)
+        rule=lab.profile(dict(name='Custom',kind='RULE'))
+        exp=lab.experiment(self.experiment(dispatcher_id=rule['id'],days=['2026-08-24','2026-08-26']))
+        self.run_saved(lab,exp)
+        self.assertTrue(all(r['replay_current'] for r in lab.status()['results']))
+        lab.profile(dict(rule,rule_share=.5))
+        self.assertFalse(any(r['replay_current'] for r in lab.status()['results']))
+        exp=lab.experiment(dict(exp,days=['2026-08-26'],seed=42))
+        self.run_saved(lab,exp)
+        row,=lab.status()['results']
+        self.assertTrue(row['replay_current'])
+        self.assertEqual((row['day'],row['seed'],row['profile']['rule_share']),('2026-08-26',42,.5))
+        lab.experiment(dict(exp,seed=43))
+        self.assertFalse(lab.status()['results'][0]['replay_current'])
+
     def test_default_dispatchers_and_protected_base0(self):
         lab=Lab(self.data,self.config)
-        self.assertEqual([d['name'] for d in lab.profiles],['BASE0','BASE1','LLMA','LLMB','LLMC','LLMD'])
+        self.assertEqual([d['name'] for d in lab.profiles],['BASE0','BASE1','LLM-A','LLM-B','LLM-C','LLM-D'])
         with self.assertRaises(ValueError):lab.discard({'type':'profile','id':'preset-base0'})
         with self.assertRaises(ValueError):lab.profile(dict(id='preset-base0',name='replace',kind='RULE'))
         lab.discard({'type':'profile','id':'preset-llma'})
