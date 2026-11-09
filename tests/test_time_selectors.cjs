@@ -19,7 +19,7 @@ const scope = vm.createContext({
   Option: function(text, value) { return {text, value}; },
   serviceTimes: [],
 });
-vm.runInContext(source.slice(source.indexOf('function timeOptionLabel')), scope);
+vm.runInContext(source.slice(source.indexOf('function timeOptionLabel'),source.indexOf("$('start').onchange=()=>updateWindowEnd();")+"$('start').onchange=()=>updateWindowEnd();".length), scope);
 scope.initializeWindowTimes(360, 1440);
 assert.equal(elements.start.options[0].text, '0600');
 assert.equal(elements.start.options.at(-1).text, '2345');

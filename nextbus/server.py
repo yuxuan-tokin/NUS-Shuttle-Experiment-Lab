@@ -67,6 +67,7 @@ def make_server(data,config,port=8765):
         def do_GET(self):
             path = urlsplit(self.path).path
             assets = {'/':('experiments.html','text/html; charset=utf-8'),'/map-view':('index.html','text/html; charset=utf-8'),'/style.css':('style.css','text/css'),'/app.js':('app.js','text/javascript')}
+            assets['/panels.js']=('panels.js','text/javascript; charset=utf-8')
             assets.update({'/experiments':('experiments.html','text/html; charset=utf-8'),'/experiments.js':('experiments.js','text/javascript; charset=utf-8')})
             if path in assets:
                 filename,content_type = assets[path]
@@ -138,6 +139,7 @@ def make_server(data,config,port=8765):
                 if self.path.startswith('/api/lab/'):
                     command=self.path.rsplit('/',1)[-1]
                     if command=='profile': result=lab.profile(payload)
+                    elif command=='experiment': result=lab.experiment(payload)
                     elif command=='start': result=lab.start(payload)
                     elif command=='discard': result=lab.discard(payload)
                     elif command=='frame': result=lab.frame(str(payload['id']),int(payload['index']))

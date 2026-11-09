@@ -75,3 +75,94 @@ th { background: #f1f6f7; }
 .example-row { display:flex; align-items:center; gap:8px; padding:5px 0; }
 .example-row label { flex:1; min-width:0; margin:0; }
 .example-discard { flex:none; width:auto; margin:0; padding:5px 8px; font-size:11px; }
+/* Full-window map workspace; overlays never resize the underlying canvas. */
+.map-workspace, body.viewer { width:100vw; height:100dvh; overflow:hidden; }
+.map-workspace #viewer { position:fixed; inset:0; width:100vw; height:100dvh; border:0; z-index:0; }
+.map-workspace .lab-main { display:contents; }
+.workspace-brand { position:fixed; top:16px; left:16px; z-index:30; padding:8px 12px; gap:20px; border-radius:12px; box-shadow:0 3px 16px #18334324; }
+.workspace-brand h1 { font-size:20px; }
+.workspace-brand button { width:auto; margin:0; padding:8px 12px; }
+.floating-panel { background:#fff; border:1px solid #d7e1e6; border-radius:12px; padding:0; margin:0; box-shadow:0 4px 22px #18334326; overflow:hidden; }
+.floating-panel > summary { list-style:none; display:flex; align-items:center; justify-content:space-between; gap:20px; padding:14px 16px; font-size:13px; user-select:none; }
+.floating-panel > summary::-webkit-details-marker { display:none; }
+.floating-panel > summary::after { content:'+'; font-size:19px; font-weight:400; line-height:1; }
+.floating-panel[open] > summary::after { content:'−'; }
+.floating-panel[open] > summary { border-bottom:1px solid #e5ecf0; }
+.floating-panel > summary:focus-visible { outline:3px solid #268cb4; outline-offset:-3px; }
+.floating-panel > .panel-content { padding:14px 16px; overflow:auto; overscroll-behavior:contain; }
+.map-workspace .setup-panel { position:fixed; z-index:10; top:80px; left:16px; width:310px; }
+.map-workspace .setup-panel > .panel-content { max-height:calc(100dvh - 224px); }
+.map-workspace .playback-panel { position:fixed; z-index:10; top:16px; right:16px; width:380px; }
+.map-workspace .playback-panel > .panel-content { max-height:165px; }
+.playback-panel .replay-bar { flex-wrap:wrap; gap:8px; }
+.playback-panel .replay-bar button { width:auto; padding:8px 12px; margin:0; }
+.playback-panel .replay-bar input { min-width:110px; width:110px; }
+.playback-panel small { display:block; margin-top:10px; color:#647885; font-size:11px; }
+.map-workspace .result-panel { position:fixed; z-index:20; bottom:16px; left:344px; right:16px; margin:0; padding:0; }
+.result-panel > .panel-content { max-height:40dvh; }
+.result-panel .table-scroll { max-height:30dvh; }
+.result-panel:not([open]) { left:auto; width:220px; }
+.viewer #map { position:fixed; inset:0; width:100vw; height:100dvh; }
+.viewer main { margin:0; padding:0; max-width:none; }
+.viewer .map { border:0; }
+.viewer #map-hint { display:none; }
+.viewer .map-side-dock { position:fixed; z-index:10; top:245px; right:16px; width:380px; max-height:calc(100dvh - 325px); overflow:auto; pointer-events:none; padding-bottom:8px; }
+.viewer .map-side-dock > .floating-panel { margin-bottom:10px; pointer-events:auto; }
+.viewer .map-side-dock .panel-content { max-height:42dvh; }
+.viewer .layers-overlay { position:fixed; z-index:10; bottom:16px; left:16px; width:310px; }
+.viewer .layers-overlay .panel-content { max-height:42dvh; }
+.viewer .toolbar { border:0; padding:0; display:block; }
+.viewer .switches { flex-direction:column; align-items:stretch; gap:12px; }
+.viewer .switches [hidden] { display:none; }
+.viewer .legend { padding:14px 0 0; }
+.viewer .inspect, .viewer .metrics-overlay .panel { border:0; box-shadow:none; padding:0; margin:0; }
+.viewer .cards { grid-template-columns:repeat(2,minmax(0,1fr)); margin:0 0 16px; }
+.viewer .card { padding:10px; }
+.viewer .card strong { font-size:20px; }
+.viewer .hourly { grid-template-columns:1fr; margin-top:12px; }
+.viewer .hourly canvas { cursor:default; height:130px; background:white; }
+.panels-hidden .floating-panel, .viewer.panels-hidden .map-side-dock { display:none; }
+@media(max-width:900px) {
+  .map-workspace .setup-panel, .viewer .layers-overlay { width:270px; }
+  .map-workspace .playback-panel, .viewer .map-side-dock { width:310px; }
+  .map-workspace .result-panel[open] { left:300px; }
+}
+@media(max-width:640px) {
+  .workspace-brand { top:10px; left:10px; }
+  .map-workspace .setup-panel { top:72px; left:10px; width:calc(100vw - 20px); z-index:25; }
+  .map-workspace .setup-panel > .panel-content { max-height:45dvh; }
+  .map-workspace .playback-panel { top:auto; right:10px; bottom:70px; width:calc(100vw - 20px); }
+  .map-workspace .playback-panel > .panel-content { max-height:130px; }
+  .viewer .map-side-dock { top:130px; right:10px; width:calc(100vw - 20px); max-height:calc(100dvh - 390px); }
+  .viewer .map-side-dock .panel-content { max-height:28dvh; }
+  .viewer .layers-overlay { left:10px; bottom:10px; width:145px; }
+  .map-workspace .result-panel, .map-workspace .result-panel:not([open]) { right:10px; bottom:10px; width:calc(100vw - 175px); }
+  .map-workspace .result-panel[open] { left:10px; width:calc(100vw - 20px); }
+}
+/* Independent panels. Each header can also be dragged to reposition it. */
+.map-workspace .experiment-panel { position:fixed; z-index:10; top:16px; right:16px; width:340px; }
+.map-workspace .experiment-panel > .panel-content { max-height:calc(100dvh - 130px); }
+.experiment-playback { margin-top:18px; padding-top:14px; border-top:1px solid #d7e1e6; }
+.experiment-playback .replay-bar { flex-wrap:wrap; gap:8px; }
+.experiment-playback .replay-bar button { width:auto; margin:0; }
+.experiment-playback .replay-bar input { min-width:110px; width:110px; }
+#experiment-error { color:#aa3e34; font-size:12px; overflow-wrap:anywhere; }
+.viewer .metrics-overlay { position:fixed; z-index:10; top:16px; left:350px; width:320px; }
+.viewer .inspection-overlay { position:fixed; z-index:10; bottom:80px; left:350px; width:320px; }
+.viewer .metrics-overlay > .panel-content { max-height:45dvh; }
+.viewer .inspection-overlay > .panel-content { max-height:35dvh; }
+.floating-panel > summary { touch-action:none; cursor:grab; }
+.floating-panel.dragging > summary { cursor:grabbing; }
+@media(max-width:1100px) {
+  .viewer .metrics-overlay, .viewer .inspection-overlay { left:300px; width:260px; }
+  .map-workspace .experiment-panel { width:300px; }
+}
+@media(max-width:700px) {
+  .map-workspace .setup-panel { top:72px; left:10px; width:calc(50vw - 15px); }
+  .map-workspace .experiment-panel { top:72px; right:10px; width:calc(50vw - 15px); }
+  .map-workspace .setup-panel > .panel-content, .map-workspace .experiment-panel > .panel-content { max-height:45dvh; }
+  .viewer .metrics-overlay { top:auto; bottom:126px; left:10px; width:calc(100vw - 20px); }
+  .viewer .inspection-overlay { bottom:70px; left:10px; width:calc(100vw - 20px); }
+}
+
+[hidden] { display:none !important; }

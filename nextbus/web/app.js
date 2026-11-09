@@ -389,3 +389,26 @@ if(new URLSearchParams(location.search).has('viewer')) {
     show(event.data.frame);
   });
 }
+
+// Map-view is an edge-to-edge canvas with independently collapsible overlays.
+if(new URLSearchParams(location.search).has('viewer')) {
+
+  function overlay(title,nodes,className,parent=document.body){
+    const panel=document.createElement('details');panel.className='floating-panel '+className;
+    const summary=document.createElement('summary');summary.textContent=title;
+    const content=document.createElement('div');content.className='panel-content';
+    nodes.forEach(node=>content.append(node));panel.append(summary,content);parent.append(panel);return panel;
+  }
+  const hourly=element('hourly').parentElement;
+  overlay('Metrics & hourly charts',[element('cards'),hourly],'metrics-overlay');
+  overlay('Buildings & inspection',[document.querySelector('.inspect')],'inspection-overlay');
+  const toolbar=document.querySelector('.toolbar');
+  const pace=element('pace').closest('label');if(pace)pace.hidden=true;
+  overlay('Map layers & legend',[toolbar,document.querySelector('.legend')],'layers-overlay',document.body);
+  element('hourly').textContent='Run a simulation to view hourly charts.';
+  window.addEventListener('message',event=>{
+    if(event.origin!==location.origin||event.source!==window.parent)return;
+    if(event.data?.type==='nextbus-panels')document.body.classList.toggle('panels-hidden',Boolean(event.data.hidden));
+  });
+  window.parent.postMessage({type:'nextbus-map-ready'},location.origin);
+}

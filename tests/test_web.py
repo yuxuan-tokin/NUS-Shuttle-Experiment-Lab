@@ -2,6 +2,9 @@ from concurrent.futures import ThreadPoolExecutor
 from dataclasses import asdict
 import json
 import socket
+import tempfile
+from pathlib import Path
+from unittest.mock import patch
 from threading import Thread
 import unittest
 from urllib.error import HTTPError
@@ -15,6 +18,9 @@ from nextbus.server import make_server
 class WebTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
+        cls.temp = tempfile.TemporaryDirectory()
+        cls.lab_patch = patch('nextbus.lab.LAB',Path(cls.temp.name))
+        cls.lab_patch.start()
         cls.config = Config(population=120, start=600, end=660)
         cls.data = Dataset(cls.config)
         cls.server = make_server(cls.data, cls.config, 0)
@@ -27,6 +33,8 @@ class WebTests(unittest.TestCase):
         cls.server.shutdown()
         cls.server.server_close()
         cls.thread.join(timeout=2)
+        cls.lab_patch.stop()
+        cls.temp.cleanup()
 
     def request(self, path, payload=None):
         body = None if payload is None else json.dumps(payload).encode()

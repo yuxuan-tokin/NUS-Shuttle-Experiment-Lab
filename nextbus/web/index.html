@@ -35,17 +35,17 @@
           <div><button id="play" disabled>Run</button><button id="step" class="secondary" disabled>Step 5 min</button><button id="export" class="secondary" disabled>Export</button></div>
           <div class="switches"><label for="pace">Minutes per update <select id="pace"><option value="5">5</option><option value="15">15</option><option value="30">30</option></select></label><label><input type="checkbox" id="people" checked> Individuals</label><label><input type="checkbox" id="transit-only"> Bus riders / queues only</label><label><input type="checkbox" id="labels" checked> Place labels</label><button id="fit" class="secondary">Fit map</button></div>
         </div>
-        <canvas id="map" aria-label="Geographic schematic of campus destinations, students and shuttle runs"></canvas>
+        <canvas id="map" aria-label="Campus destinations, students and shuttle runs"></canvas>
         <div id="map-hint">Select a destination to inspect its activities and candidate stops.</div>
         <div class="legend">
           <span><i style="background:#be6c22"></i>Dining</span><span><i style="background:#8056b0"></i>Study</span><span><i style="background:#307a71"></i>Residence</span><span><i style="background:#5079a8"></i>Class</span><span><i style="background:#c44356"></i>Shuttle queue</span>
-          <span class="fine">Geographic schematic · drag to pan · scroll to zoom</span>
+          <span class="fine">Drag to pan · scroll to zoom</span>
         </div>
       </div>
       <div class="cards" id="cards"></div><div class="panel"><h2>Hourly service</h2><div id="hourly" class="hourly"></div><small>Each point measures that hour only. Waiting is passenger-minutes; failure and utilization are percentages. Final partial hours are marked.</small></div>
       <div class="panel inspect">
         <div class="inspection-head"><h2 id="place-title">Activities and destinations</h2><span id="activity-totals"></span></div>
-        <div id="place-info">Dining visitors and passengers waiting for a shuttle use different colors. Activity clusters are slightly offset on screen for visibility.</div>
+        <div id="place-info"></div>
         <details><summary>All buildings and destinations</summary><div class="table-scroll"><table><thead><tr><th>Name</th><th>Kind</th><th>Building</th><th>Coordinates</th></tr></thead><tbody id="buildings"></tbody></table></div></details><details><summary>Facility coordinates and access stops</summary><div class="table-scroll"><table><thead><tr><th>Facility</th><th>Building</th><th>Coordinates</th><th>Candidate stops</th></tr></thead><tbody id="facilities"></tbody></table></div></details>
         <details><summary>All metrics</summary><pre id="metrics"></pre></details>
         <details><summary>Controller input · permitted data</summary><pre id="observation"></pre></details>
@@ -54,5 +54,5 @@
     </section>
   </main>
   <script src="./app.js" onerror="document.getElementById('boot-status').textContent='The interface script could not load. Start run_simulator.ps1 and open http://127.0.0.1:8765.'"></script>
-</body>
+<script src="/panels.js"></script></body>
 </html>
