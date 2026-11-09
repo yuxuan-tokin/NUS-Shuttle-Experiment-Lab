@@ -43,7 +43,7 @@ function prepareMotion(frame, source, animate) {
   let lastPaint = start;
   function paint(now) {
     const progress = Math.min(1, (now - start) / 320);
-    if (now - lastPaint >= 40 || progress === 1) {
+    if (now - lastPaint >= 1000 / 60 - 1 || progress === 1) {
       motionProgress = progress;
       draw();
       lastPaint = now;
@@ -350,7 +350,12 @@ element('export').onclick = () => action(async () => {
   show(await api('export', {}));
   element('error').textContent = 'Saved to outputs/ui_run';
 });
-element('fit').onclick = () => {zoom = 1; pan = [0, 0]; draw();};
+function resetMapView() {
+  zoom = 1;
+  pan = [0, 0];
+  draw();
+}
+element('fit').onclick = resetMapView;
 element('people').onchange = draw;
 element('transit-only').onchange = draw;
 element('labels').onchange = draw;
@@ -455,6 +460,7 @@ if(new URLSearchParams(location.search).has('viewer')) {
   element('hourly').textContent='Run a simulation to view hourly charts.';
   window.addEventListener('message',event=>{
     if(event.origin!==location.origin||event.source!==window.parent)return;
+    if(event.data?.type==='nextbus-reset-view')resetMapView();
     if(event.data?.type==='nextbus-panels')document.body.classList.toggle('panels-hidden',Boolean(event.data.hidden));
   });
   window.parent.postMessage({type:'nextbus-map-ready'},location.origin);

@@ -289,6 +289,9 @@ function updateWindowEnd(preferred=Number($('end').value)){
   $('end').value=String(choices.includes(preferred)?preferred:choices[0]);
 }
 $('start').onchange=()=>updateWindowEnd();
+$('reset-map-view').onclick=()=>{
+  $('viewer').contentWindow.postMessage({type:'nextbus-reset-view'},location.origin);
+};
 $('map-only').onclick=()=>{
   const hidden=document.body.classList.toggle('panels-hidden');
   $('map-only').textContent=hidden?'Show panels':'Map only';
