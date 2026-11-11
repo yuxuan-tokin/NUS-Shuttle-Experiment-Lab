@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>NextBus Workspace</title><link rel="stylesheet" href="/style.css"></head><body class="map-workspace">
-<header class="workspace-brand"><h1>NextBus</h1><button id="map-only" class="secondary" aria-pressed="false">Map only</button><button id="reset-map-view" class="secondary">Reset map view</button></header>
+<header class="workspace-brand"><h1>NextBus</h1><button id="map-only" class="secondary" aria-pressed="false">Map only</button><button id="reset-map-view" class="secondary">Reset map view</button><button id="export-map" class="secondary">Export map</button><small id="map-export-status" role="status"></small></header>
 <iframe id="viewer" src="/map-view?viewer=1" title="Live simulation and replay"></iframe>
 <main class="lab-main">
 <details class="floating-panel setup-panel" open><summary>Dispatcher setup</summary><div class="panel-content">
@@ -12,14 +12,15 @@
 
 <label>API key<input id="key" type="password" autocomplete="off" placeholder="Key or server environment"></label><small>Save dispatcher to use this key during this page session.</small><details><summary>Provider and context</summary><label>Chat completions endpoint<input id="endpoint" value="https://generativelanguage.googleapis.com/v1beta/openai/chat/completions"></label><label>Model context limit (tokens)<input id="context" type="number" value="1048576" min="16384" max="2000000"></label><small>Use the provider's documented limit. The prompt budget reserves 8,192 tokens and rejects oversized requests.</small></details>
 <label>Memory<select id="memory"><option value="0">None</option><option value="15">15 minutes</option><option value="30" selected>30 minutes</option><option value="45">45 minutes</option><option value="60">1 hour</option><option value="90">90 minutes</option><option value="120">2 hours</option></select></label>
+<p id="example-job-note" class="fine" role="status"></p><p id="example-error" role="alert"></p>
 <details open><summary>Examples <span id="example-count"></span></summary><div id="examples" class="example-picker"></div><button id="all-examples" class="secondary">Select all</button><button id="no-examples" class="secondary">Clear</button></details>
-<details><summary>Generate another example</summary><label>Teaching day<select id="example-day"></select></label><label>Checkpoint<input id="example-start" type="time" value="08:00" step="900"></label><label>Length (minutes)<input id="example-minutes" type="number" min="15" max="120" step="15" value="60"></label><button id="add-example" class="secondary">Generate BASE0 / BASE1 example</button></details></div>
+<details><summary>Generate another example</summary><label>Teaching day<select id="example-day"></select></label><label>Checkpoint<select id="example-start" disabled></select></label><label>Length (minutes)<select id="example-minutes" disabled></select></label><label>Factual branch<select id="example-factual"></select></label><label>Counterfactual branch<select id="example-counterfactual"></select></label><small id="example-branch-note"></small><button id="add-example" class="secondary">Generate example</button></details></div>
 
 <div id="rule-settings" hidden>
 <label>Capacity threshold<select id="crowd-level"><option>HIGH</option><option>MEDIUM</option><option>LOW</option></select></label>
 <label>Required share at or above threshold (%)<input id="rule-share" type="number" min="1" max="100" value="70"></label>
 <label>Minimum total buses observed on the route<input id="minimum-buses" type="number" min="1" max="1000" value="2"></label>
-<small>Distinct runs in the preceding 30 minutes, sampled every 15 minutes. Existing pending-bus and cooldown checks apply.</small>
+<small>Uses observations from the past 30 minutes, taken every 15 minutes. Each bus run is counted once.</small>
 </div>
 <button id="save">Save dispatcher</button><button id="delete-profile" class="secondary">Discard dispatcher</button>
 </div><p id="error" role="alert"></p></div></details><details id="advanced" class="floating-panel advanced-panel"><summary>Advanced simulation settings</summary><div class="panel-content">
@@ -46,4 +47,4 @@
 <div class="replay-bar"><button id="live" class="secondary">Live</button><button id="replay-play" class="secondary" disabled>Play replay</button><input id="replay" type="range" min="0" max="0" value="0" aria-label="Replay frame"><span id="frame-time">—</span></div>
 </div><p id="experiment-error" role="alert"></p></div></details>
 </main>
-<details class="floating-panel result-panel"><summary>Experiment results</summary><div class="panel-content"><div class="inspection-head"><a href="/api/lab/csv">Export to spreadsheet (CSV)</a></div><div class="table-scroll"><table><thead><tr><th>Experiment</th><th>Dispatcher</th><th>Model</th><th>Test case</th><th>Memory</th><th>Seed</th><th>Wait · passenger-min</th><th>Failure %</th><th>Utilization %</th><th>Extra buses</th><th>Extra hours</th><th>Details</th></tr></thead><tbody id="results"></tbody></table></div></div></details><script src="/experiments.js"></script><script src="/panels.js"></script></body></html>
+<details class="floating-panel result-panel"><summary>Experiment results</summary><div class="panel-content"><div class="inspection-head"><a href="/api/lab/csv">Export to spreadsheet (CSV)</a></div><div class="table-scroll"><table><thead><tr><th>Experiment</th><th>Dispatcher</th><th>Model</th><th>Test case</th><th>Memory</th><th>Seed</th><th>Wait · passenger-min</th><th>Failure %</th><th>Utilization %</th><th>Extra bus runs</th><th>Extra hours</th><th>Details</th></tr></thead><tbody id="results"></tbody></table></div></div></details><script src="/experiments.js"></script><script src="/panels.js"></script></body></html>

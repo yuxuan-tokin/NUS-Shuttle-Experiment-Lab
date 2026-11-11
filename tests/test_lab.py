@@ -50,7 +50,15 @@ class LabTests(unittest.TestCase):
         before_events(reference,420)
         self.assertEqual(lab.frame(row['id'],0)['people'],reference.snapshot()['people'])
         self.assertEqual(lab.frame(row['id'],0)['evaluation']['total_wait'],0)
-        self.assertEqual(lab.frame(row['id'],6)['time'],450)
+        final_frame = lab.frame(row['id'],6)
+        self.assertEqual(final_frame['time'],450)
+        charts = final_frame['service_charts']
+        self.assertEqual([point['time'] for point in charts['timeline']], list(range(420,451,5)))
+        self.assertEqual(charts['extra_runs'], {})
+        for point in charts['timeline']:
+            for key in ('wait','attempts','denials','service','passengers','extra_service','dispatches'):
+                self.assertAlmostEqual(sum(route[key] for route in point['routes'].values()),
+                                       point['overall'][key])
         self.assertIn(b'experiment_name',lab.csv())
         self.run_saved(lab,exp)
         self.assertEqual(len(lab.status()['results']),1)
@@ -88,7 +96,9 @@ class LabTests(unittest.TestCase):
         with self.assertRaises(ValueError):lab.profile(dict(id='preset-base0',name='replace',kind='RULE'))
         lab.discard({'type':'profile','id':'preset-llma'})
         self.assertNotIn('preset-llma',[d['id'] for d in Lab(self.data,self.config).profiles])
-        custom=lab.profile(dict(id='preset-base1',name='BASE1',kind='RULE',rule_share=.5,minimum_buses=3))
+        with self.assertRaises(ValueError):lab.discard({'type':'profile','id':'preset-base1'})
+        with self.assertRaises(ValueError):lab.profile(dict(id='preset-base1',name='BASE1',kind='RULE',rule_share=.5,minimum_buses=3))
+        custom=lab.profile(dict(name='Custom rule',kind='RULE',rule_share=.5,minimum_buses=3))
         self.assertNotEqual(custom['id'],'preset-base1')
         self.assertFalse(custom['baseline'])
         self.assertTrue(next(d for d in lab.profiles if d['id']=='preset-base1')['baseline'])
@@ -97,8 +107,9 @@ class LabTests(unittest.TestCase):
         lab=Lab(self.data,self.config)
         for changes in ({'start':419},{'start':240},{'end':405},{'end':420},{'end':1455},{'days':[]},{'dispatcher_id':'missing'}):
             with self.assertRaises(ValueError):lab.experiment(self.experiment(**changes))
-        exp=lab.experiment(self.experiment(dispatcher_id='preset-base1'))
-        lab.discard({'type':'profile','id':'preset-base1'})
+        custom=lab.profile(dict(name='Temporary rule',kind='RULE'))
+        exp=lab.experiment(self.experiment(dispatcher_id=custom['id']))
+        lab.discard({'type':'profile','id':custom['id']})
         with self.assertRaisesRegex(ValueError,'saved dispatcher'):lab.start({'experiment_id':exp['id']})
         for changes in ({'memory':121},{'context_tokens':8000},{'example_ids':['missing']}):
             with self.assertRaises(ValueError):lab.profile(dict(name='Test',kind='LLM',**changes))
@@ -157,7 +168,45 @@ class LabTests(unittest.TestCase):
         self.assertEqual(CustomRule('HIGH',.5,3).decide(sim),{'routes':[]})
         rule=CustomRule('LOW',1,2)
         self.assertEqual(rule.decide(sim),{'routes':['A']})
+        self.assertEqual(rule.decide(sim),{'routes':['A']})
+        sim.observation=lambda:dict(extra_bus_commitments=[dict(route_id='A',status='en_route_from_depot')])
         self.assertEqual(rule.decide(sim),{'routes':[]})
+
+    def test_example_branch_selection_and_generation(self):
+        lab = Lab(self.data, self.config)
+        custom = lab.profile(dict(name='Permissive', kind='RULE', crowd_level='LOW',
+                                 rule_share=.01, minimum_buses=1))
+        payload = dict(day='2026-08-24', start=480, minutes=15,
+                       factual_id=custom['id'], counterfactual_id='preset-base0')
+        with self.assertRaisesRegex(ValueError, 'different'):
+            lab.example(dict(payload, counterfactual_id=custom['id']))
+        with self.assertRaisesRegex(ValueError, 'existing'):
+            lab.example(dict(payload, counterfactual_id='preset-llma'))
+        with patch('nextbus.lab.Thread') as thread:
+            lab.example(payload)
+            args = thread.call_args.kwargs['args']
+        custom['name'] = 'Changed after launch'
+        with patch('nextbus.lab.load_setup', return_value=(self.config,self.data,{})):
+            lab.generate_example(*args)
+        self.assertEqual(lab.job['status'], 'complete', lab.job)
+        case = json.loads((self.root/'examples.json').read_text())[0]
+        self.assertEqual([branch['role'] for branch in case['candidate_outcomes']],
+                         ['factual','counterfactual'])
+        self.assertEqual(case['candidate_outcomes'][0]['policy'], 'Permissive')
+        self.assertGreater(case['candidate_outcomes'][0]['metrics_60m']['extra_buses'], 0)
+        self.assertEqual(case['candidate_outcomes'][1]['metrics_60m']['extra_buses'], 0)
+        self.assertEqual(case['checkpoint_source'], 'BASE0')
+
+    def test_custom_indicator_uses_custom_threshold_without_changing_controller(self):
+        sim = ExperimentSimulation(self.data,self.config)
+        before_events(sim,480)
+        sim.controller = CustomRule('LOW',.01,1)
+        expected = CustomRule('LOW',.01,1)
+        expected.decide(sim)
+        frame = sim.snapshot()
+        self.assertEqual([row['congested'] for row in frame['rule']],
+                         [row['congested'] for row in expected.details])
+        self.assertEqual(sim.controller.last, {})
 
     def test_memory_and_prompt_budget(self):
         sim=ExperimentSimulation(self.data,self.config);before_events(sim,480)

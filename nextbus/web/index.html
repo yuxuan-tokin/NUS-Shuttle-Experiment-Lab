@@ -39,14 +39,27 @@
         <div id="map-hint">Select a destination to inspect its activities and candidate stops.</div>
         <div class="legend">
           <span><i style="background:#be6c22"></i>Dining</span><span><i style="background:#8056b0"></i>Study</span><span><i style="background:#307a71"></i>Residence</span><span><i style="background:#5079a8"></i>Class</span><span><i style="background:#c44356"></i>Shuttle queue</span>
-          <span class="fine">Drag to pan · scroll to zoom</span>
+          <span><i class="bus-symbol" style="background:#21845b"></i>Bus ≤25% full</span><span><i class="bus-symbol" style="background:#d28a16"></i>Bus 25–75% full</span><span><i class="bus-symbol" style="background:#c43d49"></i>Bus ≥75% full</span>
+          <span id="map-navigation-hint" class="fine">Drag to pan · scroll to zoom</span>
         </div>
       </div>
-      <div class="cards" id="cards"></div><div class="panel"><h2>Hourly service</h2><div id="hourly" class="hourly"></div><small>Each point measures that hour only. Waiting is passenger-minutes; failure and utilization are percentages. Final partial hours are marked.</small></div>
+      <p id="rule-indicator-note" class="fine">Red routes indicate that the displayed rule's crowding conditions are met. A pending extra bus can still prevent dispatch.</p>
+      <div class="panel" id="service-metrics">
+        <div id="metric-context" aria-live="polite">No experiment selected</div>
+        <button id="export-metrics" class="secondary" type="button" disabled>Export metric and chart</button>
+        <small id="metric-export-status" role="status"></small>
+        <div class="metric-scope-row"><div id="metric-scope" class="metric-scope" role="group" aria-label="Metric scope"></div><small id="metric-scope-label" aria-live="polite">Overall</small></div>
+        <div class="cards" id="cards"></div>
+        <label class="metric-interval" for="metric-interval">Chart interval
+          <select id="metric-interval"><option value="auto">Auto</option><option value="15">15 min</option><option value="60">1 hour</option></select>
+        </label>
+        <div id="hourly" class="hourly">Run an experiment to view service charts.</div>
+        <div id="extra-run-chart"></div>
+      </div>
       <div class="panel inspect">
         <div class="inspection-head"><h2 id="place-title">Activities and destinations</h2><span id="activity-totals"></span></div>
         <div id="place-info"></div>
-        <details><summary>All buildings and destinations</summary><div class="table-scroll"><table><thead><tr><th>Name</th><th>Kind</th><th>Building</th><th>Coordinates</th></tr></thead><tbody id="buildings"></tbody></table></div></details><details><summary>Facility coordinates and access stops</summary><div class="table-scroll"><table><thead><tr><th>Facility</th><th>Building</th><th>Coordinates</th><th>Candidate stops</th></tr></thead><tbody id="facilities"></tbody></table></div></details>
+        <details><summary>All buildings and destinations</summary><div class="table-scroll"><table><thead><tr><th>Building / place</th><th>Kind</th><th>Coordinates</th></tr></thead><tbody id="buildings"></tbody></table></div></details><details><summary>Building coordinates and access stops</summary><div class="table-scroll"><table><thead><tr><th>Building / place</th><th>Coordinates</th><th>Candidate stops</th></tr></thead><tbody id="facilities"></tbody></table></div></details>
         <details><summary>All metrics</summary><pre id="metrics"></pre></details>
         <details><summary>Controller input · permitted data</summary><pre id="observation"></pre></details>
         <details><summary>Recent decisions and rule observations</summary><pre id="decisions"></pre></details>

@@ -1,5 +1,6 @@
 """Configurable local experiments. Credentials remain in process memory only."""
 import csv
+import copy
 import gzip
 import io
 import json
@@ -27,6 +28,79 @@ def available_examples():
     discarded = set(read(LAB/'discarded_examples.json', []))
     cases = read(ROOT/'examples.json', {}).get('cases', []) + read(LAB/'examples.json', [])
     return [case for case in cases if case['case_id'] not in discarded]
+
+
+def rule_controller(profile):
+    if profile['kind'] == 'BASE0':
+        return None
+    if profile.get('baseline'):
+        return NetworkRule()
+    from .dispatch_rules import CustomRule
+    return CustomRule(profile['crowd_level'], profile['rule_share'], profile['minimum_buses'])
+
+
+def indicator_description(profile, config):
+    custom = profile['kind'] == 'RULE' and not profile.get('baseline')
+    name = profile['name'] if profile['kind'] == 'RULE' else 'BASE1 reference'
+    level = profile['crowd_level'] if custom else 'HIGH'
+    share = profile['rule_share'] if custom else config.rule_share
+    minimum = profile['minimum_buses'] if custom else config.rule_min_crowded
+    count = 'total observed runs' if custom else 'HIGH runs'
+    return (f'Red routes meet {name} crowding conditions: at least {share:.0%} of distinct runs '
+            f'at {level} or above, with at least {minimum} {count}, in the preceding 30 minutes '
+            'sampled every 15 minutes. A pending extra bus can still prevent dispatch.')
+
+
+class LabSimulation(ExperimentSimulation):
+    """Collect route metrics and extra-run loads for the Lab charts."""
+
+    def __init__(self, data, config):
+        self.route_wait = dict.fromkeys(data.routes, 0.)
+        self.route_attempts = dict.fromkeys(data.routes, 0)
+        self.route_denials = dict.fromkeys(data.routes, 0)
+        self.extra_loads = {}
+        super().__init__(data, config)
+
+    def integrate_queues(self, time):
+        super().integrate_queues(time)
+        elapsed = time - self.t
+        if elapsed:
+            for queue in self.queues:
+                for person in queue:
+                    self.route_wait[self.leg[person][2]] += elapsed
+
+    def board(self, bus_id, index):
+        attempts, denials = self.attempts, self.denials
+        super().board(bus_id, index)
+        bus = self.buses[bus_id]
+        route = bus['route']
+        self.route_attempts[route] += self.attempts - attempts
+        self.route_denials[route] += self.denials - denials
+        if bus['extra']:
+            series = self.extra_loads.setdefault(bus['id'], dict(
+                route=route, dispatch=bus['dispatch'], points=[]))
+            # At the final stop, extend the previous load to the end of service.
+            points = series['points']
+            load = points[-1][1] if points and 'service_end' in bus else len(bus['passengers'])
+            points.append([self.t, load])
+            if 'service_end' in bus:
+                series['end'] = self.t
+
+    def route_totals(self):
+        result = {route: dict(wait=self.route_wait[route],
+                             attempts=self.route_attempts[route],
+                             denials=self.route_denials[route],
+                             service=0., passengers=0., extra_service=0., dispatches=0)
+                  for route in self.data.routes}
+        for bus in self.buses:
+            values = result[bus['route']]
+            duration, occupied, _ = self.bus_metrics(bus)
+            values['service'] += duration
+            values['passengers'] += occupied
+            if bus['extra']:
+                values['extra_service'] += duration
+                values['dispatches'] += 1
+        return result
 
 
 class BoundedLLM(ExperimentLLM):
@@ -100,6 +174,9 @@ class Lab:
         if not any(p['id']=='preset-base0' for p in self.profiles):
             self.profiles.insert(0,default_dispatchers()[0])
             self.save_catalogs()
+        if not any(p['id']=='preset-base1' for p in self.profiles):
+            self.profiles.insert(1,default_dispatchers()[1])
+            self.save_catalogs()
 
     def save_catalogs(self):
         save_json(LAB/'dispatchers.json',self.profiles)
@@ -149,6 +226,8 @@ class Lab:
 
     def profile(self, payload):
         with self.lock:
+            if payload.get('id')=='preset-base1':
+                raise ValueError('BASE1 is locked and cannot be edited')
             if payload.get('id')=='preset-base0' or payload.get('kind')=='BASE0':
                 raise ValueError('BASE0 is the fixed scheduled-service dispatcher')
             profile = self.validate_dispatcher(payload)
@@ -223,7 +302,7 @@ class Lab:
                 folder.mkdir(parents=True)
                 cfg = replace(cfg, day=day, seed=profile['seed'], arm='BASE0', history_minutes=60,
                               llm_model=profile.get('model',DEFAULT_MODEL), llm_endpoint=profile.get('endpoint',DEFAULT_ENDPOINT))
-                sim = ExperimentSimulation(data,cfg)
+                sim = LabSimulation(data,cfg)
                 start,end = profile['start'],profile['end']
                 with self.lock:
                     self.job = dict(status='warming',id=run_id,day=day,time=sim.t,name=profile['experiment_name'],experiment_id=profile['experiment_id'],frames=0)
@@ -233,17 +312,24 @@ class Lab:
                 sim.hourly = []
                 sim.hour_opening, sim.hour_start = opening, start
                 if profile['kind']=='RULE':
-                    from .dispatch_rules import CustomRule
-                    sim.controller = NetworkRule() if profile.get('baseline') else CustomRule(profile['crowd_level'],profile['rule_share'],profile['minimum_buses'])
+                    sim.controller = rule_controller(profile)
                 elif profile['kind']=='LLM':
                     arm = 'LLM-D' if examples and profile['memory'] else 'LLM-C' if examples else 'LLM-B' if profile['memory'] else 'LLM-A'
                     sim.controller = BoundedLLM(replace(cfg,arm=arm,history_minutes=profile['memory']),examples,key,profile['context_tokens'])
                 frames = 0
+                timeline = []
                 boundaries = [start] + list(range(start+5,end,5)) + [end]
                 for t in boundaries:
                     before_events(sim,t)
                     frame = sim.snapshot()
-                    frame['evaluation'] = difference(opening,totals(sim),cfg.capacity)
+                    frame['rule_description'] = indicator_description(profile, cfg)
+                    frame['experiment'] = dict(name=profile['experiment_name'], day=day,
+                                               start=start, end=end, run_id=run_id)
+                    current = totals(sim)
+                    frame['evaluation'] = difference(opening,current,cfg.capacity)
+                    timeline.append(dict(time=t, overall=current, routes=sim.route_totals()))
+                    frame['service_charts'] = dict(capacity=cfg.capacity, start=start, end=end,
+                                                   timeline=timeline, extra_runs=sim.extra_loads)
                     frame['decisions'] = sim.decision_log[-10:]
                     # gzip keeps full individual map frames affordable on disk.
                     with gzip.open(folder/f'{frames}.json.gz','wt',encoding='utf-8') as f:
@@ -277,7 +363,14 @@ class Lab:
         if len(run_id)!=32 or any(c not in '0123456789abcdef' for c in run_id) or index<0:
             raise ValueError('Invalid replay identifier')
         with gzip.open(LAB/'runs'/run_id/f'{index}.json.gz','rt',encoding='utf-8') as f:
-            return json.load(f)
+            frame = json.load(f)
+        if 'experiment' not in frame:
+            manifest = read(LAB/'runs'/run_id/'manifest.json', {})
+            profile = manifest.get('profile', {})
+            frame['experiment'] = dict(name=profile.get('experiment_name', 'Experiment'),
+                                       day=manifest.get('day', ''), start=profile.get('start'),
+                                       end=profile.get('end'), run_id=run_id)
+        return frame
 
     def example(self, payload):
         day = payload['day']
@@ -286,28 +379,41 @@ class Lab:
             raise ValueError('Choose a teaching day and a 15–120 minute example inside service hours')
         with self.lock:
             if self.job['status'] in ('running','warming'): raise ValueError('Wait for the current job')
+            eligible = {p['id']:p for p in self.profiles if p['kind'] in ('BASE0','RULE')}
+            factual = payload.get('factual_id') or 'preset-base0'
+            counterfactual = payload.get('counterfactual_id') or next(
+                (key for key in eligible if key != factual), 'preset-base0')
+            if factual == counterfactual:
+                raise ValueError('Choose two different saved rule-based dispatchers. Add a rule dispatcher if only BASE0 remains.')
+            if factual not in eligible or counterfactual not in eligible:
+                raise ValueError('Both branches must use existing rule-based dispatchers or BASE0')
+            branches = copy.deepcopy([eligible[factual], eligible[counterfactual]])
             self.job=dict(status='warming',name='Generating example',time=self.config.start)
-        Thread(target=self.generate_example,args=(day,start,minutes),daemon=True).start()
+        Thread(target=self.generate_example,args=(day,start,minutes,branches),daemon=True).start()
         return {'started':True}
 
-    def generate_example(self, day, start, minutes):
+    def generate_example(self, day, start, minutes, branches):
         try:
             cfg,data,_=load_setup()
             cfg=replace(cfg,day=day,seed=201,arm='BASE0')
             sim=ExperimentSimulation(data,cfg)
             before_events(sim,start)
             outcomes=[]
-            for policy in ('BASE0','BASE1'):
+            for index, profile in enumerate(branches):
                 branch=sim.clone()
-                branch.controller=NetworkRule() if policy=='BASE1' else None
+                branch.controller=rule_controller(profile)
                 before=totals(branch)
+                first_decision = len(branch.decision_log)
                 before_events(branch,start+minutes)
-                outcomes.append(dict(policy=policy,horizon_minutes=minutes,decisions=branch.decision_log,
+                outcomes.append(dict(policy=profile['name'], dispatcher=profile,
+                                     role='factual' if index==0 else 'counterfactual',
+                                     horizon_minutes=minutes,decisions=branch.decision_log[first_decision:],
                                      metrics_60m=difference(before,totals(branch),cfg.capacity)))
             from .protocol import history
             case=dict(case_id='custom-'+uuid4().hex[:12],day=day,seed=201,time=start,
                       snapshot=sim.observation(),history=history(sim,120),dispatch_events=[],
-                      candidate_outcomes=outcomes,preferred_action_index=None,horizon_minutes=minutes)
+                      candidate_outcomes=outcomes,preferred_action_index=None,horizon_minutes=minutes,
+                      checkpoint_source='BASE0')
             with self.lock:
                 cases=read(LAB/'examples.json',[])
                 cases.append(case)
@@ -336,7 +442,8 @@ class Lab:
                 self.experiments=[e for e in self.experiments if e['id']!=payload['id']]
                 self.save_catalogs()
             elif payload.get('type')=='profile':
-                if payload['id']=='preset-base0': raise ValueError('BASE0 cannot be discarded')
+                if payload['id'] in ('preset-base0','preset-base1'):
+                    raise ValueError('BASE0 and BASE1 cannot be discarded')
                 self.profiles=[p for p in self.profiles if p['id']!=payload['id']]
                 self.save_catalogs()
             else:

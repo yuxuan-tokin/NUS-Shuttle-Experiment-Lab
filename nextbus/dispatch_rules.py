@@ -26,7 +26,7 @@ class CustomRule(NetworkRule):
             congested = total>=self.minimum_buses and share is not None and share>=self.share
             self.details.append(dict(route=route,total=total,crowded=crowded,share=share,
                                      pending=route in pending,congested=congested))
-            if congested and route not in pending and sim.t-self.last.get(route,-1e9)>=sim.config.rule_cooldown:
+            if congested and route not in pending:
                 selected.append(route)
         for route in selected:
             self.last[route] = sim.t

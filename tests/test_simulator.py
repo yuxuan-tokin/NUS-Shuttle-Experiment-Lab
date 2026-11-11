@@ -116,7 +116,7 @@ class SimulatorTests(unittest.TestCase):
         self.assertFalse(rule.decide(sim)['dispatch'])
         sim.history[0]['vehicles'].append(dict(vehicle,run_id='two'))
         self.assertTrue(rule.decide(sim)['dispatch'])
-        self.assertFalse(rule.decide(sim)['dispatch'])
+        self.assertTrue(rule.decide(sim)['dispatch'])
 
     def test_observation_boundary_and_memory(self):
         sim = Simulation(self.data,self.config).advance(690)

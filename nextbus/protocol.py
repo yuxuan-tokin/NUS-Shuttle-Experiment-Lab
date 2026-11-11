@@ -52,7 +52,7 @@ class NetworkRule(RuleController):
             sim.history = saved
         selected = [x['route'] for x in self.details if x['share'] is not None
                     and x['crowded']>=sim.config.rule_min_crowded and x['share']>=sim.config.rule_share
-                    and not x['pending'] and sim.t-self.last.get(x['route'],-1e9)>=sim.config.rule_cooldown]
+                    and not x['pending']]
         # The legacy rule records its first selected route before returning.
         selected += [r for r,t in self.last.items() if t==sim.t and r not in selected]
         for route in selected:
@@ -100,14 +100,14 @@ class ExperimentSimulation(Simulation):
 
     def snapshot(self):
         value = super().snapshot()
-        rule = RuleController() if isinstance(self.controller,RuleController) and not isinstance(self.controller,NetworkRule) else NetworkRule()
+        rule = copy.deepcopy(self.controller) if isinstance(self.controller,RuleController) else NetworkRule()
         if isinstance(self.controller, RuleController):
             rule.last = self.controller.last.copy()
         rule.decide(self)
         hourly = list(self.hourly)
         if self.t > self.hour_start:
             hourly.append(dict(start=self.hour_start,end=self.t,**difference(self.hour_opening,totals(self),self.config.capacity)))
-        value.update(rule=[dict(x,congested=x['share'] is not None and x['crowded']>=self.config.rule_min_crowded and x['share']>=self.config.rule_share) for x in rule.details], dispatches=self.dispatch_log, hourly=hourly,
+        value.update(rule=[dict(x,congested=x.get('congested',x['share'] is not None and x['crowded']>=self.config.rule_min_crowded and x['share']>=self.config.rule_share)) for x in rule.details], dispatches=self.dispatch_log, hourly=hourly,
                      evaluation=difference({k:0 for k in totals(self)},totals(self),self.config.capacity))
         return value
 

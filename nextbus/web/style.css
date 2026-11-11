@@ -28,6 +28,7 @@ textarea { font: 11px/1.5 Consolas, monospace; height: 300px; margin-top: 10px; 
 .rules { margin: 18px 0; padding: 12px; background: #f1f7f6; font-size: 12px; border-radius: 5px; }
 .rules p { line-height: 1.6; margin-bottom: 0; }
 details { border-top: 1px solid #e5ecf0; padding: 12px 0 0; margin-top: 12px; }
+#llm-settings > details:last-child { border-top:0; border-bottom:1px solid #e5ecf0; padding:0 0 12px; margin-bottom:12px; }
 summary { cursor: pointer; font-size: 12px; font-weight: 600; }
 #warnings { padding-left: 15px; font-size: 11px; line-height: 1.6; }
 #error { color: #aa3e34; font-size: 12px; line-height: 1.5; overflow-wrap: anywhere; }
@@ -44,6 +45,10 @@ canvas:active { cursor: grabbing; }
 #map-hint { padding: 9px 15px; font-size: 11px; color: #73818a; background: #fcfdfb; border-top: 1px solid #e4eae3; }
 .legend { display: flex; flex-wrap: wrap; gap: 13px; padding: 12px 15px; font-size: 11px; }
 .legend i { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 5px; }
+.legend i.bus-symbol { width:9px; height:9px; border-radius:0; }
+.legend i.route-symbol { width:18px; height:3px; border-radius:0; vertical-align:middle; }
+#buildings tr.selected-place > td, #facilities tr.selected-place > td { background:#d5dfe5; color:#203744; }
+#buildings tr:focus-visible, #facilities tr:focus-visible { outline:2px solid #176879; outline-offset:-2px; }
 .fine { color: #7a8b95; }
 .cards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin: 15px 0; }
 .card { background: white; border: 1px solid #dae3e8; border-radius: 8px; padding: 14px; }
@@ -186,3 +191,28 @@ th { background: #f1f6f7; }
 @media(max-width:640px) {
   .map-workspace .result-panel[open] { width:calc(100vw - 20px); }
 }
+
+.metric-scope-row { display:flex; align-items:center; gap:8px; margin-bottom:12px; }
+#metric-context { white-space:pre-line; font-size:12px; line-height:1.5; margin-bottom:8px; overflow-wrap:anywhere; }
+#export-metrics, .result-panel a[href="/api/lab/csv"] { display:inline-block; width:auto; margin:0 0 10px; padding:5px 9px; font-family:inherit; font-size:12px; font-weight:600; line-height:normal; border:0; border-radius:5px; background:#edf2f5; color:#274653; text-decoration:none; cursor:pointer; }
+.result-panel a[href="/api/lab/csv"]:hover { filter:brightness(.95); }
+#metric-export-status { display:block; font-size:11px; }
+.metric-scope { display:flex; flex-wrap:wrap; gap:2px; }
+.metric-scope button { display:inline-flex; align-items:center; justify-content:center; flex:0 0 auto; width:auto; height:26px; gap:5px; margin:0; padding:2px 5px; color:#374957; font-size:12px; background:transparent; border:1px solid transparent; border-radius:5px; cursor:pointer; }
+.metric-scope button::before { content:''; width:18px; height:3px; border-radius:0; background:var(--scope-color); }
+.metric-scope button[aria-pressed="true"] { background:#edf3fa; border-color:#b7cbdf; }
+.metric-interval { display:flex; align-items:center; gap:8px; font-size:12px; }
+.metric-interval select { width:auto; margin:0; }
+.viewer #service-metrics { padding:0; border:0; box-shadow:none; }
+#extra-run-chart { margin-top:12px; }
+#extra-run-chart svg { display:block; width:100%; height:auto; background:white; }
+#extra-run-chart svg text { fill:#52616c; font:12px "Segoe UI",sans-serif; }
+.place-picker { position:fixed; z-index:1000; max-width:280px; max-height:60vh; overflow:auto; padding:6px; border:1px solid #b7c7d2; border-radius:6px; background:white; box-shadow:0 3px 15px #20374433; }
+.place-picker button { display:block; width:100%; margin:2px 0; padding:7px 10px; text-align:left; background:#edf3f7; color:#203744; }
+
+.metric-scope button:focus-visible { outline:2px solid #176879; outline-offset:1px; }
+
+#metric-scope-label { display:none; }
+.hourly svg { display:block; width:100%; height:auto; background:white; }
+.hourly svg text { fill:#52616c; font:12px "Segoe UI",sans-serif; }
+.metric-scope button::before { flex-shrink:0; }

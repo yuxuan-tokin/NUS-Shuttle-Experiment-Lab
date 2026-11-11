@@ -12,7 +12,7 @@ class Select {
     this.value = options[0]?.value || '';
   }
 }
-const elements = {start: new Select(), end: new Select()};
+const elements = {start: new Select(), end: new Select(), 'example-start':new Select(), 'example-minutes':new Select()};
 const source = fs.readFileSync('nextbus/web/experiments.js', 'utf8');
 const scope = vm.createContext({
   $: id => elements[id],
@@ -28,6 +28,16 @@ assert.equal(elements.end.value, '570');
 assert.equal(elements.end.options.at(-1).text, '2400');
 assert.ok(elements.start.options.some(o => o.text === '1700'));
 assert.ok(!elements.start.options.some(o => o.text === '0500'));
+assert.equal(elements['example-start'].value, '480');
+assert.equal(elements['example-start'].options[0].text, '0600');
+assert.equal(elements['example-start'].options.at(-1).text, '2300');
+elements['example-minutes'].value='15';
+scope.updateExampleCheckpoint(1425);
+assert.equal(elements['example-start'].value,'1425');
+elements['example-minutes'].value='120';
+scope.updateExampleCheckpoint();
+assert.equal(elements['example-start'].value,'1320');
+assert.ok(elements['example-start'].options.every(option=>Number(option.value)+120<=1440));
 
 // Changing start beyond the previous end selects the first valid later time.
 elements.start.value = '1020';

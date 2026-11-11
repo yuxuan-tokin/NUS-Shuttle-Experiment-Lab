@@ -29,7 +29,7 @@ class RuleController:
             total,crowded = len(values),sum(values.values())
             share = crowded/total if total else None
             self.details.append(dict(route=route,crowded=crowded,total=total,share=share,pending=route in pending))
-            if share is not None and crowded>=sim.config.rule_min_crowded and share>=sim.config.rule_share and route not in pending and sim.t-self.last.get(route,-1e9)>=sim.config.rule_cooldown:
+            if share is not None and crowded>=sim.config.rule_min_crowded and share>=sim.config.rule_share and route not in pending:
                 eligible.append((-share,route))
         if not eligible: return NO_ACTION.copy()
         route = min(eligible)[1]

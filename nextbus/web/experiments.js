@@ -56,14 +56,16 @@ function loadDispatcher(p){
   $('crowd-level').value=p?.crowd_level||'HIGH';$('rule-share').value=(p?.rule_share??.7)*100;
   $('minimum-buses').value=p?.minimum_buses??2;
   for(const c of document.querySelectorAll('#examples input'))c.checked=(p?.example_ids||[]).includes(c.value);
-  const protectedBase=p?.id==='preset-base0';
+  const protectedBase=['preset-base0','preset-base1'].includes(p?.id);
+  for (const id of ['crowd-level','rule-share','minimum-buses']) $(id).disabled=protectedBase;
   $('kind').closest('label').hidden=protectedBase;
   $('name').disabled=protectedBase;$('kind').disabled=protectedBase;$('save').disabled=protectedBase;
   $('delete-profile').disabled=!p||protectedBase;
-  $('save').textContent=p?.baseline?'Save as custom dispatcher':'Save dispatcher';
+  $('save').textContent='Save dispatcher';
   $('baseline-note').hidden=!protectedBase&&!p?.baseline;
-  $('baseline-note').textContent=protectedBase?'BASE0 keeps scheduled service. It cannot be edited or discarded.':
-    'Original BASE1 uses HIGH, 70%, and at least two crowded runs. Saving edits creates a custom dispatcher using the minimum total observed buses.';
+  $('baseline-note').textContent=p?.id==='preset-base1'?
+    'BASE1 is locked. It uses HIGH, 70%, and at least two crowded runs.':
+    'BASE0 keeps scheduled service';
   $('kind').onchange();updateCount();
 }
 function loadExperiment(e){
@@ -98,7 +100,21 @@ function renderResults(rows){
       fmt(m.capacity_failure_pct),fmt(m.overall_utilization_pct),m.extra_buses,fmt(m.extra_bus_hours)])cell(tr,value);
     const td=cell(tr,''),details=document.createElement('details'),summary=document.createElement('summary');
     summary.textContent=`${row.example_count} examples`;details.append(summary);
-    for(const e of row.examples){const p=document.createElement('p');p.textContent=`${e.case_id}: ${e.day} ${time(e.time)}, ${e.horizon_minutes} min, seed ${e.seed}`;details.append(p);}
+    for(const e of row.examples){
+      const p=document.createElement('p');
+      p.textContent=`${e.case_id}: ${e.day} ${time(e.time)}, ${e.horizon_minutes} min, seed ${e.seed}`;
+      const branches=e.candidate_outcomes||[];
+      for(const [index,branch] of branches.entries()){
+        const line=document.createElement('span');
+        line.style.display='block';
+        const role=branch.role||(index===0?'factual':'counterfactual');
+        const name=branch.dispatcher?.name||branch.policy||'Not recorded';
+        line.textContent=`${role==='factual'?'Factual':'Counterfactual'} dispatcher · ${name}`;
+        p.append(line);
+      }
+      if(!branches.length)p.append(document.createTextNode(' · Branch dispatchers not recorded'));
+      details.append(p);
+    }
     const pre=document.createElement('pre');pre.textContent=JSON.stringify(row.profile,null,2);details.append(pre);td.append(details);
     const discard=document.createElement('button');discard.className='secondary';discard.textContent='Discard result';
     discard.onclick=()=>action(()=>api('lab/discard',{id:row.id,type:'result'}),'experiment-error');td.append(discard);$('results').append(tr);
@@ -119,12 +135,11 @@ function renderExamples(next){
   for(const e of next.examples){
     const label=document.createElement('label'),check=document.createElement('input');
     check.type='checkbox';check.value=e.case_id;check.checked=selected.includes(e.case_id);check.onchange=updateCount;
-    label.append(check,document.createTextNode(`${e.day} · ${time(e.time)} · ${e.horizon_minutes} min`));
+    label.append(check,document.createTextNode(`${e.day} · ${time(e.time)} · ${e.horizon_minutes} min · ${(e.candidate_outcomes||[]).map(branch=>branch.policy).join(' / ')}`));
     const row=document.createElement('div');row.className='example-row';
     const discard=document.createElement('button');discard.type='button';discard.className='secondary example-discard';discard.textContent='Discard';
     discard.setAttribute('aria-label',`Discard example ${e.case_id} from ${e.day}`);
-    discard.disabled=['running','warming'].includes(next.job.status);
-    discard.onclick=()=>action(async()=>{await api('lab/discard',{type:'example',id:e.case_id});check.checked=false;updateCount();});
+    discard.onclick=()=>action(async()=>{await api('lab/discard',{type:'example',id:e.case_id});check.checked=false;updateCount();},'example-error');
     row.append(label,discard);$('examples').append(row);
   }updateCount();
 }
@@ -144,15 +159,17 @@ async function refreshState(){
     const next=await api('lab');
     if(JSON.stringify(state?.profiles)!==JSON.stringify(next.profiles)){
       savedList('profiles',next.profiles,selectedId,loadDispatcher);options('experiment-dispatcher',next.profiles);
+      updateExampleBranches(next.profiles);
     }
     if(JSON.stringify(state?.experiments)!==JSON.stringify(next.experiments))savedList('experiments',next.experiments,experimentId,loadExperiment);
-    renderExamples(next);
+    if(JSON.stringify(state?.examples)!==JSON.stringify(next.examples)) renderExamples(next);
     const rowsChanged=JSON.stringify(state?.results)!==JSON.stringify(next.results);
     state=next;if(rowsChanged){renderResults(next.results);renderRunHistory();}
     const j=state.job;
     $('status').textContent=previewSelected?'Interactive preview':`${j.name||'Experiment'} · ${j.status}`;
     $('progress').textContent=previewSelected?$('preview-status').textContent:j.error||`${j.day||''} ${j.time!=null?time(j.time):''}${j.status==='warming'?' · Preparing BASE0 checkpoint':''}`;
-    updatePlayback();$('add-example').disabled=['running','warming'].includes(j.status);
+    updatePlayback();$('add-example').disabled=false;
+    $('example-job-note').textContent=['running','warming'].includes(j.status)?'Example changes are available when the current job finishes.':'';
     if(followLive&&experimentId===j.experiment_id&&j.id&&j.frames){
       replayId=j.id;$('replay').max=j.frames-1;
       const key=j.id+':'+j.frames;if(key!==lastFrame){lastFrame=key;await showFrame(j.frames-1,true);updatePlayback();}
@@ -193,7 +210,27 @@ $('run').onclick=()=>action(async()=>{
 },'experiment-error');
 $('all-examples').onclick=()=>{document.querySelectorAll('#examples input').forEach(c=>c.checked=true);updateCount();};
 $('no-examples').onclick=()=>{document.querySelectorAll('#examples input').forEach(c=>c.checked=false);updateCount();};
-$('add-example').onclick=()=>action(()=>api('lab/example',{day:$('example-day').value,start:minutes($('example-start').value),minutes:Number($('example-minutes').value)}));
+function updateExampleBranches(profiles) {
+  const eligible=profiles.filter(p=>p.kind==='BASE0'||p.kind==='RULE');
+  const factual=$('example-factual'), counter=$('example-counterfactual');
+  const previous=factual.value, alternative=counter.value;
+  factual.replaceChildren(...eligible.map(p=>new Option(p.name,p.id)));
+  factual.value=eligible.some(p=>p.id===previous)?previous:'preset-base0';
+  const choices=eligible.filter(p=>p.id!==factual.value);
+  counter.replaceChildren(...choices.map(p=>new Option(p.name,p.id)));
+  counter.value=choices.some(p=>p.id===alternative)?alternative:
+    (choices.find(p=>p.id==='preset-base0')||choices[0])?.id||'';
+  $('example-branch-note').textContent=choices.length?
+    'Both branches start from the same BASE0 checkpoint. Choose two different saved rules.':
+    'Add a rule-based dispatcher to compare with BASE0. Two different branches are required.';
+  $('add-example').disabled=false;
+}
+$('example-factual').onchange=()=>updateExampleBranches(state.profiles);
+$('add-example').onclick=()=>action(()=>{
+  if(!$('example-factual').value||!$('example-counterfactual').value)throw Error('Choose two different rule-based dispatchers.');
+  if(!$('example-start').value||!$('example-minutes').value)throw Error('Choose a valid checkpoint and length.');
+  return api('lab/example',{day:$('example-day').value,start:Number($('example-start').value),minutes:Number($('example-minutes').value),factual_id:$('example-factual').value,counterfactual_id:$('example-counterfactual').value});
+},'example-error');
 $('run-history').onchange=()=>action(async()=>{
   const row=state.results.find(r=>r.id===$('run-history').value);if(!row?.replay_current){replayId=null;playing=false;updatePlayback();return;}
   stopPreview();playing=false;followLive=false;replayId=row.id;$('replay').max=row.frames-1;$('replay').value=0;await showFrame(0);updatePlayback();
@@ -277,6 +314,19 @@ function initializeWindowTimes(first,last){
   $('start').replaceChildren(...serviceTimes.slice(0,-1).map(t=>new Option(timeOptionLabel(t),String(t))));
   $('start').disabled=false;$('end').disabled=false;
   setWindow(420,570);
+  const durations=[];
+  for(let length=15;length<=Math.min(120,last-serviceTimes[0]);length+=15)durations.push(length);
+  $('example-minutes').replaceChildren(...durations.map(length=>new Option(String(length),String(length))));
+  $('example-minutes').value=String(durations.includes(60)?60:durations[0]);
+  $('example-minutes').disabled=false;
+  updateExampleCheckpoint(480);
+}
+function updateExampleCheckpoint(preferred=Number($('example-start').value)) {
+  const duration=Number($('example-minutes').value);
+  const choices=serviceTimes.filter(time=>time+duration<=serviceTimes.at(-1));
+  $('example-start').replaceChildren(...choices.map(time=>new Option(timeOptionLabel(time),String(time))));
+  $('example-start').value=String(choices.includes(preferred)?preferred:choices.at(-1));
+  $('example-start').disabled=!choices.length;
 }
 function setWindow(start,end){
   const available=serviceTimes.slice(0,-1);
@@ -289,8 +339,13 @@ function updateWindowEnd(preferred=Number($('end').value)){
   $('end').value=String(choices.includes(preferred)?preferred:choices[0]);
 }
 $('start').onchange=()=>updateWindowEnd();
+$('example-minutes').onchange=()=>updateExampleCheckpoint();
 $('reset-map-view').onclick=()=>{
   $('viewer').contentWindow.postMessage({type:'nextbus-reset-view'},location.origin);
+};
+$('export-map').onclick=()=>{
+  $('map-export-status').textContent='Preparing map…';
+  $('viewer').contentWindow.postMessage({type:'nextbus-export-map'},location.origin);
 };
 $('map-only').onclick=()=>{
   const hidden=document.body.classList.toggle('panels-hidden');
@@ -300,6 +355,7 @@ $('map-only').onclick=()=>{
 };
 window.addEventListener('message',event=>{
   if(event.origin!==location.origin||event.source!==$('viewer').contentWindow)return;
+  if(event.data?.type==='nextbus-map-exported') $('map-export-status').textContent=event.data.message;
   if(event.data?.type==='nextbus-map-ready'){
     $('viewer').contentWindow.postMessage({type:'nextbus-panels',hidden:document.body.classList.contains('panels-hidden')},location.origin);
   }
