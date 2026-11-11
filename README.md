@@ -28,6 +28,14 @@ cd NUS-Shuttle-Experiment-Lab
 ```powershell
 py -m venv .venv
 .\.venv\Scripts\python.exe -m pip install -e .
+.\run_simulator.ps1 -Port 8766
+```
+
+The launcher uses the `.venv` Python environment created above. On later visits, run only `.\run_simulator.ps1 -Port 8766` from the repository folder.
+
+If PowerShell blocks script execution, start the same server directly without changing your execution policy:
+
+```powershell
 .\.venv\Scripts\python.exe -m nextbus --config config.json serve --port 8766
 ```
 
@@ -50,7 +58,7 @@ On Linux, install your distribution's Python venv package if environment creatio
 5. To try an LLM, select or add an LLM dispatcher, enter a compatible provider endpoint, model and API key, and save it before running an experiment. API usage may incur provider charges. Keys entered in the page last for that page session only.
 6. Stop the server with **Ctrl+C**. Next time, open a terminal in the same folder and run only the server command.
 
-If `py` is unavailable on Windows, use `python` and confirm `python --version` is at least 3.11. If port 8766 is occupied, use `--port 8767` and open the matching address. If the workbook is missing, check your working directory and that `data/simulator.xlsx` was extracted. Experiments check the supplied workbook fingerprint, so use the bundled file for your first run.
+If `py` is unavailable on Windows, use `python` and confirm `python --version` is at least 3.11. If port 8766 is occupied, use `-Port 8767` with the PowerShell launcher or `--port 8767` with the Python command, then open the matching address. If the workbook is missing, check your working directory and that `data/simulator.xlsx` was extracted. Experiments check the supplied workbook fingerprint, so use the bundled file for your first run.
 
 New checkouts start without saved experiments or results. Local settings, experiments, results, and replay files are stored in `outputs/lab/`, survive server restarts, and are excluded from Git. Bundled calibration and historical few-shot examples are baseline inputs. Calibration retains its documented limitations. The server listens locally; this setup does not publish a shared website.
 
