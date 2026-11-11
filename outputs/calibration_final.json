@@ -5,7 +5,7 @@
   "user_approved": true,
   "meets_calibration_targets": false,
   "full_calendar_validated": false,
-  "workbook_sha256": "e7e4090b61afbda90961a3e18c04c993162d44b86218868cd22ead1a201acef7",
+  "workbook_sha256": "bbcadf43ba94f9aaa009d8d2bd8ebbc24531167f3e31cdbcd9d9d79e205727fe",
   "days": [
     "2026-08-17"
   ],
@@ -13,7 +13,7 @@
     1
   ],
   "config": {
-    "workbook": "outputs/nus_cleaned/NUS_Venues_and_Shuttle_Stops_kent_ridge_activities.xlsx",
+    "workbook": "data/simulator.xlsx",
     "population": 25000,
     "population_seed": 101,
     "seed": 1,
@@ -231,5 +231,7 @@
       }
     },
     "rmse": 45.35830810384439
-  }
+  },
+  "source_workbook_sha256": "e7e4090b61afbda90961a3e18c04c993162d44b86218868cd22ead1a201acef7",
+  "workbook_repackaging": "Required sheets and columns only; Dataset places, routes, facilities, distances, and all teaching-day sessions verified identical."
 }

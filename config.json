@@ -1,5 +1,5 @@
 {
-  "workbook": "outputs/nus_cleaned/NUS_Venues_and_Shuttle_Stops_kent_ridge_activities.xlsx",
+  "workbook": "data/simulator.xlsx",
   "population": 25000,
   "population_seed": 101,
   "seed": 1,

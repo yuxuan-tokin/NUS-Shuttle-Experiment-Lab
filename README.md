@@ -12,11 +12,47 @@ You may freely use this simulator to: 1) Create your own rule-based or LLM dispa
 
 ## Start
 
-Run `./run_simulator.ps1 -Port 8766`in the source code folder's terminal, then visit http://127.0.0.1:8766/. Leave the terminal running.
+Requires **Python 3.11 or newer**. The required workbook is included at `data/simulator.xlsx`; no separate data download is needed. It contains the Locations, Dining and Study, and Classes sheets with required column positions preserved. The loaded simulator data and all teaching-day schedules were verified against the original workbook. Calibration parameters remain the same; the workbook fingerprint was updated for the repackaged file.
 
-New checkouts start without saved experiments or results. Local dispatchers, experiments, results, and replay files are created under `outputs/lab/` and are excluded from Git. The included historical few-shot examples are default set ups, not a user's completed runs.
+### Download
 
-Requires Python 3.11+, numpy, openpyxl, and the separately supplied workbook at the path in `config.json`. Install with `python -m pip install -e .`. The fixed calibration and workbook fingerprint are checked before experiments. Calibration has its original known limitations; this UI does not turn an exploratory run into a formally validated result.
+Use **Code > Download ZIP** on GitHub, extract it, and open a terminal in the folder containing `pyproject.toml` and `config.json`. Or use Git:
+
+```sh
+git clone https://github.com/yuxuan-tokin/NUS-Shuttle-Experiment-Lab.git
+cd NUS-Shuttle-Experiment-Lab
+```
+
+### Windows (PowerShell)
+
+```powershell
+py -m venv .venv
+.\.venv\Scripts\python.exe -m pip install -e .
+.\.venv\Scripts\python.exe -m nextbus --config config.json serve --port 8766
+```
+
+### macOS or Linux
+
+```sh
+python3 -m venv .venv
+./.venv/bin/python -m pip install -e .
+./.venv/bin/python -m nextbus --config config.json serve --port 8766
+```
+
+On Linux, install your distribution's Python venv package if environment creation reports it missing. Environment activation is unnecessary with these commands. Internet is needed to install dependencies and to call LLM APIs.
+
+### Try it
+
+1. Open **http://127.0.0.1:8766/** on the same computer. Keep the terminal open.
+2. Inspect BASE0 or BASE1 in Dispatcher setup. Neither needs an API key.
+3. Add an experiment in Experiment setup, select a dispatcher, choose an available teaching date and time window, and save it.
+4. Click **Run saved experiment**. Inspect the map, playback, Metrics & charts, and Experiment results.
+5. To try an LLM, select or add an LLM dispatcher, enter a compatible provider endpoint, model and API key, and save it before running an experiment. API usage may incur provider charges. Keys entered in the page last for that page session only.
+6. Stop the server with **Ctrl+C**. Next time, open a terminal in the same folder and run only the server command.
+
+If `py` is unavailable on Windows, use `python` and confirm `python --version` is at least 3.11. If port 8766 is occupied, use `--port 8767` and open the matching address. If the workbook is missing, check your working directory and that `data/simulator.xlsx` was extracted. Experiments check the supplied workbook fingerprint, so use the bundled file for your first run.
+
+New checkouts start without saved experiments or results. Local settings, experiments, results, and replay files are stored in `outputs/lab/`, survive server restarts, and are excluded from Git. Bundled calibration and historical few-shot examples are baseline inputs. Calibration retains its documented limitations. The server listens locally; this setup does not publish a shared website.
 
 The home page is a full-window map workspace with independent dispatcher, experiment/playback, metrics/charts, buildings/inspection, map layers, and results panels. Hover over, click, or focus a panel to bring it to the front. Click a panel header to minimize it or drag it to move it. This applies to both expanded and minimized panels. Map only hides all panels; Show panels restores them. The old `/experiments` URL opens the same workspace. Advanced simulation settings remain unchanged: they provide a separate interactive preview with step/run/pause controls on the same map. Preview changes do not alter experiment calibration or create experiment result rows. Experiments still use the fixed simulator setup.
 

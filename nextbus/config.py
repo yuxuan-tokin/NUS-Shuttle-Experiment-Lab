@@ -6,7 +6,7 @@ from pathlib import Path
 
 @dataclass
 class Config:
-    workbook: str = "outputs/nus_cleaned/NUS_Venues_and_Shuttle_Stops_kent_ridge_activities.xlsx"
+    workbook: str = "data/simulator.xlsx"
     population: int = 25000
     population_seed: int = 101
     seed: int = 1
