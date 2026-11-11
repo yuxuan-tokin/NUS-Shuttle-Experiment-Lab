@@ -1,4 +1,4 @@
-# NextBus Experiment Lab
+# NUS Internal Shuttle Bus Simulator and Experiment Lab
 
 This simulator models NUS Internal Shuttle Bus System based on bus system information available on University Campus Infrostructure: https://uci.nus.edu.sg/campus-life/campus-services/transportation/internal-shuttle-bus/
 
