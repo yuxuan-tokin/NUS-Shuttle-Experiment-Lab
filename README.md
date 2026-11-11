@@ -1,12 +1,20 @@
 # NextBus Experiment Lab
 
-A separate research workspace derived from the original NextBus simulator. The original checkout and GitHub repository are preserved. The LLM objective prompt now balances five metrics without a prescribed ranking or weighting formula.
+This simulator models NUS Internal Shuttle Bus System based on bus system information available on University Campus Infrostructure: https://uci.nus.edu.sg/campus-life/campus-services/transportation/internal-shuttle-bus/
+
+Students movement in the campus is modeled primarily based on NUSmods class timetable, class sizes and venues. https://nusmods.com/
+
+All buildings in the simulator are modeled based on real world lattitude and longtitude. Walking time and distance between buildings are thus calculated accordingly.
+
+You may freely use this simulator to: 1) Create your own rule-based or LLM dispatcher (if you have your own model's API key). 2）Run experiments and check the dispatcher performance by comparing different evaluation metrixs calculated from the simulation. 3) Export your experiment result.
+
+<img width="3066" height="1638" alt="image" src="https://github.com/user-attachments/assets/fa11d272-341d-43ff-b38c-a36d00f6edd3" />
 
 ## Start
 
-Run `./run_simulator.ps1 -Port 8766`, then visit http://127.0.0.1:8766/. The original can continue using port 8765.
+Run `./run_simulator.ps1 -Port 8766`in the source code folder's terminal, then visit http://127.0.0.1:8766/. Leave the terminal running.
 
-New checkouts start without saved experiments or results. Local dispatchers, experiments, results, and replay files are created under `outputs/lab/` and are excluded from Git. The included calibration and historical few-shot examples are baseline inputs, not a user's completed runs.
+New checkouts start without saved experiments or results. Local dispatchers, experiments, results, and replay files are created under `outputs/lab/` and are excluded from Git. The included historical few-shot examples are default set ups, not a user's completed runs.
 
 Requires Python 3.11+, numpy, openpyxl, and the separately supplied workbook at the path in `config.json`. Install with `python -m pip install -e .`. The fixed calibration and workbook fingerprint are checked before experiments. Calibration has its original known limitations; this UI does not turn an exploratory run into a formally validated result.
 
