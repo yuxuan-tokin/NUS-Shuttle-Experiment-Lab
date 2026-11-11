@@ -1,6 +1,6 @@
-# NUS Internal Shuttle Bus Simulator and Experiment Lab
+# National University of Singapore (NUS) Internal Shuttle Bus (ISB) Simulator and Experiment Lab
 
-This simulator models NUS Internal Shuttle Bus System based on bus system information available on University Campus Infrostructure: https://uci.nus.edu.sg/campus-life/campus-services/transportation/internal-shuttle-bus/
+This simulator models NUS ISB System based on bus system information available on University Campus Infrostructure (UCI): https://uci.nus.edu.sg/campus-life/campus-services/transportation/internal-shuttle-bus/
 
 Students movement in the campus is modeled primarily based on NUSmods class timetable, class sizes and venues. https://nusmods.com/
 
