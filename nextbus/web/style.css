@@ -20,6 +20,7 @@ h2 { font-size: 15px; margin: 0; }
 .notice { font-size: 11px; color: #926624; background: #fbf5e9; padding: 8px; border-radius: 4px; }
 label { display: block; font-size: 12px; font-weight: 600; margin: 14px 0 5px; }
 input, select, textarea, button { font: inherit; border: 1px solid #c7d3dc; border-radius: 5px; padding: 8px; width: 100%; }
+input:disabled, select:disabled, textarea:disabled { background-color:#f8f8f8; color:#595959; -webkit-text-fill-color:#595959; border-color:#c7d3dc; opacity:1; }
 button { background: #176d82; color: white; border: none; cursor: pointer; margin: 5px 0; font-weight: 600; font-size: 12px; padding: 10px 14px; }
 button:hover { filter: brightness(.95); }
 button.secondary { background: #edf2f5; color: #274653; }
