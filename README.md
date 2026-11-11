@@ -6,7 +6,7 @@ Students movement in the campus is modeled primarily based on NUSmods class time
 
 All buildings in the simulator are modeled based on real world lattitude and longtitude. Walking time and distance between buildings are thus calculated accordingly.
 
-You may freely use this simulator to: 1) Create your own rule-based or LLM dispatcher (if you have your own model's API key). 2）Run experiments and check the dispatcher performance by comparing different evaluation metrixs calculated from the simulation. 3) Export your experiment result.
+This simulator supports user to: 1) Create their own rule-based or LLM dispatcher (if they have their own model's API key). 2）Run experiments and check the dispatcher performance by comparing different evaluation metrixs calculated from the simulations. 3) Export their experiment result.
 
 <img width="3066" height="1638" alt="image" src="https://github.com/user-attachments/assets/fa11d272-341d-43ff-b38c-a36d00f6edd3" />
 
