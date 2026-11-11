@@ -61,11 +61,11 @@ function loadDispatcher(p){
   $('kind').closest('label').hidden=protectedBase;
   $('name').disabled=protectedBase;$('kind').disabled=protectedBase;$('save').disabled=protectedBase;
   $('delete-profile').disabled=!p||protectedBase;
+  $('save').hidden=protectedBase;
+  $('delete-profile').hidden=protectedBase;
   $('save').textContent='Save dispatcher';
-  $('baseline-note').hidden=!protectedBase&&!p?.baseline;
-  $('baseline-note').textContent=p?.id==='preset-base1'?
-    'BASE1 is locked. It uses HIGH, 70%, and at least two crowded runs.':
-    'BASE0 keeps scheduled service';
+  $('baseline-note').hidden=p?.id!=='preset-base0';
+  $('baseline-note').textContent='BASE0 keeps scheduled service';
   $('kind').onchange();updateCount();
 }
 function loadExperiment(e){

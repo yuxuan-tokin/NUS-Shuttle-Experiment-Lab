@@ -17,7 +17,10 @@ function locatePlace(destination) {
   pan = [canvas.clientWidth / 2 - point[0], canvas.clientHeight / 2 - point[1]];
   showPlace(destination);
 }
-const element = id => document.getElementById(id);
+let panelHost = null;
+const element = id => document.getElementById(id) || panelHost?.querySelector('#' + id);
+const panelQueryAll = selector => [...document.querySelectorAll(selector), ...(panelHost?.querySelectorAll(selector) || [])];
+const panelQuery = selector => document.querySelector(selector) || panelHost?.querySelector(selector);
 const canvas = element('map');
 const context = canvas.getContext('2d');
 const colors = {class: '#5079a8', dining: '#be6c22', study: '#8056b0', residence: '#307a71', queue: '#c44356', free: '#a3adb1'};
@@ -228,7 +231,7 @@ function showPlace(destination) {
   placePicker?.remove();
   placePicker = null;
   selectedPlace = destination;
-  document.querySelectorAll('#buildings tr, #facilities tr').forEach(row => {
+  panelQueryAll('#buildings tr, #facilities tr').forEach(row => {
     row.classList.toggle('selected-place', Number(row.dataset.destination) === destination);
   });
   const place = setup.places[destination];
@@ -319,7 +322,7 @@ function updateControls() {
 }
 
 function showFacilities() {
-  document.querySelectorAll('.legend .route-legend').forEach(node => node.remove());
+  panelQueryAll('.legend .route-legend').forEach(node => node.remove());
   for (const route of Object.keys(setup.routes)) {
     const entry = document.createElement('span');
     entry.className = 'route-legend';
@@ -327,7 +330,7 @@ function showFacilities() {
     symbol.className = 'route-symbol';
     symbol.style.background = routeColor(route);
     entry.append(symbol, document.createTextNode(route));
-    document.querySelector('.legend').append(entry);
+    panelQuery('.legend').append(entry);
   }
   element('buildings').replaceChildren(...setup.destinations.map(destination => setup.places[destination]).map(p => {
     const tr=document.createElement('tr');
@@ -716,7 +719,7 @@ element('export-metrics').addEventListener('click', async () => {
   const cards = [...element('cards').children].map(card => ({
     title:card.querySelector('small').textContent, value:card.querySelector('strong').textContent,
   }));
-  const charts = [...document.querySelectorAll('#hourly svg, #extra-run-chart svg')].map(svg => {
+  const charts = [...panelQueryAll('#hourly svg, #extra-run-chart svg')].map(svg => {
     const copy = svg.cloneNode(true);
     copy.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
     copy.setAttribute('width', '360');
@@ -826,7 +829,7 @@ async function exportMapImage() {
     motionProgress = progress;
     draw();
   }
-  const legends = [...document.querySelectorAll('.legend span')].filter(span => span.querySelector('i'))
+  const legends = [...panelQueryAll('.legend span')].filter(span => span.querySelector('i'))
     .map(span => ({name:span.textContent, color:getComputedStyle(span.querySelector('i')).backgroundColor,
       bus:span.querySelector('i').classList.contains('bus-symbol'),
       route:span.querySelector('i').classList.contains('route-symbol')}));
@@ -902,6 +905,14 @@ if(new URLSearchParams(location.search).has('viewer')) {
   const pace=element('pace').closest('label');if(pace)pace.hidden=true;
   element('fit').remove();
   overlay('Map layers & legend',[toolbar,document.querySelector('.legend'),element('rule-indicator-note'),element('map-navigation-hint')],'layers-overlay',document.body);
+  if(window.parent!==window && window.parent.location.origin===location.origin) {
+    window.parent.document.getElementById('map-panel-host')?.remove();
+    panelHost=window.parent.document.createElement('div');
+    panelHost.id='map-panel-host';panelHost.className='viewer';
+    panelHost.style.display='contents';
+    document.querySelectorAll('.floating-panel').forEach(panel=>panelHost.append(panel));
+    window.parent.document.body.append(panelHost);
+  }
   window.addEventListener('message',event=>{
     if(event.origin!==location.origin||event.source!==window.parent)return;
     if(event.data?.type==='nextbus-export-map') {
