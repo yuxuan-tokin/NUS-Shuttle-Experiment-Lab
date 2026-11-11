@@ -70,22 +70,36 @@ Dispatcher setup creates named LLM or rule-based dispatchers independently of ex
 
 <img width="666" height="1346" alt="image" src="https://github.com/user-attachments/assets/5d298efb-538f-409f-adbe-17c282751ba5" />
 
-
 Custom rules configure crowding level, qualifying bus share, and minimum total distinct buses observed on the route in the preceding 30 minutes, sampled at 15-minute intervals. For rule-based dispatcher, A bus qualifies if any observation reaches the selected crowding level. Defaults are HIGH, 70%, and 2 total buses. BASE1 uses HIGH crowding, a 70% qualifying share, and at least two crowded runs. To use different settings, add a custom dispatcher. Dispatch decisions occur every 15 minutes. There is no additional 10-minute cooldown; a pending extra bus can still prevent dispatch on its route.
+
+<img width="560" height="930" alt="image" src="https://github.com/user-attachments/assets/dc0a2631-7b1c-40cb-a760-211ddda2370f" />
 
 Experiment setup selects a saved dispatcher, test days or time window, and seed. Experiments have their own names and can be saved or discarded. Both panels show clickable saved lists. Run uses the saved experiment and the latest saved dispatcher it references. Playback is available for completed runs that match both current saved configurations. Old combined profiles are migrated into separate dispatcher and experiment catalogs, retaining the original file.
 
+<img width="720" height="1538" alt="image" src="https://github.com/user-attachments/assets/0c3c1c96-adf6-4727-89ef-fbc38ce37a83" />
+
 Memory defaults to 30 minutes, can be disabled, and is capped at 120 minutes in 15-minute steps. This configures LLM context only: it does not alter BASE1's lookback or thresholds. All selected examples retain their stated horizons. Four historical examples are provided; select any subset or generate additional examples from other teaching-day checkpoints and lengths (15â€“120 minutes). Training and test days must be disjoint. When generating an example, choose two distinct existing dispatchers for the factual and counterfactual branches from BASE0, BASE1, and custom rules. Checkpoints and horizons must fit within the simulator day (06:00 to 24:00). New examples do not alter the frozen historical example file. Each example has a Discard button: it removes the example from the picker and saved dispatcher selections, including after restart. Completed results retain their recorded examples. Original example data is retained for audit. Discard is available when no job is running.
 
+<img width="572" height="736" alt="image" src="https://github.com/user-attachments/assets/ebb363b5-4b13-40b1-bb6d-3f20ac44053d" />
+<img width="570" height="920" alt="image" src="https://github.com/user-attachments/assets/ed05f022-76cd-4ded-98a7-9e4cbd17ad19" /> 
+
 The default Gemini input limit is 1,048,576 tokens, per https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash-lite . For another model, enter the provider's documented context limit. Before each request a conservative UTF-8 byte budget reserves 8,192 tokens for instructions, framing and response. Oversized requests fail with guidance rather than silently dropping selected examples. This is conservative budgeting, not a provider tokenizer; custom provider limits must be entered correctly.
+
+<img width="564" height="934" alt="image" src="https://github.com/user-attachments/assets/b6a45ed7-5bf8-4c4e-ae01-d36774a0bb37" />
 
 A time-window run first simulates scheduled BASE0 service from the day start to the checkpoint, then enables the chosen dispatcher. Warm-up retains the complete student, bus, queue and event state. Scores and charts start at the checkpoint. Windows include opening-minute events and exclude closing-minute events.
 
 ## Watching and comparing
 
+
+
 The map shows all individuals or only bus riders and queues. Red route segments indicate that the displayed rule's crowding conditions are met; shared route segments can overlap on this geographic schematic. A brief green highlight marks a new extra dispatch when its next frame appears. The Metrics & charts panel can show the network or one route. Its interval charts show waiting passenger-minutes, denied-attempt percentage, fleet utilization, and average onboard load. Auto uses 15-minute intervals for windows up to three hours and hourly intervals for longer windows. Partial intervals have an asterisk, and missing percentages appear as gaps.
 
+<img width="684" height="896" alt="image" src="https://github.com/user-attachments/assets/28f33eb5-0ce6-41b8-9654-b10b6ff29b34" />
+
 Experiment frames are persisted every five simulated minutes, including all visible individuals, buses, metrics, congestion observations and dispatch events. You can watch live, scrub, or play a completed run after restarting the server. The extra bus run chart follows each dispatched run’s onboard load as a percentage of capacity during passenger service. Dots mark dispatches, and colors identify routes. Earlier saved runs retain their overall hourly metrics. Buildings and destinations are available in the inspection panel; selecting one locates it on the map. Overlapping places offer a selection menu. Bus rectangles use colors to indicate onboard load.
+
+<img width="2192" height="1644" alt="image" src="https://github.com/user-attachments/assets/b5ceb309-f9d2-4112-8965-df9a914bc2b2" />
 
 Each completed day becomes a row in the bottom results panel: experiment name, dispatcher and model, test case, memory, seed, five metrics, example count and expanded example dates/horizons/settings. Completing a rerun replaces that experimentâ€™s previous rows, including any days removed from its test setup. Export all current rows to spreadsheet-compatible CSV. Discard removes a result from the table and export; its raw run directory is retained for audit. Discarding a dispatcher or experiment does not modify completed results.
 
@@ -94,7 +108,6 @@ The Metrics & charts panel exports an image with the experiment name, simulation
 ## Metrics and diagnostics
 
 The five balanced criteria are total waiting passenger-minutes, capacity failure rate, overall fleet utilization, extra bus runs, and extra passenger-service hours. Capacity failure means denied eligible **attempts**, not distinct students. Overall utilization (%) is passenger-minutes divided by (88 times bus passenger-service minutes), multiplied by 100. Resource hours exclude depot and return legs; waiting includes unfinished queues through the measurement boundary. Additional extra-bus utilization is retained in raw results, but is not a sixth weighted objective.
-
 
 Runtime data lives under `outputs/lab/`: `dispatchers.json`, `experiments.json`, added examples, results and `runs/<id>/`. Runs contain compressed replay frames, configuration/calibration provenance, boarding events, rule decision audits, dispatches and LLM calls. Data survives server restart. A failed run is shown as failed and is not added as a completed result; earlier persisted frames remain available while that job is selected. Rerunning creates a fresh raw run directory while replacing the matching experiment/day result row.
 
