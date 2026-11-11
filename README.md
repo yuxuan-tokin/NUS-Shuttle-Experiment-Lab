@@ -99,7 +99,7 @@ The map shows all individuals or only bus riders and queues. Red route segments 
 
 Experiment frames are persisted every five simulated minutes, including all visible individuals, buses, metrics, congestion observations and dispatch events. You can watch live, scrub, or play a completed run after restarting the server. The extra bus run chart follows each dispatched run’s onboard load as a percentage of capacity during passenger service. Dots mark dispatches, and colors identify routes. Earlier saved runs retain their overall hourly metrics. Buildings and destinations are available in the inspection panel; selecting one locates it on the map. Overlapping places offer a selection menu. Bus rectangles use colors to indicate onboard load.
 
-<img width="2192" height="1644" alt="image" src="https://github.com/user-attachments/assets/b5ceb309-f9d2-4112-8965-df9a914bc2b2" />
+<img width="2170" height="1630" alt="image" src="https://github.com/user-attachments/assets/4f24f628-4154-4a23-acbe-7bad25fb6a41" />
 
 Each completed day becomes a row in the bottom results panel: experiment name, dispatcher and model, test case, memory, seed, five metrics, example count and expanded example dates/horizons/settings. Completing a rerun replaces that experimentâ€™s previous rows, including any days removed from its test setup. Export all current rows to spreadsheet-compatible CSV. Discard removes a result from the table and export; its raw run directory is retained for audit. Discarding a dispatcher or experiment does not modify completed results.
 
