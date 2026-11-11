@@ -204,38 +204,41 @@ class ExperimentLLM:
 
     def decide(self,sim):
         objective = (
-            'Consider all five evaluation metrics together: total waiting passenger-minutes, '
-            'capacity failure rate (denied eligible boarding attempts / all eligible attempts), '
-            'overall fleet utilization (passenger-minutes / capacity-service-minutes), '
-            'extra buses dispatched, and extra passenger-service bus-hours. '
-            'Balance passenger service against resource use over the next 60 minutes. '
-            'No metric has fixed priority; no weights, scoring formula, or tie-breaking hierarchy is supplied. '
-            'Utilization is an efficiency signal, not a target to maximize at the expense of denied boardings. '
-            'Consider travel time and service already assigned before choosing each extra bus. '
-        )
-        example_preference = (
-            'Historical preferred action indices used a waiting-first ranking; they are not instructions. '
-            'Assess the recorded outcomes across all five metrics using your own judgment. '
-        )
-        instructions = (
-            'You dispatch supplemental buses for a simulated university shuttle network with seven routes. '
-            'Every 15 minutes, decide which routes, if any, should receive one additional bus now. '
-            'Scheduled buses and previously dispatched buses continue operating. New buses travel from their depot '
-            'to the first stop, serve the route in order, and return. Allow for the time needed to reach the route. '
-            'The current snapshot shows vehicles, their route progress, categorical crowding, and outstanding '
-            'extra bus commitments. Network entries are ordered stop IDs. Coordinates are latitude and longitude '
-            'and times are minutes since midnight. Use LOW, MEDIUM, and HIGH as ordinal crowding signals. '
-            'For each route, segment_travel_minutes lists nominal travel times between consecutive stops in '
-            'route order. depot_to_first_stop_minutes gives the estimated time before a new bus starts service. '
-            'Use these durations and current bus positions to estimate when service can reach downstream stops. '
-            'When history is present, use the observed snapshots and dispatch events to assess changes in service. '
-            f'{objective}'
-            'When examples are present, they compare two policies from the same simulated checkpoint over their stated horizon_minutes. '
-            'BASE0 keeps scheduled service and sends no new buses. BASE1 applies a rule-based dispatch policy every 15 minutes. Each branch lists its decisions and measured results. '
-            f'{example_preference}'
-            'Return only a JSON object with one key, routes. Its value is a list of distinct route IDs from the '
-            'network, one new bus per listed route. Return {"routes":[]} to dispatch no extra buses.'
-        )
+               'Consider all five evaluation metrics together: total waiting passenger-minutes, '
+               'capacity failure rate (denied eligible boarding attempts / all eligible attempts), '
+               'overall fleet utilization (passenger-minutes / capacity-service-minutes), '
+               'extra buses dispatched, and extra passenger-service bus-hours. '
+               'Aim to maximize passenger waiting time saved and capacity failure reduction '
+               'per additional bus-hour over the next 60 minutes. '
+               'Consider both efficiency measures and absolute passenger benefits without fixed weights or priority. '
+               'Utilization is an efficiency signal, not a target to maximize at the expense of denied boardings. '
+               'Consider travel time and service already assigned before choosing each extra bus. '
+           )
+           example_preference = (
+               'Examples show what happened under different simulated dispatch branches, '
+               'not which decisions you should follow. '
+               'Learn patterns from their outcomes to predict the likely effects of new dispatches. '
+               'Use these predictions to maximize passenger benefits per additional bus-hour. '
+           )
+           instructions = (
+               'You dispatch supplemental buses for a simulated university shuttle network with seven routes. '
+               'Every 15 minutes, decide which routes, if any, should receive one additional bus now. '
+               'Scheduled buses and previously dispatched buses continue operating. New buses travel from their depot '
+               'to the first stop, serve the route in order, and return. Allow for the time needed to reach the route. '
+               'The current snapshot shows vehicles, their route progress, categorical crowding, and outstanding '
+               'extra bus commitments. Network entries are ordered stop IDs. Coordinates are latitude and longitude '
+               'and times are minutes since midnight. Use LOW, MEDIUM, and HIGH as ordinal crowding signals. '
+               'For each route, segment_travel_minutes lists nominal travel times between consecutive stops in '
+               'route order. depot_to_first_stop_minutes gives the estimated time before a new bus starts service. '
+               'Use these durations and current bus positions to estimate when service can reach downstream stops. '
+               'When history is present, use the observed snapshots and dispatch events to assess changes in service. '
+               f'{objective}'
+               'When examples are present, they compare two policies from the same simulated checkpoint over their stated horizon_minutes. '
+               'Both apply different rule-based dispatch policy every 15 minutes. Each branch lists its decisions and measured results. '
+               f'{example_preference}'
+               'Return only a JSON object with one key, routes. Its value is a list of distinct route IDs from the '
+               'network, one new bus per listed route. Return {"routes":[]} to dispatch no extra buses.'
+           )
         payload = self.input(sim)
         body = dict(model=self.config.llm_model,temperature=self.config.llm_temperature,
                     messages=[dict(role='system',content=instructions),dict(role='user',content=json.dumps(payload))],
