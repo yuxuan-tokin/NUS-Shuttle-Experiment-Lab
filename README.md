@@ -12,7 +12,7 @@ This simulator supports user to: 1) Create their own rule-based or LLM dispatche
 
 ## Start
 
-Requires **Python 3.11 or newer**. The required workbook is included at `data/simulator.xlsx`; no separate data download is needed. It contains the Locations, Dining and Study, and Classes sheets with required column positions preserved. The loaded simulator data and all teaching-day schedules were verified against the original workbook. Calibration parameters remain the same; the workbook fingerprint was updated for the repackaged file.
+Requires **Python 3.11 or newer**. The required workbook is included at `data/simulator.xlsx`; no separate data download is needed. It contains the Locations, Dining and Study, and Classes sheets with required column positions preserved. 
 
 ### Download
 
@@ -56,7 +56,7 @@ On Linux, install your distribution's Python venv package if environment creatio
 3. Add an experiment in Experiment setup, select a dispatcher, choose an available teaching date and time window, and save it.
 4. Click **Run saved experiment**. Inspect the map, playback, Metrics & charts, and Experiment results.
 5. To try an LLM, select or add an LLM dispatcher, enter a compatible provider endpoint, model and API key, and save it before running an experiment. API usage may incur provider charges. Keys entered in the page last for that page session only.
-6. Stop the server with **Ctrl+C**. Next time, open a terminal in the same folder and run only the server command.
+7. Stop the server with **Ctrl+C**. Next time, open a terminal in the same folder and run only the server command.
 
 If `py` is unavailable on Windows, use `python` and confirm `python --version` is at least 3.11. If port 8766 is occupied, use `-Port 8767` with the PowerShell launcher or `--port 8767` with the Python command, then open the matching address. If the workbook is missing, check your working directory and that `data/simulator.xlsx` was extracted. Experiments check the supplied workbook fingerprint, so use the bundled file for your first run.
 
@@ -66,9 +66,12 @@ The home page is a full-window map workspace with independent dispatcher, experi
 
 ## Experiment setup
 
-Dispatcher setup creates named LLM or rule-based dispatchers independently of experiments. The initial saved list contains BASE0, BASE1, LLM-A, LLM-B, LLM-C and LLM-D. BASE0 and BASE1 are locked presets: neither can be edited or discarded. Their settings remain visible, and Save and Discard buttons are hidden for both. Other dispatchers can be edited or discarded. LLM settings include model, HTTPS chat-completions-compatible endpoint, examples and memory. Gemini 3.5 Flash-Lite is the default. API keys entered and saved in Dispatcher Setup are kept in the current page session only and are sent when starting an experiment. Keys can also be supplied through `NEXTBUS_API_KEY`; they are not saved in profiles, manifests, result exports or request logs.
+Dispatcher setup creates named LLM or rule-based dispatchers independently of experiments. The initial saved list contains BASE0, BASE1, LLM-A, LLM-B, LLM-C and LLM-D. BASE0 and BASE1 are locked presets: neither can be edited or discarded. Other dispatchers can be edited or discarded. LLM settings include model, HTTPS chat-completions-compatible endpoint, examples and memory. Gemini 3.5 Flash-Lite is the default. API keys entered and saved in Dispatcher Setup are kept in the current page session only and are sent when starting an experiment. They are not saved in profiles, manifests, result exports or request logs.
 
-Custom rules configure crowding level, qualifying bus share, and minimum total distinct buses observed on the route in the preceding 30 minutes, sampled at 15-minute intervals. A bus qualifies if any observation reaches the selected crowding level. Defaults are HIGH, 70%, and 2 total buses. BASE1 uses HIGH crowding, a 70% qualifying share, and at least two crowded runs. To use different settings, add a custom dispatcher. Dispatch decisions occur every 15 minutes. There is no additional 10-minute cooldown; a pending extra bus can still prevent dispatch on its route.
+<img width="666" height="1346" alt="image" src="https://github.com/user-attachments/assets/5d298efb-538f-409f-adbe-17c282751ba5" />
+
+
+Custom rules configure crowding level, qualifying bus share, and minimum total distinct buses observed on the route in the preceding 30 minutes, sampled at 15-minute intervals. For rule-based dispatcher, A bus qualifies if any observation reaches the selected crowding level. Defaults are HIGH, 70%, and 2 total buses. BASE1 uses HIGH crowding, a 70% qualifying share, and at least two crowded runs. To use different settings, add a custom dispatcher. Dispatch decisions occur every 15 minutes. There is no additional 10-minute cooldown; a pending extra bus can still prevent dispatch on its route.
 
 Experiment setup selects a saved dispatcher, test days or time window, and seed. Experiments have their own names and can be saved or discarded. Both panels show clickable saved lists. Run uses the saved experiment and the latest saved dispatcher it references. Playback is available for completed runs that match both current saved configurations. Old combined profiles are migrated into separate dispatcher and experiment catalogs, retaining the original file.
 
